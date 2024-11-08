@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Du lịch Bình Phước</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+        /* Grid container styling */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Mặc định 2 ô 1 hàng cho điện thoại */
+            gap: 10px;
+            margin: 20px;
+        }
+
+        .grid-item {
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: box-shadow 0.3s ease-in-out;
+            overflow: hidden; /* Đảm bảo không có phần của ảnh bị tràn ra ngoài */
+            border-color: blue;
+        }
+
+        .grid-item img {
+            width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của khung */
+            height: 170px; /* Chiều cao cố định */
+            object-fit: cover; /* Giữ tỷ lệ khung hình và cắt ảnh nếu cần */
+            border-radius: 5px; /* Làm cho ảnh có góc bo tròn giống như khung */
+        }
+
+        .grid-item h3 {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .grid-item:hover {
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Màu hồng phát sáng */
+        }
+
+        /* Media query cho màn hình lớn hơn 600px (tablet) */
+        @media (min-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 ô 1 hàng cho tablet */
+            }
+        }
+
+        /* Media query cho màn hình lớn hơn 900px */
+        @media (min-width: 900px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 ô 1 hàng cho màn hình có chiều ngang 900px */
+            }
+        }
+        @media (min-width: 1035px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 3 ô 1 hàng cho màn hình có chiều ngang 900px */
+            }
+        }
+        /* Media query cho màn hình lớn hơn 1200px */
+        @media (min-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(5, 1fr); /* 5 ô 1 hàng cho màn hình lớn hơn 1200px */
+            }
+        }
+        /* info box styling */
+        .info-box {
+            display: flex;
+            border: 2px solid #000;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            width: 90%;
+            max-width: 1000px;
+            height: 500px;
+            position: fixed;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 500;
+            display: none;
+        }
+
+        .info-box iframe {
+            width: 40%;
+            height: 100%;
+            border: none;
+        }
+
+        .info-box .content {
+            width: 60%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+        }
+
+        .info-box .content h2 {
+            text-align: center;
+            margin-top: 2px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            background-color: #c21919;
+        }
+
+        .info-box .content p {
+            flex-grow: 1;
+            margin-top: 10px;
+            text-align: left;
+            overflow-y: auto;
+            background-color: transparent;
+        }
+
+        /* Map iframe styling */
+        .info-box .map-frame {
+            margin-top: 10px;
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 8px;
+        }
+        /* Overlay to darken the background */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 459;
+            display: none;
+        }
+        @media (max-width: 800px) {
+            .info-box {
+                display: flex;
+                flex-direction: column;
+                width: 90%; /* Đảm bảo chiều rộng của box đầy đủ */
+                height: 85%;
+                top: 54%; /* Căn giữa box trên trang */
+                overflow: hidden; /* Ẩn nội dung tràn ra ngoài box */
+            }
+
+            .info-box iframe {
+                width: 100%; /* Video có chiều rộng 100% */
+                height: 30%; /* Để chiều cao tự động */
+            }
+
+            .info-box .content {
+                width: 95%; /* Đặt chiều rộng 90% cho khối nội dung */
+                margin: 5px 5px; /* Căn giữa và thêm khoảng cách trên và dưới */
+                overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung vượt quá chiều cao */
+                padding: 2px;
+                border: 1px solid #ccc; /* Thêm viền cho khối nội dung */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng cho khối */
+                text-align: center; /* Căn giữa văn bản */
+            }
+
+            .info-box .content h2 {
+                font-size: 1.5em; /* Điều chỉnh kích thước chữ cho tiêu đề */
+            }
+
+            .info-box .content p {
+                margin: 5px 5px; /* Thêm khoảng cách trên và dưới cho đoạn văn */
+                padding: 5px 5px; /* Thêm khoảng cách bên trái và bên phải cho đoạn văn */
+            }
+            .info-box .map-frame {
+                width: 100%;
+                height: 35%;
+            }
+        }
+
+    </style>
+  <div id="toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+    <nav> <!--Thanh điều hướng-->
+        <ul id="main-menu">
+            <li>
+                <a href="index.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <ul class="submenu">
+                    <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+                <ul class="submenu">
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                </ul>
+            </li>
+            <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li>
+                <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+                <ul class="submenu">
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+                <ul class="submenu">
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="cttour.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+            </li>
+            <li>
+                <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+</head>
+<body>
+    <header>
+        <h1>Di tích lịch sử</h1>
+    </header>
+    <main>
+        <div class="grid-container">
+            <div class="grid-item" onclick="showinfoBox('info Item 1', 'ABC', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://via.placeholder.com/150" alt="info Image">
+                <h3>info Item 1</h3>
+            </div>
+        </div>
+
+    </main>
+    <!-- Overlay background -->
+    <div class="overlay" onclick="hideinfoBox()"></div>
+
+    <!-- info box content -->
+    <div class="info-box">
+        <!-- Permanent iframe for video -->
+        <iframe id="infoBoxIframe" src="https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        
+        <div class="content">
+            <div class="info-block"></div>
+                <h2 id="infoBoxTitle">Delicious info Item</h2>
+                <p id="infoBoxDescription">This is a description of the info item.</p>
+                <!-- Iframe for the map, positioned below the description -->
+                    <iframe id="infoBoxMap" class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+  <!-- Chatbot container -->
+  <div class="chat-container" id="chatContainer">
+    <div id="chatHeader">
+        AI Tìm kiếm - Du lịch Bình Phước
+    </div>
+    <div id="chatbox">
+        <!-- Tin nhắn sẽ xuất hiện ở đây -->
+    </div>
+    <div class="input-container">
+        <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+        <button class="send-button" onclick="sendMessage()"></button>
+    </div>
+    <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+    </div>
+
+    <!-- Nút hiển thị chatbot -->
+    <button class="show-chat-btn" onclick="toggleChat()">💬</button>
+
+  <footer>
+        <div class="footer-content">
+            <div class="footer-box">
+                <p>Email: contact@example.com</p>
+                <p>Phone: +123 456 789</p>
+                <p>Nguồn thông tin: binhphuoc.gov.vn</p>
+                <p>Bình Phước Online</p>
+                <p>Scan QR Code:</p>
+                <img src="path/to/qr-code.png" alt="QR Code">
+                <p>&copy; 2024 Bình Phước Online. All rights reserved.</p> <!-- Câu bản quyền -->
+            </div>
+            <div class="weather-widget">
+                <iframe src="https://thoitiet.app/binh-phuoc" width="500" height="250" frameborder="0"></iframe>
+            </div>
+        </div>
+  </footer>
+
+ <!-- Nút scroll-to-top -->
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script>
+        // Hàm để hiển thị hộp thông tin
+        function showinfoBox(title, description, videoSrc, mapSrc) {
+            document.getElementById('infoBoxTitle').innerText = title;
+            document.getElementById('infoBoxDescription').innerText = description;
+            document.getElementById('infoBoxIframe').src = videoSrc;
+            document.getElementById('infoBoxMap').src = mapSrc;
+            document.querySelector('.info-box').style.display = 'flex';
+            document.querySelector('.overlay').style.display = 'block';
+        }
+
+        // Hàm để ẩn hộp thông tin
+        function hideinfoBox() {
+            document.querySelector('.info-box').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+            document.getElementById('infoBoxIframe').src = ''; // Để ngừng video khi ẩn đi
+            document.getElementById('infoBoxMap').src = ''; // Xóa src để giải phóng tài nguyên
+        }
+    </script>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+</body>
+</html>

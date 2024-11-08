@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Du lịch Bình Phước</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Mặc định 2 ô 1 hàng cho điện thoại */
+            gap: 10px;
+            margin: 20px;
+        }
+
+        .grid-item {
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: box-shadow 0.3s ease-in-out;
+            overflow: hidden; /* Đảm bảo không có phần của ảnh bị tràn ra ngoài */
+            border-color: blue;
+        }
+
+        .grid-item img {
+            width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của khung */
+            height: 170px; /* Chiều cao cố định */
+            object-fit: cover; /* Giữ tỷ lệ khung hình và cắt ảnh nếu cần */
+            border-radius: 5px; /* Làm cho ảnh có góc bo tròn giống như khung */
+        }
+
+        .grid-item h3 {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .grid-item:hover {
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Màu hồng phát sáng */
+        }
+
+        /* Media query cho màn hình lớn hơn 600px (tablet) */
+        @media (min-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 ô 1 hàng cho tablet */
+            }
+        }
+
+        /* Media query cho màn hình lớn hơn 900px */
+        @media (min-width: 900px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 ô 1 hàng cho màn hình có chiều ngang 900px */
+            }
+        }
+        @media (min-width: 1035px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 3 ô 1 hàng cho màn hình có chiều ngang 900px */
+            }
+        }
+        /* Media query cho màn hình lớn hơn 1200px */
+        @media (min-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(5, 1fr); /* 5 ô 1 hàng cho màn hình lớn hơn 1200px */
+            }
+        }
+  </style>
+  <div id="toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+    <nav> <!--Thanh điều hướng-->
+        <ul id="main-menu">
+            <li>
+                <a href="index.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <ul class="submenu">
+                    <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+                <ul class="submenu">
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                </ul>
+            </li>
+            <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li>
+                <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+                <ul class="submenu">
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+                <ul class="submenu">
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="cttour.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+            </li>
+            <li>
+                <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+</head>
+<body>
+  <header>
+    <h1>Lưu trú</h1>
+  </header>
+
+  <main>
+        <section class="grid-container">
+            <!-- Hàng 1 -->
+            <div class="grid-item">
+                <a href="https://www.anlochotelspa.com/">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\lưu trú\an lộc.jpg" alt="Khách sạn An Lộc">
+                    <h3>Khách sạn An Lộc</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://app.vntrip.vn/hotel/vn/phuong-lam-hotel-11840">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\lưu trú\phương lâm.jpg" alt="Khách sạn Phương Lâm">
+                    <h3>Khách sạn Phương Lâm</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://khachsantrinhgia.com/">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\lưu trú\Trình Ga.jpg" alt="Khách sạn Trình Ga">
+                    <h3>Khách sạn Trình Ga</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://www.bombohotel.vn/">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\lưu trú\Bom Bo.jpg" alt="Khách sạn Bom Bo">
+                    <h3>Khách sạn Bom Bo</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://www.agoda.com/vi-vn/my-le-hotel/hotel/phuoc-long-binh-phuoc-vn.html?ds=JRFMuX5B0C5GlGGs">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\lưu trú\Mỹ Lệ.jpg" alt="Khách sạn Mỹ Lệ">
+                    <h3>Khách sạn Mỹ Lệ</h3>
+                </a>
+            </div>
+
+            <!-- Hàng 2 -->
+            <div class="grid-item">
+                <a href="https://mytour.vn/khach-san/1905309-nha-nghi-thanh-thao.html">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\grab.png" alt="Grap">
+                    <h3>Grap</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://example.com">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\taxi Mai Linh BP.png" alt="Taxi Mai Linh Bình Phước">
+                    <h3>Taxi Mai Linh Bình Phước</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://mytour.vn/khach-san/1905309-nha-nghi-thanh-thao.html">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\taxi thắng lợi.png" alt="Taxi Thắng Lợi">
+                    <h3>Taxi Thắng Lợi</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://example.com">
+                    <img src="path/to/image9.jpg" alt="Tiêu đề 9">
+                    <h3>Tiêu đề 9</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://example.com">
+                    <img src="path/to/image10.jpg" alt="Tiêu đề 10">
+                    <h3>Tiêu đề 10</h3>
+                </a>
+            </div>
+
+            <!-- Hàng 3 -->
+            <div class="grid-item">
+                <a href="https://example.com">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\buýt bình phước.jpg" alt="Buýt Bình Phước">
+                    <h3>Buýt Bình Phước</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="http://thuexebinhphuoc.com/">
+                    <img src="D:\KHKT - STT\Binh_Phuoc_tourism (23-24)\web code\ảnh\nhà xe Lê Hoàng.jpg" alt="Nhà xe Lê Hoàng">
+                    <h3>Nhà xe Lê Hoàng</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://example.com">
+                    <img src="path/to/image13.jpg" alt="Tiêu đề 13">
+                    <h3>Tiêu đề 13</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://example.com">
+                    <img src="path/to/image14.jpg" alt="Tiêu đề 14">
+                    <h3>Tiêu đề 14</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://example.com">
+                    <img src="path/to/image15.jpg" alt="Tiêu đề 15">
+                    <h3>Tiêu đề 15</h3>
+                </a>
+            </div>
+        </section>
+    </main>
+  <!-- Chatbot container -->
+  <div class="chat-container" id="chatContainer">
+    <div id="chatHeader">
+        AI Tìm kiếm - Du lịch Bình Phước
+    </div>
+    <div id="chatbox">
+        <!-- Tin nhắn sẽ xuất hiện ở đây -->
+    </div>
+    <div class="input-container">
+        <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+        <button class="send-button" onclick="sendMessage()"></button>
+    </div>
+    <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+    </div>
+
+    <!-- Nút hiển thị chatbot -->
+    <button class="show-chat-btn" onclick="toggleChat()">💬</button>
+
+  <footer>
+        <div class="footer-content">
+            <div class="footer-box">
+                <p>Email: contact@example.com</p>
+                <p>Phone: +123 456 789</p>
+                <p>Nguồn thông tin: binhphuoc.gov.vn</p>
+                <p>Bình Phước Online</p>
+                <p>Scan QR Code:</p>
+                <img src="path/to/qr-code.png" alt="QR Code">
+                <p>&copy; 2024 Bình Phước Online. All rights reserved.</p> <!-- Câu bản quyền -->
+            </div>
+            <div class="weather-widget">
+                <iframe src="https://thoitiet.app/binh-phuoc" width="500" height="250" frameborder="0"></iframe>
+            </div>
+        </div>
+  </footer>
+
+ <!-- Nút scroll-to-top -->
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+/*đầu, chân, chatbot, nút cuộn*/
+header {
+    background: #007bff;
+    color: #fff;
+    padding: 0.3125rem; /* 5px */
+    text-align: center;
+    margin-top: -0.625rem; /* -10px */
+}
+h1 {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 20px;
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1.25rem; /* 20px */
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-box {
+    width: 100%;
+    margin-bottom: 0.625rem; /* 10px */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.weather-widget iframe {
+    width: 100%;
+    max-width: 37.5rem; /* 600px */
+    height: 18.75rem; /* 300px */
+    border: none;
+}
+
+@media (min-width: 64rem) { /* 1024px */
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-box {
+        width: 50%;
+        margin-bottom: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .weather-widget {
+        width: 50%;
+        text-align: right;
+    }
+
+    .weather-widget iframe {
+        width: 100%;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 62.5rem; /* 1000px */
+    height: 80%;
+    max-height: 43.75rem; /* 700px */
+    background-color: white;
+    border: 0.3125rem solid rgb(0, 0, 0); /* 5px */
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px */
+    display: flex;
+    flex-direction: column;
+    padding: 0.625rem; /* 10px */
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 1.25rem; /* 20px */
+    right: 1.25rem; /* 20px */
+    display: none;
+    z-index: 800;
+    overflow: hidden;
+    margin: auto;
+    top: 5%;
+    left: 5%;
+}
+
+#chatHeader {
+    background-color: #02007c;
+    color: white;
+    padding: 0.625rem; /* 10px */
+    border-radius: 0.625rem 0.625rem 0 0; /* 10px */
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    font-size: 1.2rem;
+}
+
+input[type="text"] {
+    padding: 0.625rem; /* 10px */
+    border: 0.0625rem solid #ccc; /* 1px */
+    border-radius: 0.3125rem; /* 5px */
+    width: calc(100% - 3.25rem); /* calc(100% - 52px) */
+}
+
+@media (max-width: 48rem) { /* 768px */
+    .chat-container {
+        width: 90%;
+        height: 80%;
+    }
+
+    #chatHeader {
+        font-size: 1rem;
+    }
+
+    .game a {
+        font-size: 0.875rem; /* 14px */
+    }
+}
+
+@media (max-width: 30rem) { /* 480px */
+    .chat-container {
+        width: 80%;
+        height: 80%;
+    }
+
+    #chatHeader {
+        font-size: 0.9rem;
+    }
+}
+
+#chatbox {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 0.625rem; /* 10px */
+}
+
+#chatbox a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+#chatbox a:hover {
+    color: #0056b3;
+}
+
+.message-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin: 0.625rem 0; /* 10px */
+    clear: both;
+}
+
+.bot-message, .user-message {
+    padding: 0.5rem; /* 8px */
+    border-radius: 0.3125rem; /* 5px */
+    max-width: 70%;
+    display: inline-block;
+}
+
+.bot-message {
+    background-color: #e0e0e0;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    margin-left: auto;
+}
+
+.bot-avatar, .user-avatar {
+    width: 1.875rem; /* 30px */
+    height: 1.875rem; /* 30px */
+    margin-right: 0.625rem; /* 10px */
+    border-radius: 50%;
+}
+
+.user-avatar {
+    margin-right: 0;
+    margin-left: 0.625rem; /* 10px */
+    order: 2;
+}
+
+button {
+    padding: 0.625rem; /* 10px */
+    background-color: #2600ff;
+    color: white;
+    border: none;
+    border-radius: 0.3125rem; /* 5px */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.625rem; /* 10px */
+}
+
+.send-button {
+    background-color: #01a309;
+    border-radius: 50%;
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem; /* 8px */
+    border: none;
+    cursor: pointer;
+}
+
+.send-button::before {
+    content: '➥';
+    font-size: 1.875rem; /* 30px */
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+button.clear-history {
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 0.3125rem; /* 5px */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9375rem; /* 15px */
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.0625rem; /* 1px */
+    margin-left: 0.0625rem; /* 1px */
+}
+
+button.clear-history:hover {
+    background-color: #00a008;
+}
+
+.show-chat-btn {
+    position: fixed;
+    bottom: 1.25rem; /* 20px */
+    right: 1.25rem; /* 20px */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 3.75rem; /* 60px */
+    height: 3.75rem; /* 60px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 1.5rem; /* 24px */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2); /* 10px */
+}
+
+.game {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.game a {
+    display: inline-block;
+    font-size: 1rem; /* 16px */
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.3125rem; /* 5px */
+}
+
+.game a:hover {
+    background-color: #0056b3;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 6.25rem; /* 100px */
+    right: 1.5625rem; /* 25px */
+    width: 3.125rem; /* 50px */
+    height: 3.125rem; /* 50px */
+    background-color: darkred;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: none; /* Ẩn mặc định */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-to-top.show {
+    display: flex; /* Hiển thị khi có lớp 'show' */
+}
+
+.scroll-to-top.hide {
+    display: none; /* Ẩn khi có lớp 'hide' */
+}
+
+.scroll-to-top:hover {
+    background-color: darkgreen;
+}
+
+.scroll-to-top::before {
+    font-size: 1.875rem; /* 30px */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    background-color: #003366;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav #main-menu li {
+    position: relative;
+}
+
+nav #main-menu li a {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    padding: 0.9375rem 1.5625rem;
+    font-size: 0.9375rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+nav #main-menu li:hover a {
+    background: #004080;
+    transform: scale(1.1);
+    border-radius: 0.3125rem;
+}
+
+/* Submenu styling */
+nav #main-menu .submenu {
+    display: none; /* Ẩn submenu ban đầu */
+    position: absolute;
+    top: 100%; /* Đặt submenu ngay dưới mục cha */
+    left: 0;
+    background-color: yellow;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 0;
+    margin: 0;
+    z-index: 2000;
+}
+
+nav #main-menu li:hover > .submenu {
+    display: block; /* Hiển thị submenu khi di chuột vào mục cha */
+}
+
+nav #main-menu .submenu li {
+    width: 12.5rem;
+    border: 0.125rem solid transparent; /* Viền mặc định */
+    margin-bottom: 0.3125rem;
+    transition: border-color 0.3s ease, border-width 0.3s ease;
+}
+
+nav #main-menu .submenu li:hover {
+    border-color: #ffffff; /* Tăng độ dày viền khi hover */
+    border-width: 0.25rem; /* Tăng độ dày viền */
+}
+
+nav #main-menu .submenu li a {
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+a i.fa-solid {
+    margin-right: 0.5rem; /* Tạo khoảng cách giữa icon và text */
+    margin-bottom: 0.1875rem;
+    vertical-align: middle; /* Đảm bảo icon được căn giữa với chữ */
+}
+/* Căn chỉnh icon và văn bản */
+nav #main-menu li a i.material-icons {
+    font-size: 1.25rem;
+    vertical-align: middle; /* Căn giữa icon với văn bản */
+    margin-left: 1.875rem; /* Khoảng cách giữa icon và văn bản */
+    transition: transform 0.3s;
+}
+
+/* Thay đổi kích thước icon khi hover */
+nav #main-menu li:hover a i.material-icons {
+    transform: scale(1.1); /* Hiệu ứng scale cho icon khi hover */
+}
+/* Hover hiệu ứng cho các mục menu con */
+nav #main-menu .submenu li:hover a {
+    background-color: red; /* Đổi màu nền khi hover */
+    border-radius: 0.3125rem; /* Bo tròn các cạnh khi hover */
+}
+
+/* Toggle button styles */
+#toggle {
+    text-align: right;
+    color: #fff;
+    background: #004080;
+    font-size: 1.5rem;
+    display: none;
+    padding: 0.625rem 0;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+}
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 73.625rem) {
+    #main-menu {
+        flex-direction: column;
+        text-align: center;
+    }
+    #toggle {
+        display: block;
+    }
+    nav {
+        display: none;
+        padding-top: 3.75rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    nav.active {
+        display: block;
+    }
+    #main-menu .submenu {
+        position: relative;
+        display: none;
+    }
+    #main-menu .submenu.active {
+        display: block;
+    }
+}
+
+body {
+    padding-top: 5rem;
+}

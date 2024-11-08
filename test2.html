@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Tuổi trẻ Củ Chi khát vọng - đoàn kết - xung kích - sáng tạo</title>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="https://diachido.thanhniencuchi.vn/assets/libraries/bootstrap/css/bootstrap.min.css">
+	<link rel="icon" type="image/png" href="assets/images/icon/favicon.png" sizes="32x32">
+	<meta property="og:title" content="Tuổi trẻ Củ Chi khát vọng - đoàn kết - xung kích - sáng tạo">
+    <meta property="og:description" content="Nơi kết nối thanh thiếu nhi huyện Củ Chi và tiếp nối, phát huy sức trẻ tham gia quảng bá quê hương Củ Chi thông qua lịch sử, truyền thống.">
+    <meta property="og:url" content="https://diachido.thanhniencuchi.vn/">
+    <meta property="og:image" content="https://diachido.thanhniencuchi.vn/assets/images/icon/social-share.png">
+    <meta property="og:type" content="website">
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://diachido.thanhniencuchi.vn/assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://diachido.thanhniencuchi.vn/assets/css/main.css?ver=1730811169">
+	<link rel="manifest" href="manifest.json?ver=1730811169" />
+	<script>
+	  if ('serviceWorker' in navigator) {
+	    window.addEventListener('load', () => {
+	      navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+	        console.log('Service Worker đăng ký thành công với phạm vi:', registration.scope);
+
+	        registration.onupdatefound = () => {
+	          const newWorker = registration.installing;
+	          newWorker.onstatechange = () => {
+	            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+	              if (confirm('Có bản cập nhật mới. Bạn có muốn tải lại không?')) {
+	                window.location.reload();
+	              }
+	            }
+	          };
+	        };
+	      }).catch((error) => {
+	        console.log('Service Worker đăng ký thất bại:', error);
+	      });
+	    });
+	  }
+	</script>
+
+</head>
+<body>
+	<a class="control-button" href="#">
+		<i class="volume-off fa fa-volume-off" aria-hidden="true"></i>
+		<i class="volume-on fa fa-volume-up" aria-hidden="true"></i>
+	</a>
+
+	<header class="header">
+		<div class="container-fluid">
+			<div class="row justify-content-between align-items-center">
+				<div class="col-12 col-md-10 col-lg-8 col-xl-8 col-xxl-6 d-none d-md-block">
+					<div class="header_left">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-12 d-flex">
+								<img class="logo-cuchi" src="https://diachido.thanhniencuchi.vn/icon-marker.png">
+								<!-- <a href="/" class="text-white mt-2">Công trình thanh niên: Không gian số địa chỉ đỏ huyện Củ Chi</a> -->
+								<a href="/" class="text-white mt-2">CÔNG TRÌNH THANH NIÊN: KHÔNG GIAN SỐ ĐỊA CHỈ ĐỎ HUYỆN CỦ CHI</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-2 col-lg-4 col-xl-4 col-xxl-6">
+					<div class="header_right py-2 py-md-0">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-10 col-md-12 col-lg-10 col-xl-11 order-2 order-md-1 d-md-none d-lg-block">
+								<h2 class="text-start text-md-end">Huyện Củ Chi</h2>
+							</div>
+							<div class="col-2 col-md-12 col-lg-2 col-xl-1 py-1 order-1 order-md-2 text-md-right text-center">
+								<img class="logo-doan" src="https://diachido.thanhniencuchi.vn/assets/images/background/logo-doan.png">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<iframe id="book_online" src="">
+
+	</iframe>
+
+		<div class="sidebar sidebar_left">
+		<div class="sidebar-wrapper">
+			<div class="list_result ds_dia_chi_do">
+				<h3 class="title-diachido">Các địa danh gắn với lịch sử huyện Củ Chi</h3>
+				<ul class="ul-diachido json_render_diachido">
+					<!-- JS render -->
+				</ul>
+			</div>
+			<div class="list_result ds_me_vnah">
+				<h3 class="title-diachido">Danh sách đường mang tên mẹ VNAH</h3>
+				<ul class="ul-diachido json_render_duong_me_vnah">
+					<!-- JS render -->
+				</ul>
+			</div>
+			<div class="list_result ds_ahllvt">
+				<h3 class="title-diachido">Danh sách đường mang tên Liệt Sĩ</h3>
+				<ul class="ul-diachido json_render_duong_liet_si">
+				</ul>
+			</div>
+		</div>
+		<!-- <a href="#" class="button_show">
+			<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+		</a> -->
+	</div>
+	<div class="sidebar sidebar_right">
+		<div class="sidebar-wrapper">
+			<div class="list_result menu_more">
+				<h3 class="title-diachido">Thông Tin Thêm</h3>
+				<ul class="ul-diachido ">
+					<!-- <li>
+						<a href="#" class="document_online">Văn kiện Đoàn - Hội</a>
+					</li> -->
+					<li>
+						<a href="#" class="book_online">Không gian sách online <br class="d-block d-sm-none">“Sáng mãi Củ Chi Đất Thép Thành Đồng”</a>
+					</li>
+					<li>
+						<a href="#" class="install_app">Hướng dẫn cài đặt ứng dụng</a>
+					</li>
+					<li>
+						<a href="#" class="app_infor">Thông tin ứng dụng</a>
+					</li>
+					<li>
+						<div class="counter">
+							<i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;Tổng số lượt truy cập: &nbsp;&nbsp;12.346 lượt xem						</div>
+					</li>
+				</ul>
+
+			</div>
+			<div class="list_result ds_document">
+				<h3 class="title-diachido">Văn Kiện Đoàn - Hội</h3>
+				<ul class="ul-diachido vankien_ajax">
+
+				</ul>
+			</div>
+			<div class="list_result ds_infor">
+				<h3 class="title-diachido">Thông tin ứng dụng</h3>
+				<div class="" style="text-align: justify;">
+					<p>
+						- Công trình thanh niên “Không gian số địa chỉ đỏ huyện Củ Chi” được thực hiện dưới dạng thực tế ảo, đưa người tiếp cận không gian đến các địa chỉ đỏ trên địa bàn huyện Củ Chi mà không cần đến trực tiếp. Thông qua công trình góp phần giáo dục truyền thống, lịch sử quê hương từ chính địa chỉ đỏ gắn với những câu chuyện, sự kiện, con người làm rạng danh 04 chữ “Đất Thép Thành Đồng” tại địa danh, tuyến đường mang tên Mẹ Việt Nam Anh hùng, tuyến đường mang tên Anh hùng liệt sĩ với 02 nội dung lớn: tham quan tìm hiểu trực tuyến và chỉ dẫn người dùng đến địa chỉ đỏ thực tế.
+					</p>
+					<p>
+						- Đồng thời, tuổi trẻ Củ Chi hứa hẹn nâng tầm quy mô trở thành công trình thanh niên nhiệm kỳ 2022 - 2027 được thông qua tại Đại hội đại biểu Đoàn TNCS Hồ Chí Minh huyện Củ Chi lần thứ XII, nhiệm kỳ 2022 – 2027.
+					</p>
+					<p>
+						<strong style="color: #b80000;">* Thực hiện công trình:</strong><br>
+						<strong>&nbsp;&nbsp;Đoàn TNCS Hồ Chí Minh Huyện Củ Chi </strong> <br><br>
+
+						<strong style="color: #b80000;">* Chỉ đạo thực hiện:</strong> <br>
+						<strong>&nbsp;&nbsp;Nguyễn Thị Đan Tâm</strong> 
+						<br>&nbsp;&nbsp;- Phó Bí thư Huyện Đoàn Củ Chi<br><br>
+
+						<strong style="color: #b80000;">* Kiến trúc hệ thống:</strong> <br>
+						<strong>&nbsp;&nbsp;Lê Trung Kiên</strong> 
+						<br>&nbsp;&nbsp;- UV. BCH Xã Đoàn Tân Thạnh Tây<br><br>
+
+						<strong style="color: #b80000;">* Hình ảnh:</strong> <br>
+						<strong>&nbsp;&nbsp;Hà Thanh Sang</strong> 
+						<br>&nbsp;&nbsp;- UV. BTV Huyện Đoàn Củ Chi<br><br>
+						<strong>&nbsp;&nbsp;Nguyễn Đinh Vĩnh Thuận</strong> 
+						<br> &nbsp;&nbsp;- Chủ nhiệm CLB nhiếp ảnh Nhà Thiếu nhi huyện Củ Chi <br>					
+						<strong>&nbsp;&nbsp;+ Cùng các thành viên câu lạc bộ</strong> <br><br>
+
+						<strong style="color: #b80000;">* Âm thanh:</strong> <br>
+						<strong>&nbsp;&nbsp;Nguyễn Mộng Tuyền</strong>
+						<br>&nbsp;&nbsp;- UV. BCH Huyện Đoàn Củ Chi<br><br>
+						<br><br>
+						<br><br>
+						<br><br>
+					</p>
+				</div>
+			</div>
+			<div class="list_result ds_install_app">
+				<h3 class="title-diachido">Hướng dẫn cài Web App</h3>
+				<div class="ios_install mb-5">
+					<h3 class="sub-title-diachido">* Bạn đang dùng IOS</h3>
+					<p>1. Vào website bằng trình duyệt Safari và nhấn nút Share như hình sau</p>
+					<img src="https://diachido.thanhniencuchi.vn/assets/images/install-1.png" class="img-fluid">
+					<p>2. Tiếp theo nhấn vào nút Thêm vào Màn Hình Chính như hình sau:</p>
+					<img src="https://diachido.thanhniencuchi.vn/assets/images/install-2.png" class="img-fluid">
+					<p>3. Tiếp theo nhấn vào nút Thêm để cài đặt Web App vào Màn Hình Chính của điện thoại:</p>
+					<img src="https://diachido.thanhniencuchi.vn/assets/images/install-3.png" class="img-fluid">
+					<p>4. Bạn đã cài app thành công. Về sau các nội dung sẽ tự cập nhật và không cần cài lại:</p>
+					<img src="https://diachido.thanhniencuchi.vn/assets/images/install-4.png" class="img-fluid">
+				</div>
+				<div class="android_install">
+					<h3 class="sub-title-diachido">* Bạn đang dùng Android</h3>
+					<p>Nhấn nút bên dưới để cài đặt Web App</p>
+					<a id="installPWA" href="#">Cài đặt App ThanhNiênCủChi</a>
+				</div>
+				<br><br>
+				<br><br>
+				<br><br>
+			</div>
+		</div>
+	</div>                            
+
+	<div class="sidebar sidebar_library">
+		<div class="container">
+			<div class="book-wrapper">
+				<div class="row book_ajax">
+					<!-- Đổ data json vào đây -->
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="nav_bottom_navbar_wrapper">
+		<div class="nav_bottom_navbar">
+			<ul>
+				<li>
+					<a href="#" class="button_footer button_home">
+						<img src="https://diachido.thanhniencuchi.vn/assets/images/icon/dia-chi-do-icon.png">
+						<span>Địa Danh Lịch Sử</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="button_footer button_me_vnah">
+						<img src="https://diachido.thanhniencuchi.vn/assets/images/icon/icon-me-vnah.png">
+						<span>Đường Tên Mẹ VNAH</span>
+					</a>
+				</li>
+				<li class="logo_doan">
+					<a href="#" class="button_footer button_install_app">
+						<img src="https://diachido.thanhniencuchi.vn/assets/images/background/logo-doan.png">
+					</a>
+				</li>
+				<li>
+					<a href="#" class="button_footer button_ahllvt">
+						<img src="https://diachido.thanhniencuchi.vn/assets/images/icon/AHLLVT-icon.png">
+						<span>Đường Tên Liệt Sĩ</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="button_footer button_information">
+						<img src="https://diachido.thanhniencuchi.vn/assets/images/icon/icon-more.png">
+						<span>Thông Tin Thêm</span>
+					</a>
+				</li>
+			</ul>
+		</div>	
+	</div>
+	<div id="map"></div>
+	<div class="popup-address-wrapper">
+		<div class="popup-address-content">
+			<img class="img-fluid popup_background" src="https://diachido.thanhniencuchi.vn/assets/images/background/background-doan-thanh-nien.webp">
+			<div class="img-top-wrapper">
+				<img class="img-fluid logo_doan" src="https://diachido.thanhniencuchi.vn/assets/images/background/logo-doan.png">
+				<img class="img-fluid address_avata" src="https://diachido.thanhniencuchi.vn/assets/images/background/logo-doan.png">
+			</div>
+			<h2>Name</h2>
+			<div class="button-wrapper">
+				<a class="visit_link" href="https://diachido.thanhniencuchi.vn/khu-tuong-niem-song-lu">Tham quan VR</a>
+				<a class="map_link" target="_blank" href="https://maps.app.goo.gl/6JBEHHDA1Djqhkgv5">Chỉ đường</a>
+			</div>
+			<div class="content">
+				#Content
+			</div>
+			<button class="close-button"><img class="img-fluid" src="https://diachido.thanhniencuchi.vn/assets/images/icon/close-icon.png"></button>
+		</div>
+	</div>
+	<audio id="backgroundaudio" controls>
+	  <source src="https://diachido.thanhniencuchi.vn/assets/mp3/background_music.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+	<div class="loading_wrapper active">
+		<div class="loading_content">
+			<img src="https://diachido.thanhniencuchi.vn/assets/images/logo-huyendoan.png" class="img-fluid">
+			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="https://diachido.thanhniencuchi.vn/assets/libraries/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="https://diachido.thanhniencuchi.vn/assets/libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+	<script type="text/javascript" src="https://diachido.thanhniencuchi.vn/assets/js/main.js?ver=1730811169"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Du lịch Bình Phước</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+
+        .food-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Căn giữa các ô theo chiều ngang */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .food-box {
+            display: flex;
+            border: 2px solid #000;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            width: 100%; /* Chiều rộng mặc định cho mobile */
+            height: 300px; /* Chiều cao cố định */
+        }
+
+        .food-box img,
+        .food-box iframe {
+            width: 40%; /* Chiếm 40% chiều rộng của hộp */
+            height: 100%; /* Chiếm toàn bộ chiều cao của hộp */
+            object-fit: cover; /* Giúp video giữ tỷ lệ */
+        }
+
+        .food-box .content {
+            width: 60%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+        }
+
+        .food-box .content p {
+            flex-grow: 1; /* Cho phép phần mô tả chiếm không gian còn lại */
+            margin: 0;
+            overflow-y: auto; /* Cho phép cuộn dọc */
+            background-color: transparent; /* Không có màu nền */
+        }
+
+        .food-box .content p {
+            flex-grow: 1;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .food-box .content h2 {
+            text-align: center;
+            margin-top: 2px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            padding: 10px; /* Thêm padding để tiêu đề nằm trong ô */
+            border-radius: 5px; /* Bo tròn góc của ô */
+            color: white; /* Màu chữ trắng để nổi bật trên nền tối */
+        }
+        .food-box audio {
+            margin: 10px 0; /* Thêm khoảng cách giữa âm thanh và các phần khác */
+            width: 100%; /* Chiều rộng âm thanh 100% để phù hợp với hộp */
+        }
+        /* Hiệu ứng hover: tăng kích thước hộp */
+        .food-box:hover {
+            transform: scale(1.05); /* Tăng kích thước hộp */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Tăng bóng đổ */
+        }
+
+        /* Media queries cho tablet: 2 ô trên 1 hàng */
+        @media (min-width: 768px) {
+            .food-box {
+                width: calc(50% - 20px); /* 2 ô trên 1 hàng */
+            }
+        }
+
+        /* Media queries cho laptop và desktop: 2 ô trên 1 hàng */
+        @media (min-width: 1024px) {
+            .food-box {
+                width: calc(50% - 20px); /* 2 ô trên 1 hàng */
+            }
+        }
+    </style>
+  <div id="toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+    <nav> <!--Thanh điều hướng-->
+        <ul id="main-menu">
+            <li>
+                <a href="index.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <ul class="submenu">
+                    <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+                <ul class="submenu">
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                </ul>
+            </li>
+            <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li>
+                <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+                <ul class="submenu">
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+                <ul class="submenu">
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="cttour.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+            </li>
+            <li>
+                <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+</head>
+<body>
+  <header>
+    <h1>Ẩm thực Bình Phước</h1>
+  </header>
+  <main>
+        <section class="food-section">
+            <div class="food-box">
+                <iframe 
+                    src="https://www.youtube.com/embed/VIDEO_ID" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <div class="content">
+                    <h2 style="background-color: #2600ff;">Tên món ăn 1</h2>
+                    <audio controls>
+                        <source src="path/to/your/audiofile.mp3" type="audio/mpeg">
+                    </audio>
+                    <p>
+                        Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+  <!-- Chatbot container -->
+  <div class="chat-container" id="chatContainer">
+    <div id="chatHeader">
+        BPAIS v1.0 - Du lịch Bình Phước
+    </div>
+    <div id="chatbox">
+        <!-- Tin nhắn sẽ xuất hiện ở đây -->
+    </div>
+    <div class="input-container">
+        <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+        <button class="send-button" onclick="sendMessage()"></button>
+    </div>
+    <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+    </div>
+    <!-- Nút hiển thị chatbot -->
+    <button class="show-chat-btn" onclick="toggleChat()">💬</button>
+
+  <footer>
+        <div class="footer-content">
+            <div class="footer-box">
+                <p>Email: contact@example.com</p>
+                <p>Phone: +123 456 789</p>
+                <p>Nguồn thông tin: binhphuoc.gov.vn</p>
+                <p>Bình Phước Online</p>
+                <p>Scan QR Code:</p>
+                <img src="path/to/qr-code.png" alt="QR Code">
+                <p>&copy; 2024 Bình Phước Fantastic Tour.</p> <!-- Câu bản quyền -->
+            </div>
+            <div class="weather-widget">
+                <iframe src="https://thoitiet.app/binh-phuoc" width="500" height="250" frameborder="0"></iframe>
+            </div>
+        </div>
+  </footer>
+
+ <!-- Nút scroll-to-top -->
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+</body>
+</html>
