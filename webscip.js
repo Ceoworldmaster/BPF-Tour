@@ -101,28 +101,19 @@ document.getElementById("subscribeBtn").addEventListener("click", function() {
     }
 });
 //Đếm lượt truy cập
-const firebaseConfig = {
-    apiKey: "AIzaSyAjZcLZsl4tqpj8-YhwAdJ5JfO-PAWcps8",
-    authDomain: "bpf-tour-18947.firebaseapp.com",
-    projectId: "bpf-tour-18947",
-    storageBucket: "bpf-tour-18947.firebasestorage.app",
-    messagingSenderId: "262114152500",
-    appId: "1:262114152500:web:4486819aadd60bab5c7a61",
-    measurementId: "G-768NGG728M"
-  };
-  
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const visitCountRef = firebase.database().ref('visitCount');
+function updateVisitCount() {
+    let visitCount = parseInt(localStorage.getItem('visitCount')) || 0; // Lấy số lượt truy cập hoặc bắt đầu từ 0
+    visitCount++; // Tăng số lượt truy cập lên 1
+    localStorage.setItem('visitCount', visitCount); // Cập nhật vào localStorage
+    document.getElementById('visitCount').textContent = 'Lượt truy cập: ' + visitCount; // Cập nhật giao diện
+}
 
-  // Đọc số lượt truy cập từ database và hiển thị
-  visitCountRef.on('value', (snapshot) => {
-    const count = snapshot.val();
-    document.getElementById('visitCount').textContent = 'Lượt truy cập: ' + count;
-  });
+        // Lần đầu tải trang
+updateVisitCount();
 
-  // Tăng số lượt truy cập khi người dùng vào trang
-  visitCountRef.transaction((currentCount) => {
-    return (currentCount || 0) + 1; // Nếu giá trị null, đặt về 0 trước khi tăng
-  });
+// Lắng nghe sự kiện storage để cập nhật số lượt truy cập khi có thay đổi từ tab khác
+window.addEventListener('storage', (event) => {
+    if (event.key === 'visitCount') {
+        document.getElementById('visitCount').textContent = 'Lượt truy cập: ' + event.newValue;
+    }
+});
