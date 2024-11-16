@@ -23,6 +23,15 @@ document.getElementById('toggle').addEventListener('click', function () {
         nav.classList.add('active');
     }
 });
+// Lấy tất cả các mục menu
+const menuItems = document.querySelectorAll('#main-menu li a');
+
+// Lặp qua các mục menu để kiểm tra URL
+menuItems.forEach(item => {
+    if (item.href === window.location.href) {
+        item.parentElement.classList.add('active');
+    }
+});
 
 // Toggle submenu when clicking on the parent li in mobile
 var submenuParents = document.querySelectorAll('.has-submenu > a');
@@ -60,3 +69,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+//Ngắn chặn copy
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'c') {
+        event.preventDefault(); // Ngừng hành động mặc định của phím Ctrl + C
+        alert('Chức năng sao chép bị vô hiệu hóa trên trang này.');
+    }
+});
+
+document.addEventListener('copy', function(event) {
+    event.preventDefault(); // Ngừng hành động sao chép
+    alert('Chức năng sao chép bị vô hiệu hóa trên trang này.');
+});
+
+//Thông báo chân trang
+document.getElementById("subscribeBtn").addEventListener("click", function() {
+    var emailInput = document.getElementById("emailInput").value;
+
+    // Kiểm tra xem ô nhập liệu có nội dung không
+    if (emailInput.trim() !== "") {
+        // Ẩn ô input và nút Subscribe
+        document.getElementById("emailInput").style.display = "none";
+        document.getElementById("subscribeBtn").style.display = "none";
+
+        // Hiển thị thông báo cảm ơn
+        document.getElementById("emailresponseMessage").style.display = "block";
+    } else {
+        // Nếu ô nhập liệu trống, hiển thị thông báo lỗi
+        alert("Vui lòng nhập email của bạn.");
+    }
+});
+//Đếm lượt truy cập
+if (sessionStorage.getItem('visitCount')) {
+    var visitCount = parseInt(sessionStorage.getItem('visitCount'));
+} else {
+    var visitCount = 0;
+}
+
+// Tăng số lượt truy cập lên 1 mỗi lần người dùng truy cập trang
+visitCount++;
+
+// Cập nhật giá trị mới vào sessionStorage
+sessionStorage.setItem('visitCount', visitCount);
+
+// Hiển thị số lượt truy cập lên trang web
+document.getElementById('visitCount').innerHTML = 'Lượt truy cập: ' + visitCount;
