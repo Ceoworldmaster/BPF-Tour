@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Du lịch Bình Phước</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+        /* Existing styles */
+        /* Banner styles */
+        .banner {
+          max-width: 100%;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+        }
+
+        /* Section containing text and map */
+        .content-map {
+          display: flex;
+          flex-wrap: wrap; /* Cho phép các phần tử con xuống hàng trên màn hình nhỏ */
+          gap: 20px; /* Khoảng cách giữa đoạn văn và bản đồ */
+          margin: 20px;
+          justify-content: center; /* Căn giữa nội dung */
+          text-align: center; /* Căn giữa nội dung bên trong */
+        }
+
+        .text-content {
+          flex: 1; /* Chiếm không gian còn lại */
+          min-width: 300px; /* Chiều rộng tối thiểu cho nội dung văn bản */
+        }
+
+        .map-container {
+          flex: 1; /* Chiếm không gian còn lại */
+          min-width: 300px; /* Chiều rộng tối thiểu cho bản đồ */
+        }
+
+        .map-container iframe {
+          width: 100%; /* Đảm bảo iframe phản hồi */
+          height: 300px; /* Chiều cao cố định cho bản đồ */
+        }
+
+        /* Audio player styles */
+        .audio-player {
+          margin: 20px auto; /* Tạo khoảng cách trên và dưới và căn giữa */
+          text-align: center; /* Căn giữa phần tử âm thanh */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1023px) {
+          .content-map {
+              flex-direction: column; /* Sắp xếp theo cột trên màn hình nhỏ */
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .banner {
+              max-width: 80%;
+          }
+        }
+
+        @media (min-width: 1200px) {
+          .banner {
+              max-width: 100%;
+         }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+    </style>
+  <div id="toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+  <nav> <!--Thanh điều hướng-->
+    <div id="logo">BPF TOUR</div>
+    <ul id="main-menu">
+        <li class="active">
+            <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+            <ul class="submenu">
+                <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+            </ul>
+        </li>
+        
+        <li>
+            <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+            <ul class="submenu">
+                <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                <li><a href="langnghe.html"><i class="fa-solid fa-gavel" style="color: #ffffff;"></i>Làng nghề</a></li>
+            </ul>
+        </li>
+        <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+        <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+        <li>
+            <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+            <ul class="submenu">
+                <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+            <ul class="submenu">
+                <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                <li><a href="cttour.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+        </li>
+        <li>
+            <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+        </li>
+    </ul>
+  </nav>
+</head>
+<body>
+  <header>
+    <h1>Du lịch Bình Phước</h1>
+  </header>
+
+  <img src="https://imgur.com/vfgK1Ya.gif" alt="Banner" class="banner">
+
+  <div class="audio-player">
+    <audio controls>
+      <source src="your-audio-file.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <section class="content-map">
+    <div class="text-content">
+      <h2>Khám Phá Bình Phước</h2>
+      <p>Bình Phước là tỉnh miền núi thuộc vùng Đông Nam Bộ, gồm 1 thành phố, 3 thị xã và 7 huyện, với diện tích tự nhiên 6 873,55 km² và dân số 1 034,667 người (năm 2022). Bình Phước nằm trong vùng kinh tế trọng điểm phía Nam và tiếp giáp khu vực Tây Nguyên, là khu vực có nhiều nét truyền thống văn hóa độc đáo, đồng thời có đường biên giới với Campuchia. Bình Phước nằm trên tuyến đường Hồ Chí Minh, Quốc lộ 13, tuyến đường huyết mạch kết nối khu vực Tây Nguyên với đồng bằng sông Cửu Long, nối các tuyến, điểm du lịch với các thị trường, các điểm đến du lịch nổi bật như Đà Lạt, TP Hồ Chí Minh, cũng như khu vực Đông Nam Á,...Bình Phước có nhiều di tích lịch sử, văn hoá, có nhiều chùa với kiến trúc độc đáo. Bên cạnh đó có những làng nghề truyền thống còn lưu giữ đến ngày nay và nhiều lễ hội đặc sắc. Đó chính là những di sản văn hóa vật thể và phi vật thể quý báu tạo nên nét riêng có của mảnh đất và con người Bình Phước.Bình Phước có hệ sinh thái rừng nguyên sinh, hệ thống thác, hồ nước, có nhiều loại trái cây đặc sản thơm ngon gắn liền với các trang trại, hợp tác xã nông nghiệp, các vườn quốc gia, rừng phòng hộ và tỉnh có nguồn lợi thủy sản, động vật, thực vật phong phú, tạo nên sự đa dạng trong văn hóa ẩm thực của bà con nơi đây với các món ăn nổi tiếng gần xa. Cùng đến Bình Phước để trải nghiệm những hành trình thú vị!</p>
+    </div>
+    <div class="map-container">
+      <h2>Bản Đồ Bình Phước</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d999812.3323651778!2d106.25980617716718!3d11.799025082474063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173682fdb7d221f%3A0x94c01b0e72f84211!2zQsOsbmggUGjGsOG7m2MsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1724038235390!5m2!1svi!2s"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+  <!-- Chatbot container -->
+  <div class="chat-container" id="chatContainer">
+    <div id="chatHeader">
+        BPAI 1.0 - Bình Phước Fantastic Tour
+    </div>
+    <div id="chatbox">
+        <!-- Tin nhắn sẽ xuất hiện ở đây -->
+    </div>
+    <div class="input-container">
+        <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+        <button class="send-button" onclick="sendMessage()"></button>
+    </div>
+    <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+    </div>
+
+    <!-- Nút hiển thị chatbot -->
+    <button class="show-chat-btn" onclick="toggleChat()">💬</button>
+
+    <footer>
+      <div class="content">
+          <div class="logo-details">
+              <i class="fab fa-slack"></i>
+              <span class="logo_name" style="font-size: 30px;">BPF Tour</span>
+              <i style="font-family: 'Pacifico';">  &nbsp;&nbsp;&nbsp;&nbsp; Nơi cảm xúc chạm đến trái tim</i>
+          </div>
+          <div class="media-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="link-boxes">
+              <div class="box">
+                  <span class="link_name">Danh Mục</span>
+                  <li><a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a></li>
+                  <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                  <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                  <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                  <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                  <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+                  <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                  
+
+              </div>
+              <div class="box">
+                  <span class="link_name">Danh mục</span>
+                  <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+                  <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                  <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                  <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                  <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                  <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                  <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                  
+              </div>
+              <div class="box">
+                  <span class="link_name">Đặc biệt</span>
+                  <li><a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                  <li><a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a></li>
+                  <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+              </div>
+              <div class="box input-box">
+                  <span class="link_name">Theo dõi</span>
+                  <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
+                  <li><input id="subscribeBtn" type="button" value="Subscribe"></li>
+                  <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
+              </div>
+          </div>
+          <div id="visitCount">Lượt truy cập: 0</div>
+      </div>
+      <div class="bottom-details">
+          <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+      </div>
+  </footer>
+ <!-- Nút scroll-to-top -->
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+</body>
+</html>
