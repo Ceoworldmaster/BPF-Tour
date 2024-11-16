@@ -105,7 +105,7 @@ function updateVisitCount() {
     let visitCount = parseInt(localStorage.getItem('visitCount')) || 0; // Lấy số lượt truy cập hoặc bắt đầu từ 0
     visitCount++; // Tăng số lượt truy cập lên 1
     localStorage.setItem('visitCount', visitCount); // Cập nhật vào localStorage
-    document.getElementById('visitCount').textContent = 'Lượt truy cập: ' + visitCount; // Cập nhật giao diện
+    document.getElementById('visitCount').textContent = 'Lượt truy cập cá nhân: ' + visitCount; // Cập nhật giao diện
 }
 
         // Lần đầu tải trang
@@ -114,6 +114,6 @@ updateVisitCount();
 // Lắng nghe sự kiện storage để cập nhật số lượt truy cập khi có thay đổi từ tab khác
 window.addEventListener('storage', (event) => {
     if (event.key === 'visitCount') {
-        document.getElementById('visitCount').textContent = 'Lượt truy cập: ' + event.newValue;
+        document.getElementById('visitCount').textContent = 'Lượt truy cập cá nhân: ' + event.newValue;
     }
 });
