@@ -11,69 +11,241 @@ h1 {
     margin: 15px 0;
     font-size: 20px;
 }
+/*Chân trang*/
+* {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+
 footer {
-    background-color: #333;
-    color: white;
-    padding: 1.25rem; /* 20px */
-    text-align: center;
+    background: #140B5C;
+    color: #fff;
+    padding: 40px 20px;
+    position: relative;
 }
 
-.footer-content {
+footer .content {
+    max-width: 1200px;
+    margin: auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .logo-details {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+footer .logo-details i {
+    color: #ffda44;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+footer .logo-details .logo_name {
+    font-weight: 600;
+}
+
+footer .media-icons {
+    display: flex;
+    margin-top: 20px;
+}
+
+footer .media-icons a {
+    display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: #4267B2;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-.footer-box {
-    width: 100%;
-    margin-bottom: 0.625rem; /* 10px */
+footer .media-icons a:nth-child(1) {
+    background: #4267B2;
+}
+
+footer .media-icons a:nth-child(1):hover {
+    color: #4267B2;
+    background: #fff;
+}
+
+footer .media-icons a:nth-child(2) {
+    background: #1DA1F2;
+}
+
+footer .media-icons a:nth-child(2):hover {
+    color: #1DA1F2;
+    background: #fff;
+}
+
+footer .media-icons a:nth-child(3) {
+    background: #E1306C;
+}
+
+footer .media-icons a:nth-child(3):hover {
+    color: #E1306C;
+    background: #fff;
+}
+
+footer .media-icons a:nth-child(4) {
+    background: #0077B5;
+}
+
+footer .media-icons a:nth-child(4):hover {
+    color: #0077B5;
+    background: #fff;
+}
+
+footer .media-icons a:nth-child(5) {
+    background: #FF0000;
+}
+
+footer .media-icons a:nth-child(5):hover {
+    color: #FF0000;
+    background: #fff;
+}
+
+footer .link-boxes {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
 }
 
-.weather-widget iframe {
-    width: 100%;
-    max-width: 37.5rem; /* 600px */
-    height: 18.75rem; /* 300px */
+footer .link-boxes .box {
+    flex: 1;
+    min-width: 150px;
+    margin: 10px;
+}
+
+footer .link-boxes .link_name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+footer .link-boxes .link_name::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 2px;
+    background: #ffda44;
+}
+
+footer .link-boxes li {
+    list-style: none;
+    margin: 8px 0;
+}
+
+footer .link-boxes li a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+footer .link-boxes li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+footer .input-box input {
+    width: calc(100% - 20px);
+    padding: 10px;
     border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-@media (min-width: 64rem) { /* 1024px */
-    .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        text-align: left;
+footer .input-box input[type="text"] {
+    background: #fff;
+    color: #333;
+}
+
+footer .input-box input[type="button"] {
+    background: #ffda44;
+    color: #140B5C;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+footer .input-box input[type="button"]:hover {
+    background: #fff;
+    color: #140B5C;
+    border: 2px solid #ffda44;
+}
+
+footer .bottom-details {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #fff;
+}
+
+footer .bottom-details span {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+footer .bottom-details span a {
+    color: #ffda44;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+footer .bottom-details span a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    footer .content {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .footer-box {
-        width: 50%;
-        margin-bottom: 0;
-        text-align: center;
-        align-items: center;
+    footer .media-icons {
         justify-content: center;
     }
 
-    .weather-widget {
-        width: 50%;
-        text-align: right;
+    footer .content .link-boxes .box {
+        width: calc(50% - 10px); /* Mỗi box chiếm 50% chiều rộng trừ khoảng cách */
+        margin-bottom: 20px; /* Thêm khoảng cách giữa các dòng */
     }
 
-    .weather-widget iframe {
-        width: 100%;
+    footer .content .link-boxes .input-box {
+        width: 100%; /* Input box vẫn chiếm toàn bộ chiều rộng */
     }
 }
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
+#emailresponseMessage {
+    display: none;
+    color: green;
+    font-weight: bold;
 }
-
+#visitCount {
+    font-size: 24px;  /* Kích thước chữ */
+    font-weight: bold;  /* Chữ đậm */
+    padding: 10px 20px;  /* Khoảng cách bên trong */
+    background-color: #4267B2;  /* Màu nền */
+    color: white;  /* Màu chữ */
+    border-radius: 25px;  /* Làm bo tròn góc */
+    border: 3px solid white;  /* Viền trắng */
+    text-align: center;  /* Căn giữa */
+    display: inline-block;  /* Đảm bảo hiển thị inline */
+}
+/*Chatbot*/
 .chat-container {
     width: 90%;
     max-width: 62.5rem; /* 1000px */
@@ -146,6 +318,7 @@ input[type="text"] {
     flex: 1;
     overflow-y: auto;
     margin-bottom: 0.625rem; /* 10px */
+    max-height: 100%;
 }
 
 #chatbox a {
@@ -253,7 +426,7 @@ button.clear-history:hover {
     position: fixed;
     bottom: 1.25rem; /* 20px */
     right: 1.25rem; /* 20px */
-    background-color: #007bff;
+    background-color: #ffcc00;
     color: white;
     border: none;
     border-radius: 50%;
@@ -266,7 +439,16 @@ button.clear-history:hover {
     z-index: 1000;
     font-size: 1.5rem; /* 24px */
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2); /* 10px */
+    overflow: hidden; /* Đảm bảo không có phần thừa của hình ảnh */
 }
+
+.show-chat-btn img {
+    width: 100%;  /* Đảm bảo hình ảnh chiếm toàn bộ nút */
+    height: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ nút */
+    object-fit: contain; /* Giữ tỉ lệ gốc của hình ảnh */
+    pointer-events: none; /* Vô hiệu hóa sự kiện chuột trên hình ảnh */
+}
+
 
 .game {
     text-align: center;
@@ -337,12 +519,14 @@ nav {
     top: 0;
     left: 0;
     z-index: 1000;
+    
 }
 
 #main-menu {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    flex-grow: 1;
 }
 
 nav #main-menu li {
@@ -355,7 +539,7 @@ nav #main-menu li a {
     font-weight: bold;
     text-decoration: none;
     display: block;
-    padding: 0.9375rem 1.5625rem;
+    padding: 0.9375rem 1rem;
     font-size: 0.9375rem;
     transition: background 0.3s, transform 0.3s;
 }
@@ -439,8 +623,35 @@ nav #main-menu .submenu li:hover a {
     width: 100%;
     z-index: 1100;
 }
+nav #main-menu li.active > a {
+    background-color: #004080; /* Màu nền khi mục đang mở */
+    color: yellow; /* Màu chữ nổi bật */
+    border-radius: 0.3125rem;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8); /* Viền phát sáng */
+    transition: box-shadow 0.3s ease; /* Hiệu ứng mượt */
+}
 
+/* Làm nổi bật submenu nếu nó đang được chọn */
+nav #main-menu .submenu li.active > a {
+    background-color: red;
+    color: #ffffff;
+    border-radius: 0.3125rem;
+}
+#logo {
+    position: absolute;
+    left: 20px; /* Khoảng cách từ bên trái */
+    font-family: 'Ga Maamli', sans-serif;
+    font-size: 2.25rem;
+    color: white; /* Màu chữ của logo */
+    font-weight: bold;
+}
 /* Responsive styles for mobile devices */
+ 
+@media screen and (min-width: 73.626rem) {
+    #logo {
+        top: 10%
+    }
+}
 @media screen and (max-width: 73.625rem) {
     #main-menu {
         flex-direction: column;
@@ -470,6 +681,9 @@ nav #main-menu .submenu li:hover a {
     }
     #main-menu .submenu.active {
         display: block;
+    }
+    #logo {
+        font-size: 2rem;
     }
 }
 
