@@ -101,17 +101,11 @@ document.getElementById("subscribeBtn").addEventListener("click", function() {
     }
 });
 //Đếm lượt truy cập
-if (sessionStorage.getItem('visitCount')) {
-    var visitCount = parseInt(sessionStorage.getItem('visitCount'));
-} else {
-    var visitCount = 0;
-}
+let visitCount = parseInt(localStorage.getItem('visitCount')) || 0; // Lấy số lượt truy cập hoặc bắt đầu từ 0
+visitCount++; // Tăng số lượt truy cập lên 1
 
-// Tăng số lượt truy cập lên 1 mỗi lần người dùng truy cập trang
-visitCount++;
+        // Cập nhật giá trị vào localStorage
+localStorage.setItem('visitCount', visitCount);
 
-// Cập nhật giá trị mới vào sessionStorage
-sessionStorage.setItem('visitCount', visitCount);
-
-// Hiển thị số lượt truy cập lên trang web
-document.getElementById('visitCount').innerHTML = 'Lượt truy cập: ' + visitCount;
+        // Hiển thị số lượt truy cập trên trang web
+document.getElementById('visitCount').textContent = 'Lượt truy cập: ' + visitCount;
