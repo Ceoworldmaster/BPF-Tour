@@ -1,3 +1,4 @@
+
 //Thanh điều hướng
 $(document).ready(function() {
     $('#toggle').click(function() {
@@ -70,19 +71,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-//Ngắn chặn copy
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    alert('Nội dung được bảo vệ.');
+});
 document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && event.key === 'c') {
-        event.preventDefault(); // Ngừng hành động mặc định của phím Ctrl + C
-        alert('Chức năng sao chép bị vô hiệu hóa trên trang này.');
+    if (event.ctrlKey && event.key === 'u') {
+        event.preventDefault();
+        alert('Nội dung được bảo vệ.');
     }
 });
-
-document.addEventListener('copy', function(event) {
-    event.preventDefault(); // Ngừng hành động sao chép
-    alert('Chức năng sao chép bị vô hiệu hóa trên trang này.');
-});
-
 //Thông báo chân trang
 document.getElementById("subscribeBtn").addEventListener("click", function() {
     var emailInput = document.getElementById("emailInput").value;
@@ -116,4 +114,42 @@ window.addEventListener('storage', (event) => {
     if (event.key === 'visitCount') {
         document.getElementById('visitCount').textContent = 'Lượt truy cập cá nhân: ' + event.newValue;
     }
+});
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'PrintScreen') {
+      alert("Chụp màn hình không được phép!");
+      e.preventDefault();
+    }
+  });
+
+  // Xóa dữ liệu clipboard nếu người dùng cố chụp màn hình
+  document.addEventListener('keyup', function (e) {
+    if (e.key === 'PrintScreen') {
+      navigator.clipboard.writeText('');
+      alert("Nội dung đã được bảo vệ!");
+    }
+  });
+
+//cookie//
+document.addEventListener("DOMContentLoaded", function () {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptButton = document.getElementById("accept-cookie");
+    const declineButton = document.getElementById("decline-cookie");
+
+    // Kiểm tra nếu cookie đã được chấp nhận
+    if (localStorage.getItem("cookieConsent") === "accepted") {
+        cookieBanner.classList.add("hidden");
+    }
+
+    // Người dùng đồng ý
+    acceptButton.addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "accepted");
+        cookieBanner.classList.add("hidden");
+    });
+
+    // Người dùng không đồng ý
+    declineButton.addEventListener("click", function () {
+        cookieBanner.classList.add("hidden");
+    });
 });
