@@ -71,16 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-    alert('Nội dung được bảo vệ.');
-});
-document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && event.key === 'u') {
-        event.preventDefault();
-        alert('Nội dung được bảo vệ.');
-    }
-});
+
 //Thông báo chân trang
 document.getElementById("subscribeBtn").addEventListener("click", function() {
     var emailInput = document.getElementById("emailInput").value;
@@ -132,24 +123,40 @@ document.addEventListener('keydown', function (e) {
   });
 
 //cookie//
-document.addEventListener("DOMContentLoaded", function () {
-    const cookieBanner = document.getElementById("cookie-banner");
-    const acceptButton = document.getElementById("accept-cookie");
-    const declineButton = document.getElementById("decline-cookie");
+document.addEventListener('DOMContentLoaded', function () {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptButton = document.getElementById('accept-cookie');
+    const declineButton = document.getElementById('decline-cookie');
 
-    // Kiểm tra nếu cookie đã được chấp nhận
-    if (localStorage.getItem("cookieConsent") === "accepted") {
-        cookieBanner.classList.add("hidden");
+    // Kiểm tra nếu người dùng đã đồng ý cookie
+    const hasAcceptedCookies = localStorage.getItem('acceptedCookies');
+
+    if (hasAcceptedCookies === 'true') {
+        cookieBanner.style.display = 'none'; // Ẩn cookie banner nếu đã đồng ý
+    } else {
+        cookieBanner.style.display = 'block'; // Hiện cookie banner nếu chưa đồng ý
     }
 
-    // Người dùng đồng ý
-    acceptButton.addEventListener("click", function () {
-        localStorage.setItem("cookieConsent", "accepted");
-        cookieBanner.classList.add("hidden");
+    // Xử lý khi người dùng đồng ý cookie
+    acceptButton.addEventListener('click', function () {
+        localStorage.setItem('acceptedCookies', 'true'); // Lưu trạng thái đồng ý vào Local Storage
+        cookieBanner.style.display = 'none'; // Ẩn banner
     });
 
-    // Người dùng không đồng ý
-    declineButton.addEventListener("click", function () {
-        cookieBanner.classList.add("hidden");
+    // Xử lý khi người dùng không đồng ý
+    declineButton.addEventListener('click', function () {
+        cookieBanner.style.display = 'none'; // Ẩn banner, nhưng không lưu trạng thái
     });
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'u') {
+        event.preventDefault();
+        alert('Nội dung được bảo vệ.');
+    }
+});
+
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    alert('Nội dung được bảo vệ.');
 });
