@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du lịch Bình Phước</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    .hero{
+        width: 100%;
+        height: auto;
+        background: url(https://imgur.com/EahuCL3.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        text-align: center;
+        padding: 100px 0;
+        margin-bottom: 20px;
+        margin-top: -10px;
+    }
+
+    .hero h2 {
+        font-family: 'Bungee';
+        font-size: 100px;
+        margin-bottom: 10px;
+        color: #ffffff; /* Màu chữ chính */
+        animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
+    }
+
+    /* Hiệu ứng nhảy */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    /* Hiệu ứng đổi màu viền */
+    @keyframes strokeColorChange {
+        0% {
+            text-shadow: 
+                -3px -3px 0 #ff0000,  
+                3px -3px 0 #ff0000,
+                -3px 3px 0 #ff0000,
+                3px 3px 0 #ff0000; /* Màu viền đỏ */
+        }
+        25% {
+            text-shadow: 
+                -3px -3px 0 #ffcc00,  
+                3px -3px 0 #ffcc00,
+                -3px 3px 0 #ffcc00,
+                3px 3px 0 #ffcc00; /* Màu viền vàng */
+        }
+        50% {
+            text-shadow: 
+                -3px -3px 0 #00ff00,  
+                3px -3px 0 #00ff00,
+                -3px 3px 0 #00ff00,
+                3px 3px 0 #00ff00; /* Màu viền xanh lá */
+        }
+        75% {
+            text-shadow: 
+                -3px -3px 0 #00ccff,  
+                3px -3px 0 #00ccff,
+                -3px 3px 0 #00ccff,
+                3px 3px 0 #00ccff; /* Màu viền xanh dương */
+        }
+        100% {
+            text-shadow: 
+                -3px -3px 0 #ff0000,  
+                3px -3px 0 #ff0000,
+                -3px 3px 0 #ff0000,
+                3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
+        }
+    }
+    .hero p{
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 20px;
+        color: red;
+    }
+    .search-box {
+        max-width: 550px;
+        margin: 15px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+        border-radius: 30px; /* Bo góc lớn hơn */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+        padding: 5px; /* Padding cho thanh tìm kiếm */
+        transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+    }
+
+    .search-box:hover {
+        box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+    }
+
+    .search-box input {
+        width: 70%;
+        padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
+        outline: none;
+        border: 1px solid transparent; /* Viền trong suốt */
+        border-radius: 30px; /* Bo góc input */
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+        background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
+    }
+
+    .search-box input:focus {
+        border-color: #ff0000; /* Đổi màu viền khi focus */
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Bóng khi focus */
+        background-color: #ffffff; /* Nền trắng khi focus */
+    }
+
+    .search-box button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px; /* Bo góc cho nút */
+        font-size: 1rem;
+        background-color: #ff0000; /* Màu nền nút */
+        color: white; /* Màu chữ trắng */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+    }
+
+    .search-box button i {
+        font-size: 1.2rem; /* Kích thước icon */
+    }
+
+    .search-box button:hover {
+        background-color: #960000; /* Màu nền khi hover */
+        transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+    }
+
+    .search-box button:active {
+        transform: translateY(0) scale(1); /* Hiệu ứng khi click */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
+    }
+
+    .search-box button:focus {
+        outline: none; /* Bỏ viền mặc định khi focus */
+    }
+
+    .search-box input::placeholder {
+        color: #888; /* Màu chữ placeholder */
+        opacity: 0.7; /* Độ trong suốt cho placeholder */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+    }
+
+    .search-box input:focus::placeholder {
+        opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+    }
+    @media (max-width: 500px) {
+        .hero h2 {
+            font-size: 60px;
+        }
+    }
+</style>
+<style>
+    .slider{
+        position: relative;
+        background: #000116;
+        justify-content: center; /* Căn giữa theo chiều ngang */
+        width: 100%;
+        min-height: 500px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .slider .slide{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        clip-path: circle(0% at 0 50%);
+    }
+
+    .slider .slide.active{
+        clip-path: circle(150% at 0 50%);
+        transition: 2s;
+    }
+
+    .slider .slide img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slider .slide .info{
+        position: absolute;
+        color: #222;
+        background: rgba(255, 255, 255, 0.623);
+        width: 75%;
+        margin-top: 50px;
+        margin-left: 50px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 5px 25px rgb(1 1 1 / 5%);
+    }
+
+    .slider .slide .info h2{
+        font-size: 2em;
+        font-weight: 800;
+        font-family: "Bungee";
+    }
+
+    .slider .slide .info p{
+        font-size: 1em;
+        font-weight: 400;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navigation{
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .slider:hover .navigation{
+        opacity: 1;
+    }
+
+    .prev-btn, .next-btn{
+        z-index: 10;
+        font-size: 2em;
+        color: #222;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .prev-btn{
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    .next-btn{
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .navigation-visibility{
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navigation-visibility .slide-icon{
+        z-index: 9;
+        background: rgba(255, 255, 255, 0.5);
+        width: 20px;
+        height: 10px;
+        transform: translateY(-50px);
+        margin: 0 6px;
+        border-radius: 2px;
+        box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+    }
+
+    .navigation-visibility .slide-icon.active{
+        background: #4285F4;
+    }
+
+    @media (max-width: 900px){
+        .slider{
+            width: 100%;
+        }
+
+        .slider .slide .info{
+            position: relative;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    @media (max-width: 500px){
+        .slider .slide .info h2{
+            font-size: 1.8em;
+            line-height: 40px;
+        }
+
+        .slider .slide .info p{
+            font-size: 0.9em;
+        }
+    }
+</style>
+<style>
+    .content-card {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .content-card .layout-1,
+    .content-card .layout-2 {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border: 1px solid #000000;
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+    }
+
+    .content-card .layout-1:hover,
+    .content-card .layout-2:hover {
+        transform: translateY(-5px); /* Di chuyển lên một chút khi hover */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Tăng độ đổ bóng khi hover */
+    }
+
+    .content-card .media {
+        flex: 1;
+        max-width: 300px;
+    }
+
+    .content-card .media img,
+    .content-card .media video {
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .content-card .text-content {
+        flex: 2;
+        text-align: center; /* Tiêu đề ở chính giữa */
+    }
+    .content-card .text-content h3 {
+        font-size: 1.5em;
+        font-weight: 600px;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-align: center;
+        display: inline-block;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        font-family: Arial;
+        transition: color 0.3s, transform 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+    }
+
+    .content-card .text-content h3:hover {
+        color: #007BFF; /* Thay đổi màu chữ khi hover */
+        transform: scale(1.05); /* Phóng to một chút khi hover */
+    }
+    .content-card .text-content p {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+        .content-card .layout-1,
+        .content-card .layout-2 {
+            flex-direction: column; /* Đổi bố cục thành dọc */
+            align-items: center;
+        }
+
+        .content-card .media {
+            max-width: 100%; /* Để ảnh/video chiếm toàn bộ chiều rộng */
+        }
+
+        .content-card .text-content {
+            text-align: center; /* Tiêu đề và nội dung ở chính giữa */
+            margin-top: 10px;
+        }
+    }
+
+</style>
+<body>
+    <div id="toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav> <!--Thanh điều hướng-->
+        <div id="logo">BPF TOUR</div>
+        <ul id="main-menu">
+            <li>
+                <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <ul class="submenu">
+                    <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+                <ul class="submenu">
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                </ul>
+            </li>
+            <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li>
+                <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+                <ul class="submenu">
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+                <ul class="submenu">
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+            </li>
+            <li>
+                <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+    </head>
+    <section class="hero">
+        <div class="hero-section">
+            <h2>VĂN HÓA S'TIÊNG</h2>
+            <p>Hãy cùng tìm hiểu về văn hóa của đồng bào S'tiêng</p>
+            <form action="#" class="search-box" onsubmit="return false;">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây...">
+                <button onclick="searchContent()">
+                    <i class="fas fa-search"></i> <!-- Kính lúp từ Font Awesome -->
+                </button>
+            </form>
+        </div>
+    </section>
+    <div class="slider">
+        <div class="slide active">
+          <img src="https://imgur.com/PP981IH.png" alt="">
+          <div class="info">
+            <h2>LỄ HỘI CẦU MƯA</h2>
+            <p>Lễ hội cầu mưa của đồng bào S’Tiêng thị trấn Tân Khai được phục dựng và duy trì hàng năm với ý nghĩa cầu cho mưa thuận gió hòa, để vạn vật được sinh sôi, nẩy nở, mùa màng bội thu, Lễ hội cầu mưa còn là dịp để kết nối cộng đồng, đưa dân làng, mọi người đến gần nhau hơn. Đây cũng là ngày hội chung, giúp cho mọi người thêm gắn kết, cùng nhau chung tay xây dựng cũng như phát triển cộng đồng thêm tốt đẹp.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://imgur.com/Jq5ghqB.png" alt="">
+          <div class="info">
+            <h2>Lễ hội mừng lúa mới</h2>
+            <p>Lễ hội Mừng lúa mới là hoạt động văn hóa truyền thống đặc sắc của đồng bào S’tiêng, với ý nghĩa tạ ơn thần linh đã mang đến mùa màng bội thu, mưa thuận gió hòa, cầu cho năm mới mạnh khỏe, ấm no. Đồng thời cũng là dịp để dân làng tề tựu, cùng chia sẻ niềm vui được mùa.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://imgur.com/8jyJWdv.png" alt="">
+          <div class="info">
+            <h2>Lễ hội phá Bàu</h2>
+            <p>Theo quan niệm của người S’Tiêng, bàu là nơi linh thiêng, việc phá bàu là để mở cửa cho thần linh ban phúc lành cho người dân. Vì vậy, tại lễ hội phá bàu, sau nghi thức cúng thần linh của già làng, người dân sẽ cùng nhau xuống phá bàu. Khi bàu đã được phá, tất cả mọi người sẽ cùng nhau vào bắt cá.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://imgur.com/fXOpcf1.png" alt="">
+          <div class="info">
+            <h2>Nhạc cụ truyền thống</h2>
+            <p>Đàn tre (đinh jut) thuộc bộ dây, được làm từ ống tre lồ ô, đường kính từ 5-6cm, dài khoảng 50-60cm. Đàn gồm 2 dây làm bằng cật tre được tước ra từ chính ống tre và dùng 3 mảnh tre nhỏ khác làm ngựa đàn căng dây chia đều ở 3 vị trí 2 đầu và giữa. Ống lồ ô thường được chọn có 2 đầu mấu.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://imgur.com/7XGJCAv.png" alt="">
+          <div class="info">
+            <h2>Nhạc cụ truyền thống</h2>
+            <p>Cồng chiêng là nhạc cụ thuộc bộ gõ bằng hợp kim đồng, hình tròn, ở giữa có hoặc không có núm, đường kính khoảng từ 20 cm lên đến 120 cm.</p>
+          </div>
+        </div>
+        <div class="navigation">
+          <i class="fas fa-chevron-left prev-btn"></i>
+          <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+          <div class="slide-icon active"></div>
+          <div class="slide-icon"></div>
+          <div class="slide-icon"></div>
+          <div class="slide-icon"></div>
+          <div class="slide-icon"></div>
+          <div class="slide-icon"></div>
+          <div class="slide-icon"></div>
+        </div>
+    </div>
+    <div class="content-card">
+        <!-- Bố cục 1: Hình ảnh/Video bên trái, chữ bên phải -->
+        <div class="layout-1">
+            <div class="media">
+                <img src="https://via.placeholder.com/300x200" alt="Hình ảnh minh họa" />
+            <!-- Hoặc thay bằng video -->
+            <!-- <video src="video.mp4" controls></video> -->
+            </div>
+            <div class="text-content">
+                <h3 style="color: #ffffff;border: 3px soild #4285F4; background-color: #4285F4;">VĂN HÓA S'TIÊNG</h3>
+                <p>Đây là nội dung mô tả của thẻ, bạn có thể chỉnh sửa để phù hợp với mục đích của mình.</p>
+            </div>
+        </div>
+      
+        <!-- Bố cục 2: Chữ bên trái, Hình ảnh/Video bên phải -->
+        <div class="layout-2">
+            <div class="text-content">
+                <h3>Tiêu đề của thẻ</h3>
+                <p>Đây là nội dung mô tả của thẻ, bạn có thể chỉnh sửa để phù hợp với mục đích của mình.</p>
+            </div>
+            <div class="media">
+                <img src="https://via.placeholder.com/300x200" alt="Hình ảnh minh họa" />
+            <!-- Hoặc thay bằng video -->
+            <!-- <video src="video.mp4" controls></video> -->
+            </div>
+        </div>
+    </div>
+      
+    <body>
+        <div class="chat-container" id="chatContainer">
+            <div id="chatHeader">
+                BPAI 1.0 - Bình Phước Fantastic Tour
+            </div>
+            <div id="chatbox">
+                <!-- Tin nhắn sẽ xuất hiện ở đây -->
+            </div>
+            <div class="input-container">
+                <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+                <button class="send-button" onclick="sendMessage()"></button>
+            </div>
+            <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+            </div>
+            <!-- Nút hiển thị chatbot -->
+            <button class="show-chat-btn" onclick="toggleChat()">
+                <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+            </button>
+    <footer>
+        <div class="content">
+            <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name" style="font-size: 30px;">BPF Tour</span>
+                <i style="font-family: 'Pacifico';">  &nbsp;&nbsp;&nbsp;&nbsp; Nơi cảm xúc chạm đến trái tim</i>
+            </div>
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <span class="link_name">Danh Mục</span>
+                    <li><a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    
+
+                </div>
+                <div class="box">
+                    <span class="link_name">Danh mục</span>
+                    <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    
+                </div>
+                <div class="box">
+                    <span class="link_name">Đặc biệt</span>
+                    <li><a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                    <li><a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </div>
+                <div class="box input-box">
+                    <span class="link_name">Theo dõi</span>
+                    <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
+                    <li><input id="subscribeBtn" type="button" value="Subscribe"></li>
+                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
+                </div>
+            </div>
+            <div id="visitCount">Lượt truy cập: 0</div>
+        </div>
+        <div class="bottom-details">
+            <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+            <div class="links">
+                <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="faq.html">FAQ</a></span>
+            </div>
+        </div>
+    </footer>
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+    <script type="text/javascript">
+        const slider = document.querySelector(".slider");
+        const nextBtn = document.querySelector(".next-btn");
+        const prevBtn = document.querySelector(".prev-btn");
+        const slides = document.querySelectorAll(".slide");
+        const slideIcons = document.querySelectorAll(".slide-icon");
+        const numberOfSlides = slides.length;
+        var slideNumber = 0;
+    
+        //image slider next button
+        nextBtn.addEventListener("click", () => {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+    
+          slideNumber++;
+    
+          if(slideNumber > (numberOfSlides - 1)){
+            slideNumber = 0;
+          }
+    
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        });
+    
+        //image slider previous button
+        prevBtn.addEventListener("click", () => {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+    
+          slideNumber--;
+    
+          if(slideNumber < 0){
+            slideNumber = numberOfSlides - 1;
+          }
+    
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        });
+    
+        //image slider autoplay
+        var playSlider;
+    
+        var repeater = () => {
+          playSlider = setInterval(function(){
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+    
+            slideNumber++;
+    
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+    
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          }, 4000);
+        }
+        repeater();
+    
+        //stop the image slider autoplay on mouseover
+        slider.addEventListener("mouseover", () => {
+          clearInterval(playSlider);
+        });
+    
+        //start the image slider autoplay again on mouseout
+        slider.addEventListener("mouseout", () => {
+          repeater();
+        });
+    </script>
+    <script>
+        // Hàm tính khoảng cách Levenshtein
+        function levenshtein(a, b) {
+            const tmp = [];
+            for (let i = 0; i <= a.length; i++) {
+                tmp[i] = [i];
+            }
+            for (let j = 0; j <= b.length; j++) {
+                tmp[0][j] = j;
+            }
+            for (let i = 1; i <= a.length; i++) {
+                for (let j = 1; j <= b.length; j++) {
+                    tmp[i][j] = Math.min(
+                        tmp[i - 1][j] + 1, // deletion
+                        tmp[i][j - 1] + 1, // insertion
+                        tmp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1) // substitution
+                    );
+                }
+            }
+            return tmp[a.length][b.length];
+        }
+    
+        // Hàm tìm kiếm tối ưu
+        function searchContent() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const cards = document.querySelectorAll('.content-card .layout-1, .content-card .layout-2');
+    
+            // Hiển thị tất cả nếu ô tìm kiếm trống
+            if (query === "") {
+                cards.forEach(card => {
+                    card.style.visibility = 'visible'; // Giữ nguyên cấu trúc
+                    card.style.opacity = '1'; // Hiển thị đầy đủ
+                    card.style.pointerEvents = 'auto'; // Cho phép tương tác
+                });
+                return;
+            }
+    
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+    
+                // Tăng ngưỡng động theo chiều dài chuỗi
+                const threshold = Math.max(2, Math.ceil(query.length * 0.3));
+    
+                // Kiểm tra chuỗi con trước (lọc nhanh)
+                const isSubstringMatch = title.includes(query) || description.includes(query);
+    
+                // Tính khoảng cách Levenshtein nếu không có khớp chuỗi con
+                const titleDistance = isSubstringMatch ? 0 : levenshtein(query, title);
+                const descriptionDistance = isSubstringMatch ? 0 : levenshtein(query, description);
+    
+                // Hiển thị nếu tìm thấy chuỗi con hoặc khoảng cách nằm trong ngưỡng
+                if (isSubstringMatch || titleDistance <= threshold || descriptionDistance <= threshold) {
+                    card.style.visibility = 'visible'; // Giữ nguyên cấu trúc
+                    card.style.opacity = '1'; // Hiển thị đầy đủ
+                    card.style.pointerEvents = 'auto'; // Cho phép tương tác
+                } else {
+                    card.style.visibility = 'hidden'; // Ẩn khỏi màn hình
+                    card.style.opacity = '0'; // Làm mờ
+                    card.style.pointerEvents = 'none'; // Ngăn chặn tương tác
+                }
+            });
+    
+            // Cuộn tới phần có ID "content-section" (nếu có)
+            const contentSection = document.getElementById('content-section');
+            if (contentSection) {
+                contentSection.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    
+        // Xử lý sự kiện nhấn phím Enter
+        document.getElementById("searchInput").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                searchContent();
+            }
+        });
+    </script>
+</body>
+</html>
