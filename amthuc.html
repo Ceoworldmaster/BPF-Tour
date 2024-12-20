@@ -1,107 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Du lịch Bình Phước</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du lịch Bình Phước</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
     <style>
-
-        .food-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center; /* Căn giữa các ô theo chiều ngang */
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .food-box {
-            display: flex;
-            border: 2px solid #000;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            width: 100%; /* Chiều rộng mặc định cho mobile */
-            height: 300px; /* Chiều cao cố định */
-        }
-
-        .food-box img,
-        .food-box iframe {
-            width: 40%; /* Chiếm 40% chiều rộng của hộp */
-            height: 100%; /* Chiếm toàn bộ chiều cao của hộp */
-            object-fit: cover; /* Giúp video giữ tỷ lệ */
-        }
-
-        .food-box .content {
-            width: 60%;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            overflow-y: auto;
-        }
-
-        .food-box .content p {
-            flex-grow: 1; /* Cho phép phần mô tả chiếm không gian còn lại */
-            margin: 0;
-            overflow-y: auto; /* Cho phép cuộn dọc */
-            background-color: transparent; /* Không có màu nền */
-        }
-
-        .food-box .content p {
-            flex-grow: 1;
-            margin-top: 10px;
-            text-align: left;
-        }
-
-        .food-box .content h2 {
+        .hero{
+            width: 100%;
+            height: auto;
+            background: url(https://imgur.com/ctzx6M9.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
             text-align: center;
-            margin-top: 2px;
-            margin-bottom: 10px;
-            font-size: 24px;
-            padding: 10px; /* Thêm padding để tiêu đề nằm trong ô */
-            border-radius: 5px; /* Bo tròn góc của ô */
-            color: white; /* Màu chữ trắng để nổi bật trên nền tối */
-        }
-        .food-box audio {
-            margin: 10px 0; /* Thêm khoảng cách giữa âm thanh và các phần khác */
-            width: 100%; /* Chiều rộng âm thanh 100% để phù hợp với hộp */
-        }
-        /* Hiệu ứng hover: tăng kích thước hộp */
-        .food-box:hover {
-            transform: scale(1.05); /* Tăng kích thước hộp */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Tăng bóng đổ */
+            padding: 100px 0;
+            margin-bottom: 20px;
+            margin-top: -10px;
         }
 
-        /* Media queries cho tablet: 2 ô trên 1 hàng */
-        @media (min-width: 768px) {
-            .food-box {
-                width: calc(50% - 20px); /* 2 ô trên 1 hàng */
+        .hero h2 {
+            font-family: 'Bungee';
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #ffffff; /* Màu chữ chính */
+            animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
+        }
+
+        /* Hiệu ứng nhảy */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
             }
         }
 
-        /* Media queries cho laptop và desktop: 2 ô trên 1 hàng */
-        @media (min-width: 1024px) {
-            .food-box {
-                width: calc(50% - 20px); /* 2 ô trên 1 hàng */
+        /* Hiệu ứng đổi màu viền */
+        @keyframes strokeColorChange {
+            0% {
+                text-shadow: 
+                    -3px -3px 0 #ff0000,  
+                    3px -3px 0 #ff0000,
+                    -3px 3px 0 #ff0000,
+                    3px 3px 0 #ff0000; /* Màu viền đỏ */
+            }
+            25% {
+                text-shadow: 
+                    -3px -3px 0 #ffcc00,  
+                    3px -3px 0 #ffcc00,
+                    -3px 3px 0 #ffcc00,
+                    3px 3px 0 #ffcc00; /* Màu viền vàng */
+            }
+            50% {
+                text-shadow: 
+                    -3px -3px 0 #00ff00,  
+                    3px -3px 0 #00ff00,
+                    -3px 3px 0 #00ff00,
+                    3px 3px 0 #00ff00; /* Màu viền xanh lá */
+            }
+            75% {
+                text-shadow: 
+                    -3px -3px 0 #00ccff,  
+                    3px -3px 0 #00ccff,
+                    -3px 3px 0 #00ccff,
+                    3px 3px 0 #00ccff; /* Màu viền xanh dương */
+            }
+            100% {
+                text-shadow: 
+                    -3px -3px 0 #ff0000,  
+                    3px -3px 0 #ff0000,
+                    -3px 3px 0 #ff0000,
+                    3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
+            }
+        }
+        .hero p{
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 20px;
+        }
+        .search-box {
+            max-width: 550px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+            border-radius: 30px; /* Bo góc lớn hơn */
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+            padding: 5px; /* Padding cho thanh tìm kiếm */
+            transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+        }
+
+        .search-box:hover {
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+        }
+
+        .search-box input {
+            width: 70%;
+            padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
+            outline: none;
+            border: 1px solid transparent; /* Viền trong suốt */
+            border-radius: 30px; /* Bo góc input */
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+            background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
+        }
+
+        .search-box input:focus {
+            border-color: #ff0000; /* Đổi màu viền khi focus */
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Bóng khi focus */
+            background-color: #ffffff; /* Nền trắng khi focus */
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px; /* Bo góc cho nút */
+            font-size: 1rem;
+            background-color: #ff0000; /* Màu nền nút */
+            color: white; /* Màu chữ trắng */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+        }
+
+        .search-box button i {
+            font-size: 1.2rem; /* Kích thước icon */
+        }
+
+        .search-box button:hover {
+            background-color: #960000; /* Màu nền khi hover */
+            transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+        }
+
+        .search-box button:active {
+            transform: translateY(0) scale(1); /* Hiệu ứng khi click */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
+        }
+
+        .search-box button:focus {
+            outline: none; /* Bỏ viền mặc định khi focus */
+        }
+
+        .search-box input::placeholder {
+            color: #888; /* Màu chữ placeholder */
+            opacity: 0.7; /* Độ trong suốt cho placeholder */
+            transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+        }
+
+        .search-box input:focus::placeholder {
+            opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+        }
+        .recipes {
+            padding: 50px 0;
+            background-color: #f2f2f2; /* Nền sáng hơn cho phần recipes */
+        }
+
+        .recipes h3 {
+            margin-top: -20px;
+            font-family: 'Arial', sans-serif;
+            font-size: 2rem; /* Tăng kích thước chữ tiêu đề */
+            color: #fff;
+            background-color: #007bff; /* Màu nền */
+            padding: 15px 30px; /* Đệm bên trong */
+            border-radius: 10px; /* Góc bo tròn */
+            border: 2px solid #0056b3; /* Viền ngoài */
+            text-align: center; /* Căn giữa văn bản */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển màu nền và tăng kích thước */
+        }
+
+        .recipes h3:hover {
+            background-color: #0056b3; /* Thay đổi màu nền khi hover */
+            color: #ffeb3b; /* Thay đổi màu chữ */
+            transform: scale(1.05); /* Tăng kích thước nhẹ */
+        }
+
+        .recipes .recipe-section {
+            width: 90%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Tăng kích thước tối thiểu */
+            column-gap: 20px; /* Khoảng cách giữa các cột */
+            row-gap: 20px; /* Khoảng cách giữa các hàng */
+        }
+
+        .recipes .recipe-card {
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển động */
+        }
+
+        .recipes .recipe-card:hover {
+            transform: translateY(-5px); /* Nâng lên khi hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+        }
+
+        .recipes .recipe-card img {
+            width: 100%;
+            height: 200px; /* Tăng chiều cao hình ảnh */
+            object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+        }
+
+        .recipes .recipe-card h2 {
+            font-size: 20px; /* Kích thước chữ tiêu đề */
+            padding: 15px 20px; /* Padding cho tiêu đề */
+            color: #333; /* Màu chữ tiêu đề */
+        }
+
+        .recipes .recipe-card p {
+            font-size: 14px; /* Kích thước chữ mô tả */
+            padding: 0 20px 20px; /* Giảm padding trên */
+            color: #666; /* Màu chữ mô tả */
+        }
+
+        .recipes .recipe-card a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #007bff; /* Màu nền nút */
+            color: #fff; /* Màu chữ trắng */
+            padding: 15px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu nền */
+            border-radius: 0 0 10px 10px; /* Bo góc dưới cho nút */
+        }
+
+        .recipes .recipe-card a:hover {
+            background: #0056b3; /* Thay đổi màu nền khi hover */
+            transform: scale(1.05); /* Tăng kích thước nhẹ */
+        }
+
+        .recipes .recipe-card.highlight {
+            border: 2px solid #007bff;
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+        }
+
+        @media only screen and (min-width: 768px) {
+            .hero h2{
+                font-family: 'Bungee';
+                font-size: 100px;
+                -webkit-text-stroke: 5px transparent; /* Tạo viền xung quanh chữ */
+            }
+            .hero p{
+                font-size: 15px;
             }
         }
     </style>
-  <div id="toggle">
-    <i class="fas fa-bars"></i>
-  </div>
-    <nav> <!--Thanh điều hướng-->
+<body>
+    <section class="hero">
+        <div class="hero-section">
+            <h2>ẨM THỰC BÌNH PHƯỚC</h2>
+            <p>Hãy tìm kiếm đặc sản Bình Phước</p>
+            <form action="#" class="search-box" onsubmit="return false;">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây...">
+                <button onclick="searchContent()">
+                    <i class="fas fa-search"></i> <!-- Kính lúp từ Font Awesome -->
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Recipes Section -->
+    <section class="recipes" id="recipes-section">
+        <h3>ĐẶC SẢN BÌNH PHƯỚC</h3>
+        <div class="recipe-section">
+            <div class="recipe-card">
+                <img src="https://via.placeholder.com/300" alt="Hạt điều rang muối">
+                <h2>Hạt điều rang muối</h2>
+                <p>Là vùng đất chuyên trồng điều vì thế hạt điều rang muối Bình Phước luôn giữ được nguyên vỏ lụa, vị ngọt, hương thơm đậm đà. Khi ăn hạt điều giòn tan và giữ được hương vị lâu hơn hạt điều vùng khác.
+
+                    Vỏ lụa là lớp vỏ mỏng màu loang lổ nâu đôi khi pha nhiều sắc trắng là lớp phân cách giữa nhân hạt điều ăn được và lớp vỏ cứng bảo vệ bên ngoài.</p>
+                <a href="https://dacsanvina.vn/10-mon-ngon-khong-the-nao-quen-o-vung-que-binh-phuoc-d106031/">Xem thêm</a>
+            </div>
+            <div class="recipe-card">
+                <img src="https://via.placeholder.com/300" alt="Gỏi trái điều">
+                <h2>Gỏi trái điều</h2>
+                <p>Trái điều để làm gỏi rất ngon, vị chua chua ngọt ngọt được thêm một chút gì đó mặn mà của gia vị, rồi lại thêm miếng tôm, miếng thịt là được một món ăn lạ mắt, lại rẻ.</p>
+                <a href=" https://dacsanvina.vn/10-mon-ngon-khong-the-nao-quen-o-vung-que-binh-phuoc-d106031/">Xem thêm</a>
+            </div>
+            <div class="recipe-card">
+                <img src="https://via.placeholder.com/300" alt="Bánh hạt điều Bình Phước">
+                <h2>Bánh hạt điều Bình Phước</h2>
+                <p>Nguyên liệu chính để làm bánh hạt điều là hạt điều, bột nổi, bột quế, trứng gà, đường, bột mì, một chút dầu ăn.</p>
+                <a href=" https://dacsanvina.vn/10-mon-ngon-khong-the-nao-quen-o-vung-que-binh-phuoc-d106031/">Xem thêm</a>
+            </div>
+            <div class="recipe-card">
+                <img src="https://via.placeholder.com/300" alt="Thịt quay từ heo thả rông">
+                <h2>Thịt quay từ heo thả rông</h2>
+                <p>Là loại heo được người dân tộc thiểu số sinh sống quanh vùng Sóc Bom Bo nuôi, heo thả rông là loại bán hoang dã, ban ngày được thả rông đi tìm thức ăn và ban đêm trở về chuồng của gia đình. Bởi vì ăn các loại rau củ và đi khắp nơi tìm kiếm thức ăn nên thịt heo thả rông săn chắc, ít mỡ, khi ăn không bị ngấy. </p>
+                <a href=https://mia.vn/cam-nang-du-lich/heo-tha-rong-dac-san-hap-dan-cua-vung-soc-bom-bo-7136>Xem thêm</a>
+            </div>
+            <div class="recipe-card">
+                <img src="https://via.placeholder.com/300" alt="Lá nhíp xào">
+                <h2>Lá nhíp xào</h2>
+                <p>Để chế biến món ăn này, người ta nhặt bỏ những lá sâu, rửa sạch, để ráo, vò sơ. Tỏi bóc vỏ, bằm sơ, sau đó xào với dầu nóng, rồi cho rau nhíp vào đảo nhanh tay, cho thịt bò đã được xào sẵn vào rồi rắc tiêu. Khi ăn, bạn sẽ cảm nhận được cả hương vị của núi rừng thấm đẫm nơi đầu lưỡi. </p>
+                <a href=https://vietnamnet.vn/dac-san-binh-phuoc-thom-ngon-doc-la-thu-hut-du-khach-gan-xa-2161605.html>Xem thêm</a>
+            </div>
+            <div class="recipe-card">
+                <img src="https://via.placeholder.com/300" alt="Đọt mây nướng">
+                <h2>Đọt mây nướng</h2>
+                <p>Đọt mây là một món ăn không thể thiếu trong bữa cơm của người đồng bào S’Tiêng ở Bình Phước. Đọt mây nướng dưới than củi hồng, thơm thơm, ngầy ngậy. </p>
+                <a href=https://vietnamnet.vn/dac-san-binh-phuoc-thom-ngon-doc-la-thu-hut-du-khach-gan-xa-2161605.html>Xem thêm</a>
+            </div>
+            <div class="recipe-card">
+                <img src="https://via.placeholder.com/300" alt="Canh thụt">
+                <h2>Canh thụt</h2>
+                <p>Món Canh thụt độc đáo này được tạo nên từ nhiều loại rau rừng khác nhau như Lá nhíp, củ nén, ớt tươi cùng nhiều loại gia vị đặc trưng. Có tổng cộng khoảng 10 loại nguyên liệu được sử dụng để làm nên món ăn này và sự kết hợp của chúng tạo nên một hương vị riêng biệt cho Canh thụt.</p>
+                <a href=https://youtu.be/n6SGQrTbcZI>Xem thêm</a>
+            </div>
+            <div class="recipe-card">
+                <img src="https://via.placeholder.com/300" alt="Rượu cần">
+                <h2>Rượu cần</h2>
+                <p>Rượu cần theo tiếng S'Tiêng là thức uống độc đáo và cũng là một loại sản vật gắn chặt với đời sống văn hóa, tâm linh, tín ngưỡng của đồng bào dân tộc S’Tiêng ở Bình Phước. Rượu cần được chế biến theo một quy trình công phu, nghiêm ngặt, đòi hỏi người chế biến phải có kinh nghiệm, tay nghề cao.</p>
+                <a href=https://youtu.be/n6SGQrTbcZI>Xem thêm</a>
+            </div>
+        </div>
+    </section>    
+    <div id="toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav> <!--Thanh điều hướng-->
+        <div id="logo">BPF TOUR</div>
         <ul id="main-menu">
             <li>
-                <a href="index.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
                 <ul class="submenu">
                     <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
                     <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
                 </ul>
             </li>
             
@@ -111,10 +358,11 @@
                     <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
                     <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
                     <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
                 </ul>
             </li>
             <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
-            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li class="active"><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
             <li>
                 <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
                 <ul class="submenu">
@@ -128,7 +376,7 @@
                 <ul class="submenu">
                     <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
                     <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
-                    <li><a href="cttour.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
                 </ul>
             </li>
             <li>
@@ -139,69 +387,164 @@
             </li>
         </ul>
     </nav>
-</head>
-<body>
-  <header>
-    <h1>Ẩm thực Bình Phước</h1>
-  </header>
-  <main>
-        <section class="food-section">
-            <div class="food-box">
-                <iframe 
-                    src="https://www.youtube.com/embed/VIDEO_ID" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-                <div class="content">
-                    <h2 style="background-color: #2600ff;">Tên món ăn 1</h2>
-                    <audio controls>
-                        <source src="path/to/your/audiofile.mp3" type="audio/mpeg">
-                    </audio>
-                    <p>
-                        Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông. Đây là nội dung mô tả món ăn 1. Bạn có thể thêm nhiều văn bản hơn để kiểm tra tính năng cuộn nội dung bên trong ô vuông.
-                    </p>
+    </head>
+    <body>
+        <div class="chat-container" id="chatContainer">
+            <div id="chatHeader">
+                BPAI 1.0 - Bình Phước Fantastic Tour
+            </div>
+            <div id="chatbox">
+                <!-- Tin nhắn sẽ xuất hiện ở đây -->
+            </div>
+            <div class="input-container">
+                <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+                <button class="send-button" onclick="sendMessage()"></button>
+            </div>
+            <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+            </div>
+            <!-- Nút hiển thị chatbot -->
+            <button class="show-chat-btn" onclick="toggleChat()">
+                <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+            </button>
+            <div id="cookie-banner" class="cookie-banner">
+                <p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn. Bạn có đồng ý không?</p>
+                <button id="accept-cookie" class="btn">Đồng ý</button>
+                <button id="decline-cookie" class="btn">Không đồng ý</button>
+              </div>
+    <footer>
+        <div class="content">
+            <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name" style="font-size: 30px;">BPF Tour</span>
+                <i style="font-family: 'Pacifico';">  &nbsp;&nbsp;&nbsp;&nbsp; Nơi cảm xúc chạm đến trái tim</i>
+            </div>
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <span class="link_name">Danh Mục</span>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-house"></i>Du lịch tôn giáo</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    
+
+                </div>
+                <div class="box">
+                    <span class="link_name">Danh mục</span>
+                    <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    
+                </div>
+                <div class="box">
+                    <span class="link_name">Đặc biệt</span>
+                    <li><a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                    <li><a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </div>
+                <div class="box input-box">
+                    <span class="link_name">Theo dõi</span>
+                    <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
+                    <li><input id="subscribeBtn" type="button" value="Subscribe"></li>
+                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
                 </div>
             </div>
-        </section>
-    </main>
-  <!-- Chatbot container -->
-  <div class="chat-container" id="chatContainer">
-    <div id="chatHeader">
-        BPAIS v1.0 - Du lịch Bình Phước
-    </div>
-    <div id="chatbox">
-        <!-- Tin nhắn sẽ xuất hiện ở đây -->
-    </div>
-    <div class="input-container">
-        <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
-        <button class="send-button" onclick="sendMessage()"></button>
-    </div>
-    <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
-    </div>
-    <!-- Nút hiển thị chatbot -->
-    <button class="show-chat-btn" onclick="toggleChat()">💬</button>
-
-  <footer>
-        <div class="footer-content">
-            <div class="footer-box">
-                <p>Email: contact@example.com</p>
-                <p>Phone: +123 456 789</p>
-                <p>Nguồn thông tin: binhphuoc.gov.vn</p>
-                <p>Bình Phước Online</p>
-                <p>Scan QR Code:</p>
-                <img src="path/to/qr-code.png" alt="QR Code">
-                <p>&copy; 2024 Bình Phước Fantastic Tour.</p> <!-- Câu bản quyền -->
-            </div>
-            <div class="weather-widget">
-                <iframe src="https://thoitiet.app/binh-phuoc" width="500" height="250" frameborder="0"></iframe>
+            <div id="visitCount">Lượt truy cập cá nhân: 0</div>
+        </div>
+        <div class="bottom-details">
+            <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+            <div class="links">
+                <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="faq.html">FAQ</a></span>
             </div>
         </div>
-  </footer>
-
- <!-- Nút scroll-to-top -->
+    </footer>
     <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
     <script src="webscip.js"></script>
     <script src="chatscrip.js"> </script>
+    <script>
+       // Hàm tính khoảng cách Levenshtein
+       function levenshtein(a, b) {
+            const tmp = [];
+            for (let i = 0; i <= a.length; i++) {
+                tmp[i] = [i];
+            }
+            for (let j = 0; j <= b.length; j++) {
+                tmp[0][j] = j;
+            }
+            for (let i = 1; i <= a.length; i++) {
+                for (let j = 1; j <= b.length; j++) {
+                    tmp[i][j] = Math.min(
+                        tmp[i - 1][j] + 1, // deletion
+                        tmp[i][j - 1] + 1, // insertion
+                        tmp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1) // substitution
+                    );
+                }
+            }
+            return tmp[a.length][b.length];
+        }
+
+        // Hàm tìm kiếm tối ưu
+        function searchContent() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const cards = document.querySelectorAll('.recipe-card');
+
+            // Hiển thị tất cả nếu ô tìm kiếm trống
+            if (query === "") {
+                cards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                return;
+            }
+
+            cards.forEach(card => {
+                const title = card.querySelector('h2').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                // Tăng ngưỡng động theo chiều dài chuỗi
+                const threshold = Math.max(2, Math.ceil(query.length * 0.3));
+
+                // Kiểm tra chuỗi con trước (lọc nhanh)
+                const isSubstringMatch = title.includes(query) || description.includes(query);
+
+                // Tính khoảng cách Levenshtein nếu không có khớp chuỗi con
+                const titleDistance = isSubstringMatch ? 0 : levenshtein(query, title);
+                const descriptionDistance = isSubstringMatch ? 0 : levenshtein(query, description);
+
+                // Hiển thị nếu tìm thấy chuỗi con hoặc khoảng cách nằm trong ngưỡng
+                if (isSubstringMatch || titleDistance <= threshold || descriptionDistance <= threshold) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Cuộn tới phần có ID "recipes-section"
+            document.getElementById("recipes-section").scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Xử lý sự kiện nhấn phím Enter
+        document.getElementById("searchInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                searchContent();
+            }
+        });
+
+    </script>
+    
+    
 </body>
 </html>
