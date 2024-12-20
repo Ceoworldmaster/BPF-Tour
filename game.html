@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du lịch Bình Phước</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+  .games {
+    padding: 50px 20px;
+    background-color: #f4f4f9;
+  }
+
+  .games .section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .games-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 20px; 
+  }
+
+  .game-card {
+    background: #fff; /* Nền bên trong thẻ */
+    border-radius: 10px;
+    padding: 2px; /* Khoảng cách để hiển thị viền */
+    position: relative; /* Để xử lý phần viền */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1.5px solid #333;
+  }
+
+  .game-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  @keyframes shake-rotate {
+    0%, 100% { transform: translateX(0) rotate(0); }
+    25% { transform: translateX(-5px) rotate(-2deg); }
+    50% { transform: translateX(5px) rotate(2deg); }
+    75% { transform: translateX(-5px) rotate(-1deg); }
+  }
+
+  .game-card.shake {
+      animation: shake-rotate 0.5s ease-in-out;
+  }
+  .game-card img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .game-info {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .game-info h3 {
+    font-size: 20px;
+    margin-top: -10px;
+    margin-bottom: 8px;
+    font-family:'Poppins'; 
+    font-size: 30px;
+  }
+
+  .game-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  /* Button Animation */
+  .btn-animated {
+    font-family: 'Bungee';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff6f91, #ff9671, #ffc75f, #f9f871);
+    background-size: 200% 100%;
+    transition: 0.4s;
+    animation: gradientMove 2s infinite linear;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-animated i {
+    margin-right: 10px;
+    
+  }
+
+  .btn-animated:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.25);
+  }
+
+  @keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+        background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #9900ff, #ff0000);
+    }
+    50% {
+        background-position: 50% 50%;
+        background: linear-gradient(45deg, #ffff00, #00ff00, #00ffff, #0000ff, #9900ff, #ff0000, #ff9900, #ffff00);
+    }
+    100% {
+        background-position: 100% 50%;
+        background: linear-gradient(45deg, #00ff00, #00ffff, #0000ff, #9900ff, #ff0000, #ff9900, #ffff00, #00ff00);
+    }
+  }
+  /* Modal */
+  .modal {
+      display: none; /* Ẩn modal mặc định */
+      position: fixed; /* Đặt modal ở vị trí cố định */
+      z-index: 20; /* Đảm bảo modal nằm trên các phần tử khác */
+      left: 0; /* Căn trái */
+      top: 0; /* Căn trên */
+      width: 100%; /* Chiều rộng 100% */
+      height: 100%; /* Chiều cao 100% */
+      background-color: rgba(0, 0, 0, 0.7); /* Nền tối với độ trong suốt */
+      justify-content: center; /* Căn giữa theo chiều ngang */
+      align-items: center;
+  }
+
+  .modal-content {
+      background: white; /* Nền trắng cho nội dung modal */
+      padding: 20px; /* Padding cho nội dung */
+      border-radius: 10px; /* Bo góc cho nội dung */
+      max-width: 900px; /* Chiều rộng tối đa */
+      width: 90%; /* Chiều rộng 90% */
+      height: auto; /* Chiều cao tự động */
+      text-align: center; /* Căn giữa nội dung */
+      position: relative; /* Đặt vị trí tương đối cho nội dung */
+      margin: auto; /* Căn giữa nội dung modal */
+      top: 50%; /* Đặt vị trí từ trên xuống 50% */
+      transform: translateY(-50%); /* Dịch chuyển nội dung lên 50% chiều cao của nó để căn giữa */
+  }
+
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px; /* Kích thước chữ */
+    color: #333; /* Màu sắc chữ */
+    background-color: transparent; /* Nền trong suốt */
+    border: none; /* Không có viền */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    transition: color 0.3s, transform 0.3s; /* Hiệu ứng chuyển động */
+  }
+
+  .close-button:hover {
+      color: #ff0000; /* Đổi màu khi hover */
+      transform: scale(1.1); /* Phóng to một chút khi hover */
+  }
+
+  .close-button:focus {
+      outline: none; /* Bỏ viền khi nút được chọn */
+  }
+  #modalGame iframe {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của khung chứa */
+    height: 450px; /* Chiều cao 100% của khung chứa */
+    border: none; /* Không có viền */
+  } 
+  .help-button {
+    position: fixed; /* Cố định ở góc trang */
+    top: 20px; /* Cách cạnh dưới 20px */
+    left: 20px; /* Cách cạnh trái 20px */
+    width: 50px; /* Chiều rộng của ô */
+    height: 50px; /* Chiều cao của ô */
+    background-color: #007bff; /* Màu nền xanh */
+    color: white; /* Màu chữ */
+    font-size: 24px; /* Kích thước chữ */
+    font-weight: bold; /* Chữ đậm */
+    text-align: center; /* Căn giữa chữ theo chiều ngang */
+    line-height: 50px; /* Căn giữa chữ theo chiều dọc */
+    border-radius: 50%; /* Tạo hình tròn */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Tạo bóng */
+    cursor: pointer; /* Con trỏ chuột dạng tay */
+    z-index: 30; /* Hiển thị trên modal */
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* Hiệu ứng khi hover */
+  }
+
+  .help-button:hover {
+      transform: scale(1.1); /* Phóng to khi hover */
+      background-color: #0056b3; /* Đổi màu nền khi hover */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Tăng bóng khi hover */
+  }
+
+  .help-button:active {
+      transform: scale(0.95); /* Nhấn vào nút sẽ thu nhỏ */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Giảm bóng khi nhấn */
+  }
+
+</style>
+<style>
+  .hero{
+      width: 100%;
+      height: auto;
+      background: url(https://imgur.com/Chj2Txy.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+      text-align: center;
+      padding: 100px 0;
+      margin-bottom: 20px;
+      margin-top: -10px;
+  }
+
+  .hero h2 {
+      font-family: 'Bungee';
+      font-size: 100px;
+      margin-bottom: 10px;
+      color: #ffffff; /* Màu chữ chính */
+      animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
+  }
+
+  /* Hiệu ứng nhảy */
+  @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0);
+      }
+      40% {
+          transform: translateY(-10px);
+      }
+      60% {
+          transform: translateY(-5px);
+      }
+  }
+
+  /* Hiệu ứng đổi màu viền */
+  @keyframes strokeColorChange {
+      0% {
+          text-shadow: 
+              -3px -3px 0 #ff0000,  
+              3px -3px 0 #ff0000,
+              -3px 3px 0 #ff0000,
+              3px 3px 0 #ff0000; /* Màu viền đỏ */
+      }
+      25% {
+          text-shadow: 
+              -3px -3px 0 #ffcc00,  
+              3px -3px 0 #ffcc00,
+              -3px 3px 0 #ffcc00,
+              3px 3px 0 #ffcc00; /* Màu viền vàng */
+      }
+      50% {
+          text-shadow: 
+              -3px -3px 0 #00ff00,  
+              3px -3px 0 #00ff00,
+              -3px 3px 0 #00ff00,
+              3px 3px 0 #00ff00; /* Màu viền xanh lá */
+      }
+      75% {
+          text-shadow: 
+              -3px -3px 0 #00ccff,  
+              3px -3px 0 #00ccff,
+              -3px 3px 0 #00ccff,
+              3px 3px 0 #00ccff; /* Màu viền xanh dương */
+      }
+      100% {
+          text-shadow: 
+              -3px -3px 0 #ff0000,  
+              3px -3px 0 #ff0000,
+              -3px 3px 0 #ff0000,
+              3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
+      }
+  }
+  .hero p{
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 20px;
+  }
+  .hero .btn-primary {
+    margin-top: 15px;
+    padding: 15px 30px;
+    background-color: #ff7f50;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hero .btn-primary:hover {
+    background-color: #ff4500;
+  }
+
+  .search-box {
+      max-width: 550px;
+      margin: 15px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1100ff, #7b7dfe); /* Gradient background */
+      border-radius: 30px; /* Bo góc lớn hơn */
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+      padding: 5px; /* Padding cho thanh tìm kiếm */
+      transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+  }
+
+  .search-box:hover {
+      box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+  }
+
+  .search-box input {
+      width: 70%;
+      padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
+      outline: none;
+      border: 1px solid transparent; /* Viền trong suốt */
+      border-radius: 30px; /* Bo góc input */
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+      background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
+  }
+
+  .search-box input:focus {
+      border-color: #4400ff; /* Đổi màu viền khi focus */
+      box-shadow: 0 0 5px rgba(47, 0, 255, 0.5); /* Bóng khi focus */
+      background-color: #ffffff; /* Nền trắng khi focus */
+  }
+
+  .search-box button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px; /* Bo góc cho nút */
+      font-size: 1rem;
+      background-color: #1900ff; /* Màu nền nút */
+      color: white; /* Màu chữ trắng */
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+  }
+
+  .search-box button i {
+      font-size: 1.2rem; /* Kích thước icon */
+  }
+
+  .search-box button:hover {
+      background-color: #160096; /* Màu nền khi hover */
+      transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+  }
+
+  .search-box button:active {
+      transform: translateY(0) scale(1); /* Hiệu ứng khi click */
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
+  }
+
+  .search-box button:focus {
+      outline: none; /* Bỏ viền mặc định khi focus */
+  }
+
+  .search-box input::placeholder {
+      color: #888; /* Màu chữ placeholder */
+      opacity: 0.7; /* Độ trong suốt cho placeholder */
+      transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+  }
+
+  .search-box input:focus::placeholder {
+      opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+  }
+  @media (max-width: 600px){
+    .hero h2 {
+      font-size: 60px;
+    }
+  }
+</style>
+<body>
+    <div id="toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav> <!--Thanh điều hướng-->
+        <div id="logo">BPF TOUR</div>
+        <ul id="main-menu">
+            <li>
+                <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <ul class="submenu">
+                    <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+                <ul class="submenu">
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                </ul>
+            </li>
+            <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li>
+                <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+                <ul class="submenu">
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+                <ul class="submenu">
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+            </li>
+            <li>
+                <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+    </head>
+    <body>
+      <section class="hero">
+        <div class="hero-section">
+            <h2>BPF GAMING</h2>
+            <p>Hãy tìm kiếm các địa điểm du lịch Bình Phước!</p>
+            <form action="#" class="search-box" onsubmit="return false;">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây...">
+                <button onclick="searchContent()">
+                    <i class="fas fa-search"></i> <!-- Kính lúp từ Font Awesome -->
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <h1 style="margin-top: 15px;">CHỦ ĐỀ HỌC TẬP</h1>
+    <section id="games" class="games">
+      <div class="container">
+        <div class="games-grid">
+          <!-- Game 1 -->
+          <div class="game-card">
+            <img src="https://imgur.com/neL4ugS.png" alt="Game Scratch">
+            <div class="game-info">
+              <h3>MEMORY CHALLENGE</h3>
+              <p>Thử thách trí nhớ, vượt qua mọi giới hạn!</p>
+              <a href="#" class="btn-animated play-button"
+                 data-title="MEMORY CHALLENGE"
+                 data-embed="<iframe src='https://scratch.mit.edu/projects/559404340/embed' width='100%' height='400' frameborder='0' allowfullscreen></iframe>"> 
+                <i>▶</i> CHƠI NGAY
+              </a>
+            </div>
+          </div>
+    
+          <!-- Game 2 -->
+          <div class="game-card">
+            <img src="https://imgur.com/8azWJwr.png" alt="Game Scratch">
+            <div class="game-info">
+              <h3>RING THE GOLDEN BELL</h3>
+              <p>Rung Chuông Vàng - Kiến Thức Vang Danh!</p>
+              <a href="#" class="btn-animated play-button"
+                 data-title="RING THE GOLDEN BELL"
+                 data-embed="<iframe src='https://quizizz.com/join?gc=10319072' width='200%' height='400px' frameborder='0' allowfullscreen></iframe>">
+                <i>▶</i> CHƠI NGAY
+              </a>
+            </div>
+          </div>
+    
+          <!-- Game 3 -->
+          <div class="game-card">
+            <img src="https://via.placeholder.com/300x200" alt="Game Scratch">
+            <div class="game-info">
+              <h3>Game Scratch 3</h3>
+              <p>Khám phá thế giới sáng tạo với Scratch 3.</p>
+              <a href="#" class="btn-animated play-button"
+                 data-title="Game Scratch 3"
+                 data-embed="<iframe src='https://scratch.mit.edu/projects/559404340/embed' frameborder='0' allowfullscreen></iframe>">
+                <i>▶</i> CHƠI NGAY
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Modal -->
+      <div id="gameModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h3 id="modalTitle"></h3>
+          <div id="modalGame"></div>
+          <div id="helpText" class="help-text"></div>
+          <div class="help-button">?</div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <h1 style="margin-top: 15px;">CHỦ ĐỀ LOGIC</h1>
+    <section id="games" class="games">
+      <div class="container">
+        <div class="games-grid">
+          <!-- Game 1 -->
+          <div class="game-card">
+            <img src="https://imgur.com/neL4ugS.png" alt="Game Scratch">
+            <div class="game-info">
+              <h3>MEMORY CHALLENGE</h3>
+              <p>Thử thách trí nhớ, vượt qua mọi giới hạn!</p>
+              <a href="#" class="btn-animated play-button"
+                 data-title="MEMORY CHALLENGE"
+                 data-embed="<iframe src='https://scratch.mit.edu/projects/559404340/embed' width='100%' height='400' frameborder='0' allowfullscreen></iframe>"> 
+                <i>▶</i> CHƠI NGAY
+              </a>
+            </div>
+          </div>
+    
+          <!-- Game 2 -->
+          <div class="game-card">
+            <img src="https://imgur.com/8azWJwr.png" alt="Game Scratch">
+            <div class="game-info">
+              <h3>MAZE MASTERY CHALLENGE</h3>
+              <p>Chinh phục mê cung - Khám phá trí tuệ!</p>
+              <a href="#" class="btn-animated play-button"
+                 data-title="MAZE MASTERY CHALLENGE"
+                 data-embed="<iframe src='https://scratch.mit.edu/projects/553350763/embed' width='200%' height='400px' frameborder='0' allowfullscreen></iframe>">
+                <i>▶</i> CHƠI NGAY
+              </a>
+            </div>
+          </div>
+    
+          <!-- Game 3 -->
+          <div class="game-card">
+            <img src="https://via.placeholder.com/300x200" alt="Game Scratch">
+            <div class="game-info">
+              <h3>EXACT LOCATION PUZZLE</h3>
+              <p>Xác định vị trí - giải đố siêu nhanh!</p>
+              <a href="#" class="btn-animated play-button"
+                 data-title="EXACT LOCATION PUZZLE"
+                 data-embed="<iframe src='https://scratch.mit.edu/projects/385504991/embed' frameborder='0' allowfullscreen></iframe>">
+                <i>▶</i> CHƠI NGAY
+              </a>
+            </div>
+          </div>
+
+          <!-- Game 4 -->
+          <div class="game-card">
+            <img src="https://via.placeholder.com/300x200" alt="Game Scratch">
+            <div class="game-info">
+              <h3>EXACT LOCATION PUZZLE</h3>
+              <p>Xác định vị trí - giải đố siêu nhanh!</p>
+              <a href="#" class="btn-animated play-button"
+                 data-title="EXACT LOCATION PUZZLE"
+                 data-embed="<iframe src='https://www.websudoku.com/' frameborder='0' allowfullscreen></iframe>">
+                <i>▶</i> CHƠI NGAY
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Modal -->
+      <div id="gameModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h3 id="modalTitle"></h3>
+          <div id="modalGame"></div>
+          <div id="helpText" class="help-text"></div>
+          <div class="help-button">?</div>
+          
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <div class="chat-container" id="chatContainer">
+      <div id="chatHeader">
+          BPAI 1.0 - Bình Phước Fantastic Tour
+    </div>
+    <div id="chatbox">
+        <!-- Tin nhắn sẽ xuất hiện ở đây -->
+    </div>
+    <div class="input-container">
+        <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+        <button class="send-button" onclick="sendMessage()"></button>
+    </div>
+    <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+    </div>
+    <!-- Nút hiển thị chatbot -->
+    <button class="show-chat-btn" onclick="toggleChat()">
+        <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+    </button>
+    <footer>
+        <div class="content">
+            <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name" style="font-size: 30px;">BPF Tour</span>
+                <i style="font-family: 'Pacifico';">  &nbsp;&nbsp;&nbsp;&nbsp; Nơi cảm xúc chạm đến trái tim</i>
+            </div>
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <span class="link_name">Danh Mục</span>
+                    <li><a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    
+
+                </div>
+                <div class="box">
+                    <span class="link_name">Danh mục</span>
+                    <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    
+                </div>
+                <div class="box">
+                    <span class="link_name">Đặc biệt</span>
+                    <li><a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                    <li><a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </div>
+                <div class="box input-box">
+                    <span class="link_name">Theo dõi</span>
+                    <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
+                    <li><input id="subscribeBtn" type="button" value="Subscribe"></li>
+                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
+                </div>
+            </div>
+            <div id="visitCount">Lượt truy cập: 0</div>
+        </div>
+        <div class="bottom-details">
+            <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+            <div class="links">
+                <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="faq.html">FAQ</a></span>
+            </div>
+        </div>
+    </footer>
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+
+    <script>
+      const helpButton = document.querySelector('.help-button');
+      const helpText = document.querySelector('#helpText');
+      const gameCards = document.querySelectorAll('.game-card');
+      const modalTitle = document.querySelector('#modalTitle');
+      const modalGame = document.querySelector('#modalGame');
+
+      // Khi người dùng nhấn vào nút chơi game, mở modal và hiển thị nội dung game
+      gameCards.forEach(card => {
+        const playButton = card.querySelector('.play-button');
+        playButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          const embedCode = playButton.getAttribute('data-embed');
+          const title = playButton.getAttribute('data-title');
+          const helpContent = playButton.getAttribute('data-help');
+
+          modalTitle.textContent = title;
+          modalGame.innerHTML = embedCode;
+          helpText.innerHTML = helpContent;
+
+          // Hiển thị modal
+          document.getElementById('gameModal').style.display = 'flex';
+        });
+      });
+
+      // Đóng modal khi nhấn vào nút đóng
+      document.querySelector('.close-button').addEventListener('click', () => {
+        document.getElementById('gameModal').style.display = 'none';
+      });
+
+    </script>
+    <script>
+      function searchContent() {
+          const query = document.getElementById('searchInput').value.trim().toLowerCase(); // Lấy nội dung tìm kiếm
+          const items = document.querySelectorAll('.game-card'); // Tìm tất cả các phần tử .game-card
+  
+          // Nếu ô tìm kiếm trống, hiển thị tất cả các thẻ
+          if (query === "") {
+              items.forEach(item => {
+                  item.style.display = 'block'; // Hiển thị tất cả
+              });
+              return; // Dừng hàm ở đây
+          }
+  
+          // Nếu ô tìm kiếm không trống, thực hiện tìm kiếm
+          items.forEach(item => {
+              const title = item.querySelector('.game-info h3').textContent.toLowerCase(); // Lấy tiêu đề của game
+              const description = item.querySelector('.game-info p').textContent.toLowerCase(); // Lấy mô tả của game
+              const searchText = title + " " + description; // Kết hợp tiêu đề và mô tả
+  
+              // Kiểm tra nếu nội dung tìm kiếm có trong tên hoặc mô tả game
+              if (searchText.includes(query)) {
+                  item.style.display = 'block'; // Hiển thị nếu tìm thấy
+              } else {
+                  item.style.display = 'none'; // Ẩn nếu không tìm thấy
+              }
+          });
+  
+          // Cuộn tới phần chứa danh sách (nếu cần thiết)
+          const gridContainer = document.getElementById("grid-container");
+          if (gridContainer) {
+              gridContainer.scrollIntoView({ behavior: "smooth" });
+          }
+      }
+  
+      // Lắng nghe sự kiện khi nhấn Enter trong ô tìm kiếm
+      document.getElementById("searchInput").addEventListener("keydown", function(event) {
+          if (event.key === "Enter") {
+              searchContent();
+          }
+      });
+  </script>
+  
+    
+</body>
+</html>
