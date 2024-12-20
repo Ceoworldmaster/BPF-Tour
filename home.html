@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Du lịch Bình Phước</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,13 +14,112 @@
   <style>
         /* Existing styles */
         /* Banner styles */
-        .banner {
-          max-width: 100%;
-          height: auto;
-          display: block;
-          margin: 0 auto;
-        }
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+      .slider{
+          position: relative;
+          background: #000116;
+          justify-content: center; /* Căn giữa theo chiều ngang */
+          width: 100%;
+          min-height: 500px;
+          overflow: hidden;
+          border-radius: 10px;
+      }
+      .slider .slide{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          clip-path: circle(0% at 0 50%);
+      }
+
+      .slider .slide.active{
+          clip-path: circle(150% at 0 50%);
+          transition: 2s;
+      }
+
+      .slider .slide img{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .navigation{
+          height: 500px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+      }
+
+      .slider:hover .navigation{
+          opacity: 1;
+      }
+
+      .prev-btn, .next-btn{
+          z-index: 10;
+          font-size: 2em;
+          color: #222;
+          background: rgba(255, 255, 255, 0.8);
+          padding: 10px;
+          cursor: pointer;
+      }
+
+      .prev-btn{
+          border-top-right-radius: 3px;
+          border-bottom-right-radius: 3px;
+      }
+
+      .next-btn{
+          border-top-left-radius: 3px;
+          border-bottom-left-radius: 3px;
+      }
+
+      .navigation-visibility{
+          z-index: 10;
+          display: flex;
+          justify-content: center;
+      }
+
+      .navigation-visibility .slide-icon{
+          z-index: 9;
+          background: rgba(255, 255, 255, 0.5);
+          width: 20px;
+          height: 10px;
+          transform: translateY(-50px);
+          margin: 0 6px;
+          border-radius: 2px;
+          box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+      }
+
+      .navigation-visibility .slide-icon.active{
+          background: #4285F4;
+      }
+
+      @media (max-width: 900px){
+          .slider{
+              width: 100%;
+          }
+
+          .slider .slide .info{
+              position: relative;
+              width: 80%;
+              margin-left: auto;
+              margin-right: auto;
+          }
+      }
+
+      @media (max-width: 500px){
+          .slider .slide .info h2{
+              font-size: 1.8em;
+              line-height: 40px;
+          }
+
+          .slider .slide .info p{
+              font-size: 0.9em;
+          }
+      }
         /* Section containing text and map */
         .content-map {
           display: flex;
@@ -34,6 +134,10 @@
           flex: 1; /* Chiếm không gian còn lại */
           min-width: 300px; /* Chiều rộng tối thiểu cho nội dung văn bản */
         }
+        .text-content h3{
+          margin-top: -50px;
+        }
+
 
         .map-container {
           flex: 1; /* Chiếm không gian còn lại */
@@ -41,34 +145,44 @@
         }
 
         .map-container iframe {
+          margin-top: 10%; 
           width: 100%; /* Đảm bảo iframe phản hồi */
           height: 300px; /* Chiều cao cố định cho bản đồ */
         }
-
-        /* Audio player styles */
-        .audio-player {
-          margin: 20px auto; /* Tạo khoảng cách trên và dưới và căn giữa */
-          text-align: center; /* Căn giữa phần tử âm thanh */
-        }
-
-        /* Responsive styles */
-        @media (max-width: 1023px) {
+        @media (max-width: 425px){
           .content-map {
               flex-direction: column; /* Sắp xếp theo cột trên màn hình nhỏ */
           }
-        }
-
-        @media (min-width: 1024px) {
-          .banner {
-              max-width: 80%;
+          .banner{
+            margin-top: -20px;
+          }
+          .text-content h2{
+            margin-top: -15px;
           }
         }
-
-        @media (min-width: 1200px) {
-          .banner {
-              max-width: 100%;
-         }
+        @media (min-width: 426px) and (max-width: 768px){
+          .content-map {
+              flex-direction: column; /* Sắp xếp theo cột trên màn hình nhỏ */
+          }
+          .banner{
+            margin-top: -45px;
+          }
         }
+        @media (min-width: 769px) and (max-width: 1023px) {
+          .content-map {
+              flex-direction: column; /* Sắp xếp theo cột trên màn hình nhỏ */
+          }
+          .banner{
+            margin-top: -80px;
+          }
+        }
+        /* Responsive styles */
+        @media (min-width: 1024px) {
+          .banner{
+            margin-top: -100px;
+          }
+        }
+        
         
         body {
             font-family: Arial, sans-serif;
@@ -114,7 +228,7 @@
             <ul class="submenu">
                 <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
                 <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
-                <li><a href="cttour.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
             </ul>
         </li>
         <li>
@@ -127,26 +241,50 @@
   </nav>
 </head>
 <body>
-  <header>
-    <h1>Du lịch Bình Phước</h1>
-  </header>
-
-  <img src="https://imgur.com/vfgK1Ya.gif" alt="Banner" class="banner">
-
-  <div class="audio-player">
-    <audio controls>
-      <source src="your-audio-file.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+  <div class="slider">
+    <div class="slide active">
+      <img src="https://imgur.com/eUYFzIE.gif" alt="">
+    </div>
+    <div class="slide">
+      <img src="https://imgur.com/83L8yHm.gif" alt="">
+    </div>
+    <div class="slide">
+      <img src="https://imgur.com/6IcaLON.gif" alt="">
+    </div>
+    <div class="slide">
+      <img src="https://imgur.com/NXPpMVE.gif" alt="">
+    </div>
+    <div class="slide">
+      <img src="https://imgur.com/eIwA3wv.gif" alt="">
+    </div>
+    <div class="slide">
+        <img src="https://imgur.com/pZulntJ.gif" alt="">
+      </div>
+    <div class="slide">
+        <img src="https://imgur.com/6jcQTvY.gif" alt="">
+    </div>
+    <div class="navigation">
+      <i class="fas fa-chevron-left prev-btn"></i>
+      <i class="fas fa-chevron-right next-btn"></i>
+    </div>
+    <div class="navigation-visibility">
+      <div class="slide-icon active"></div>
+      <div class="slide-icon"></div>
+      <div class="slide-icon"></div>
+      <div class="slide-icon"></div>
+      <div class="slide-icon"></div>
+      <div class="slide-icon"></div>
+      <div class="slide-icon"></div>
+      <div class="slide-icon"></div>
+      <div class="slide-icon"></div>
+    </div>
   </div>
-
+  <h1 style="margin-top: 20px;">Thông tin</h1>
   <section class="content-map">
     <div class="text-content">
-      <h2>Khám Phá Bình Phước</h2>
-      <p>Bình Phước là tỉnh miền núi thuộc vùng Đông Nam Bộ, gồm 1 thành phố, 3 thị xã và 7 huyện, với diện tích tự nhiên 6 873,55 km² và dân số 1 034,667 người (năm 2022). Bình Phước nằm trong vùng kinh tế trọng điểm phía Nam và tiếp giáp khu vực Tây Nguyên, là khu vực có nhiều nét truyền thống văn hóa độc đáo, đồng thời có đường biên giới với Campuchia. Bình Phước nằm trên tuyến đường Hồ Chí Minh, Quốc lộ 13, tuyến đường huyết mạch kết nối khu vực Tây Nguyên với đồng bằng sông Cửu Long, nối các tuyến, điểm du lịch với các thị trường, các điểm đến du lịch nổi bật như Đà Lạt, TP Hồ Chí Minh, cũng như khu vực Đông Nam Á,...Bình Phước có nhiều di tích lịch sử, văn hoá, có nhiều chùa với kiến trúc độc đáo. Bên cạnh đó có những làng nghề truyền thống còn lưu giữ đến ngày nay và nhiều lễ hội đặc sắc. Đó chính là những di sản văn hóa vật thể và phi vật thể quý báu tạo nên nét riêng có của mảnh đất và con người Bình Phước.Bình Phước có hệ sinh thái rừng nguyên sinh, hệ thống thác, hồ nước, có nhiều loại trái cây đặc sản thơm ngon gắn liền với các trang trại, hợp tác xã nông nghiệp, các vườn quốc gia, rừng phòng hộ và tỉnh có nguồn lợi thủy sản, động vật, thực vật phong phú, tạo nên sự đa dạng trong văn hóa ẩm thực của bà con nơi đây với các món ăn nổi tiếng gần xa. Cùng đến Bình Phước để trải nghiệm những hành trình thú vị!</p>
+      <p>Bình Phước là tỉnh miền núi thuộc vùng Đông Nam Bộ, gồm 1 thành phố, 3 thị xã và 7 huyện, với diện tích tự nhiên 6 873,55 km² và dân số 1 034,667 người (năm 2022). Bình Phước nằm trong vùng kinh tế trọng điểm phía Nam và tiếp giáp khu vực Tây Nguyên, là khu vực có nhiều nét truyền thống văn hóa độc đáo, đồng thời có đường biên giới với Campuchia. Bình Phước nằm trên tuyến đường Hồ Chí Minh, Quốc lộ 13, tuyến đường huyết mạch kết nối khu vực Tây Nguyên với đồng bằng sông Cửu Long, nối các tuyến, điểm du lịch với các thị trường, các điểm đến du lịch nổi bật như Đà Lạt, TP Hồ Chí Minh, cũng như khu vực Đông Nam Á,... Bình Phước có nhiều di tích lịch sử, văn hoá, có nhiều chùa với kiến trúc độc đáo. Bên cạnh đó có những làng nghề truyền thống còn lưu giữ đến ngày nay và nhiều lễ hội đặc sắc. Đó chính là những di sản văn hóa vật thể và phi vật thể quý báu tạo nên nét riêng có của mảnh đất và con người Bình Phước.Bình Phước có hệ sinh thái rừng nguyên sinh, hệ thống thác, hồ nước, có nhiều loại trái cây đặc sản thơm ngon gắn liền với các trang trại, hợp tác xã nông nghiệp, các vườn quốc gia, rừng phòng hộ và tỉnh có nguồn lợi thủy sản, động vật, thực vật phong phú, tạo nên sự đa dạng trong văn hóa ẩm thực của bà con nơi đây với các món ăn nổi tiếng gần xa. Cùng đến Bình Phước để trải nghiệm những hành trình thú vị!</p>
     </div>
     <div class="map-container">
-      <h2>Bản Đồ Bình Phước</h2>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d999812.3323651778!2d106.25980617716718!3d11.799025082474063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173682fdb7d221f%3A0x94c01b0e72f84211!2zQsOsbmggUGjGsOG7m2MsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1724038235390!5m2!1svi!2s"
         width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -168,7 +306,9 @@
     </div>
 
     <!-- Nút hiển thị chatbot -->
-    <button class="show-chat-btn" onclick="toggleChat()">💬</button>
+    <button class="show-chat-btn" onclick="toggleChat()">
+                <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+            </button>
 
     <footer>
       <div class="content">
@@ -224,12 +364,97 @@
           <div id="visitCount">Lượt truy cập: 0</div>
       </div>
       <div class="bottom-details">
-          <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
-      </div>
+            <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+            <div class="links">
+                <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="faq.html">FAQ</a></span>
+            </div>
+        </div>
   </footer>
  <!-- Nút scroll-to-top -->
     <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
     <script src="webscip.js"></script>
     <script src="chatscrip.js"> </script>
+    <script type="text/javascript">
+      const slider = document.querySelector(".slider");
+      const nextBtn = document.querySelector(".next-btn");
+      const prevBtn = document.querySelector(".prev-btn");
+      const slides = document.querySelectorAll(".slide");
+      const slideIcons = document.querySelectorAll(".slide-icon");
+      const numberOfSlides = slides.length;
+      var slideNumber = 0;
+  
+      //image slider next button
+      nextBtn.addEventListener("click", () => {
+        slides.forEach((slide) => {
+          slide.classList.remove("active");
+        });
+        slideIcons.forEach((slideIcon) => {
+          slideIcon.classList.remove("active");
+        });
+  
+        slideNumber++;
+  
+        if(slideNumber > (numberOfSlides - 1)){
+          slideNumber = 0;
+        }
+  
+        slides[slideNumber].classList.add("active");
+        slideIcons[slideNumber].classList.add("active");
+      });
+  
+      //image slider previous button
+      prevBtn.addEventListener("click", () => {
+        slides.forEach((slide) => {
+          slide.classList.remove("active");
+        });
+        slideIcons.forEach((slideIcon) => {
+          slideIcon.classList.remove("active");
+        });
+  
+        slideNumber--;
+  
+        if(slideNumber < 0){
+          slideNumber = numberOfSlides - 1;
+        }
+  
+        slides[slideNumber].classList.add("active");
+        slideIcons[slideNumber].classList.add("active");
+      });
+  
+      //image slider autoplay
+      var playSlider;
+  
+      var repeater = () => {
+        playSlider = setInterval(function(){
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+  
+          slideNumber++;
+  
+          if(slideNumber > (numberOfSlides - 1)){
+            slideNumber = 0;
+          }
+  
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        }, 4000);
+      }
+      repeater();
+  
+      //stop the image slider autoplay on mouseover
+      slider.addEventListener("mouseover", () => {
+        clearInterval(playSlider);
+      });
+  
+      //start the image slider autoplay again on mouseout
+      slider.addEventListener("mouseout", () => {
+        repeater();
+      });
+    </script>
 </body>
 </html>
