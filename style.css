@@ -7,9 +7,22 @@ header {
     margin-top: -0.625rem; /* -10px */
 }
 h1 {
-    text-align: center;
-    margin: 15px 0;
-    font-size: 20px;
+    margin-top: -20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem; /* Tăng kích thước chữ tiêu đề */
+    color: #fff;
+    background-color: #007bff; /* Màu nền */
+    padding: 15px 30px; /* Đệm bên trong */
+    border-radius: 10px; /* Góc bo tròn */
+    border: 2px solid #0056b3; /* Viền ngoài */
+    text-align: center; /* Căn giữa văn bản */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển màu nền và tăng kích thước */
+}
+h1:hover {
+    background-color: #0056b3; /* Thay đổi màu nền khi hover */
+    color: #ffeb3b; /* Thay đổi màu chữ */
+    transform: scale(1.05); /* Tăng kích thước nhẹ */
 }
 /*Chân trang*/
 * {
@@ -381,23 +394,56 @@ button {
 }
 
 .send-button {
-    background-color: #01a309;
-    border-radius: 50%;
+    background-color: #01a309; /* Màu nền */
+    border-radius: 50%; /* Bo tròn */
     width: 2.5rem; /* 40px */
     height: 2.5rem; /* 40px */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 0.5rem; /* 8px */
-    border: none;
-    cursor: pointer;
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ chuột */
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); /* Bóng đổ */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Hiệu ứng chuyển động */
+    position: relative; /* Để sử dụng cho hiệu ứng sóng */
+}
+
+.send-button:hover {
+    background-color: #028a0e; /* Màu nền khi hover */
+    transform: scale(1.1); /* Tăng kích thước khi hover */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3); /* Tăng bóng đổ khi hover */
 }
 
 .send-button::before {
-    content: '➥';
-    font-size: 1.875rem; /* 30px */
+    content: '➥'; /* Biểu tượng gửi */
+    font-size: 1.5rem; /* Kích thước biểu tượng */
+    color: white; /* Màu biểu tượng */
+    transition: transform 0.2s ease; /* Hiệu ứng chuyển động cho biểu tượng */
 }
 
+.send-button:hover::before {
+    transform: scale(1.2); /* Tăng kích thước biểu tượng khi hover */
+}
+
+.send-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%; /* Kích thước sóng */
+    height: 300%; /* Kích thước sóng */
+    background: rgba(1, 163, 9, 0.5); /* Màu nền sóng */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Đặt vị trí chính xác và ẩn */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Thời gian chuyển động */
+    opacity: 0; /* Ẩn sóng */
+}
+
+.send-button:active::after {
+    transform: translate(-50%, -50%) scale(1); /* Phóng to sóng khi nhấn */
+    opacity: 1; /* Hiện sóng */
+}
 .input-container {
     display: flex;
     align-items: center;
@@ -424,29 +470,39 @@ button.clear-history:hover {
 
 .show-chat-btn {
     position: fixed;
-    bottom: 1.25rem; /* 20px */
-    right: 1.25rem; /* 20px */
+    bottom: 1.25rem; 
+    right: 1.25rem; 
     background-color: #ffcc00;
     color: white;
-    border: none;
+    border: 2px solid #e6b800;
     border-radius: 50%;
-    width: 3.75rem; /* 60px */
-    height: 3.75rem; /* 60px */
+    width: 3.75rem; 
+    height: 3.75rem; 
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 1000;
-    font-size: 1.5rem; /* 24px */
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2); /* 10px */
-    overflow: hidden; /* Đảm bảo không có phần thừa của hình ảnh */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2); 
+    overflow: hidden; 
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Thêm hiệu ứng cho bóng đổ */
 }
 
-.show-chat-btn img {
-    width: 100%;  /* Đảm bảo hình ảnh chiếm toàn bộ nút */
-    height: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ nút */
-    object-fit: contain; /* Giữ tỉ lệ gốc của hình ảnh */
-    pointer-events: none; /* Vô hiệu hóa sự kiện chuột trên hình ảnh */
+.show-chat-btn:hover {
+    background: linear-gradient(135deg, #e6b800, #ffcc00); /* Gradient khi hover */
+    transform: scale(1.1); 
+    box-shadow: 0 0.625rem 0.625rem rgba(0, 0, 0, 0.3); /* Tăng bóng đổ khi hover */
+}
+
+.show-chat-btn .chat-icon {
+    width: 95%; 
+    height: 95%; 
+    object-fit: contain; 
+    transition: transform 0.2s ease; 
+}
+
+.show-chat-btn:hover .chat-icon {
+    transform: scale(1.2) rotate(15deg); /* Tăng kích thước và xoay hình ảnh khi hover */
 }
 
 
@@ -503,6 +559,9 @@ button.clear-history:hover {
     font-size: 1.875rem; /* 30px */
 }
 
+body {
+    padding-top: 5rem;
+}
 ul {
     list-style-type: none;
     padding: 0;
@@ -687,6 +746,44 @@ nav #main-menu .submenu li.active > a {
     }
 }
 
-body {
-    padding-top: 5rem;
+/*cookie*/
+/* Cookie banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cookie-banner p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.cookie-banner .btn {
+    background-color: white;
+    color: #007bff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cookie-banner .btn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.hidden {
+    display: none;
 }
