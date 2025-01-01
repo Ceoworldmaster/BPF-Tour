@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Du lịch Bình Phước</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du lịch Bình Phước</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
         /* Grid container styling */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Mặc định 2 ô 1 hàng cho điện thoại */
-            gap: 10px;
+            grid-template-columns: repeat(2, 1fr); /* Mặc định 2 ô 1 hàng */
+            gap: 15px;
             margin: 20px;
         }
 
         .grid-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
             text-align: center;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            transition: box-shadow 0.3s ease-in-out;
-            overflow: hidden; /* Đảm bảo không có phần của ảnh bị tràn ra ngoài */
-            border-color: blue;
-        }
-
-        .grid-item img {
-            width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của khung */
-            height: 170px; /* Chiều cao cố định */
-            object-fit: cover; /* Giữ tỷ lệ khung hình và cắt ảnh nếu cần */
-            border-radius: 5px; /* Làm cho ảnh có góc bo tròn giống như khung */
-        }
-
-        .grid-item h3 {
-            margin-top: 10px;
-            font-size: 16px;
-            color: #333;
+            padding: 15px;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 10px;
+            background: linear-gradient(145deg, #f9f9f9, #e9e9e9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
         }
 
         .grid-item:hover {
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Màu hồng phát sáng */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Bóng đổ sắc nét hơn */
+            transform: scale(1.08) rotate(1deg); /* Phóng to và xoay nhẹ */
+            background: linear-gradient(145deg, #e9f7ff, #d1eaff); /* Hiệu ứng gradient tinh tế */
         }
+
+        .grid-item img {
+            width: 100%;
+            height: 180px; /* Cố định chiều cao */
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgb(0, 0, 0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.05); /* Phóng to ảnh nhẹ */
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4); /* Bóng xanh lam */
+            border-color: #007bff; /* Đổi màu viền */
+        }
+
+        .grid-item h3 {
+            margin: 15px 0 0; /* Tạo khoảng cách giữa ảnh và tiêu đề */
+            font-size: 16px;
+            color: #000000;
+        }
+
+        .grid-item:hover h3 {
+            color: #000264; /* Đổi màu chữ khi hover */
+            transform: translateY(-5px); /* Chữ nổi lên nhẹ */
+        }
+
 
         /* Media query cho màn hình lớn hơn 600px (tablet) */
-        @media (min-width: 600px) {
-            .grid-container {
-                grid-template-columns: repeat(4, 1fr); /* 4 ô 1 hàng cho tablet */
-            }
-        }
-
-        /* Media query cho màn hình lớn hơn 900px */
-        @media (min-width: 900px) {
-            .grid-container {
-                grid-template-columns: repeat(3, 1fr); /* 3 ô 1 hàng cho màn hình có chiều ngang 900px */
-            }
-        }
-        @media (min-width: 1035px) {
-            .grid-container {
-                grid-template-columns: repeat(4, 1fr); /* 3 ô 1 hàng cho màn hình có chiều ngang 900px */
-            }
-        }
-        /* Media query cho màn hình lớn hơn 1200px */
-        @media (min-width: 1200px) {
-            .grid-container {
-                grid-template-columns: repeat(5, 1fr); /* 5 ô 1 hàng cho màn hình lớn hơn 1200px */
-            }
-        }
         /* info box styling */
         .info-box {
             display: flex;
@@ -111,7 +114,7 @@
             padding: 10px;
             border-radius: 5px;
             color: white;
-            background-color: #c21919;
+            background-color: #a80606;
         }
 
         .info-box .content p {
@@ -141,9 +144,246 @@
             z-index: 459;
             display: none;
         }
-        @media (max-width: 800px) {
+        
+        .hero{
+            width: 100%;
+            height: auto;
+            background: url(https://imgur.com/ccWCttt.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 20px;
+            margin-top: -10px;
+        }
+
+        .hero h2 {
+            font-family: 'Bungee';
+            font-size: 100px;
+            margin-bottom: 10px;
+            color: #ffffff; /* Màu chữ chính */
+            animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
+        }
+
+        /* Hiệu ứng nhảy */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Hiệu ứng đổi màu viền */
+        @keyframes strokeColorChange {
+            0% {
+                text-shadow: 
+                    -3px -3px 0 #ff0000,  
+                    3px -3px 0 #ff0000,
+                    -3px 3px 0 #ff0000,
+                    3px 3px 0 #ff0000; /* Màu viền đỏ */
+            }
+            25% {
+                text-shadow: 
+                    -3px -3px 0 #ffcc00,  
+                    3px -3px 0 #ffcc00,
+                    -3px 3px 0 #ffcc00,
+                    3px 3px 0 #ffcc00; /* Màu viền vàng */
+            }
+            50% {
+                text-shadow: 
+                    -3px -3px 0 #00ff00,  
+                    3px -3px 0 #00ff00,
+                    -3px 3px 0 #00ff00,
+                    3px 3px 0 #00ff00; /* Màu viền xanh lá */
+            }
+            75% {
+                text-shadow: 
+                    -3px -3px 0 #00ccff,  
+                    3px -3px 0 #00ccff,
+                    -3px 3px 0 #00ccff,
+                    3px 3px 0 #00ccff; /* Màu viền xanh dương */
+            }
+            100% {
+                text-shadow: 
+                    -3px -3px 0 #ff0000,  
+                    3px -3px 0 #ff0000,
+                    -3px 3px 0 #ff0000,
+                    3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
+            }
+        }
+        .hero p{
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 20px;
+        }
+        .search-box {
+            max-width: 550px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #02d413, #7ffe7b); /* Gradient background */
+            border-radius: 30px; /* Bo góc lớn hơn */
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+            padding: 5px; /* Padding cho thanh tìm kiếm */
+            transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+        }
+
+        .search-box:hover {
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+        }
+
+        .search-box input {
+            width: 70%;
+            padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
+            outline: none;
+            border: 1px solid transparent; /* Viền trong suốt */
+            border-radius: 30px; /* Bo góc input */
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+            background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
+        }
+
+        .search-box input:focus {
+            border-color: #198000; /* Đổi màu viền khi focus */
+            box-shadow: 0 0 5px rgba(43, 255, 0, 0.5); /* Bóng khi focus */
+            background-color: #ffffff; /* Nền trắng khi focus */
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px; /* Bo góc cho nút */
+            font-size: 1rem;
+            background-color: #00a716; /* Màu nền nút */
+            color: white; /* Màu chữ trắng */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+        }
+
+        .search-box button i {
+            font-size: 1.2rem; /* Kích thước icon */
+        }
+
+        .search-box button:hover {
+            background-color: #015505; /* Màu nền khi hover */
+            transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+        }
+
+        .search-box button:active {
+            transform: translateY(0) scale(1); /* Hiệu ứng khi click */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
+        }
+
+        .search-box button:focus {
+            outline: none; /* Bỏ viền mặc định khi focus */
+        }
+
+        .search-box input::placeholder {
+            color: #888; /* Màu chữ placeholder */
+            opacity: 0.7; /* Độ trong suốt cho placeholder */
+            transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+        }
+
+        .search-box input:focus::placeholder {
+            opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+        }
+        
+        @media (min-width: 501px) and (max-width: 650px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /*3 ô 1 hàng cho tablet */
+            }
+            .grid-item:hover {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Bóng đổ sắc nét hơn */
+                transform: scale(1.08); /* Phóng to và xoay nhẹ */
+                background: linear-gradient(145deg, #e9f7ff, #d1eaff); /* Hiệu ứng gradient tinh tế */
+            }
+        }
+        @media (min-width: 651px) and (max-width: 1034px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 ô 1 hàng cho tablet */
+            }
+            .grid-item:hover {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Bóng đổ sắc nét hơn */
+                transform: scale(1.08); /* Phóng to và xoay nhẹ */
+                background: linear-gradient(145deg, #e9f7ff, #d1eaff); /* Hiệu ứng gradient tinh tế */
+            }
+        }
+
+
+        /* Media query cho màn hình lớn hơn 900px */
+        @media (min-width: 1035px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 ô 1 hàng cho màn hình có chiều ngang 900px */
+            }
+        }
+        /* Media query cho màn hình lớn hơn 1200px */
+        @media (min-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(5, 1fr); /* 5 ô 1 hàng cho màn hình lớn hơn 1200px */
+            }
+        }
+        @media (max-width: 500px) {
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr; /* 1 ô mỗi hàng trên điện thoại */
+                gap: 10px;
+                margin: 20px;
+            }
+
+            .grid-item {
+                display: flex; /* Sử dụng Flexbox */
+                flex-direction: row; /* Ảnh và chữ nằm ngang */
+                align-items: center; /* Căn giữa theo chiều dọc */
+                padding: 10px;
+                border: 2px solid blue;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                transition: box-shadow 0.3s ease-in-out;
+                overflow: hidden; /* Đảm bảo không có phần bị tràn */
+            }
+
+            .grid-item img {
+                width: 180px; /* Chiều rộng cố định cho ảnh */
+                height: 100px; /* Chiều cao cố định */
+                object-fit: cover; /* Giữ tỷ lệ khung hình và cắt ảnh nếu cần */
+                border-radius: 5px;
+                border: 1px #000;
+                margin-right: 10px; /* Khoảng cách giữa ảnh và chữ */
+                transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt */
+            }
+
+            .grid-item img:hover {
+                transform: scale(1.05); /* Phóng to ảnh khi hover */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm đổ bóng */
+                border: 2px solid #007bff; /* Viền màu xanh khi hover */
+            }
+
+            .grid-item h3 {
+                margin: 0; /* Loại bỏ margin mặc định */
+                font-size: 16px;
+                color: #333;
+                text-align: center; /* Canh giữa chữ theo chiều ngang */
+                flex: 1; /* Để chữ chiếm hết không gian còn lại */
+            }
+
+            .grid-item:hover {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Bóng đổ sắc nét hơn */
+                transform: scale(1.08) rotate(1deg); /* Phóng to và xoay nhẹ */
+                background: linear-gradient(145deg, #e9f7ff, #d1eaff); /* Hiệu ứng gradient tinh tế */
+            }
             .info-box {
-                display: flex;
+                display: none;
                 flex-direction: column;
                 width: 90%; /* Đảm bảo chiều rộng của box đầy đủ */
                 height: 85%;
@@ -167,7 +407,7 @@
             }
 
             .info-box .content h2 {
-                font-size: 1.5em; /* Điều chỉnh kích thước chữ cho tiêu đề */
+                font-size: 15px; /* Điều chỉnh kích thước chữ cho tiêu đề */
             }
 
             .info-box .content p {
@@ -176,21 +416,25 @@
             }
             .info-box .map-frame {
                 width: 100%;
-                height: 35%;
+                height: 20%;
+            }
+            .hero h2 {
+                font-size: 60px;
             }
         }
-
     </style>
   <div id="toggle">
     <i class="fas fa-bars"></i>
   </div>
-    <nav> <!--Thanh điều hướng-->
+  <nav> <!--Thanh điều hướng-->
+        <div id="logo">BPF TOUR</div>
         <ul id="main-menu">
             <li>
-                <a href="index.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
                 <ul class="submenu">
                     <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
                     <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
                 </ul>
             </li>
             
@@ -199,7 +443,9 @@
                 <ul class="submenu">
                     <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
                     <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
                     <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
                 </ul>
             </li>
             <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
@@ -217,7 +463,7 @@
                 <ul class="submenu">
                     <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
                     <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
-                    <li><a href="cttour.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
                 </ul>
             </li>
             <li>
@@ -230,16 +476,77 @@
     </nav>
 </head>
 <body>
-    <header>
-        <h1>Du lịch sinh thái</h1>
-      </header>
+    <section class="hero">
+        <div class="hero-section">
+            <h2>ĐỊA ĐIỂM DU LỊCH</h2>
+            <p>Hãy tìm kiếm các địa điểm du lịch Bình Phước!</p>
+            <form action="#" class="search-box" onsubmit="return false;">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây...">
+                <button onclick="searchContent()">
+                    <i class="fas fa-search"></i> <!-- Kính lúp từ Font Awesome -->
+                </button>
+            </form>
+        </div>
+    </section>
+    <h1 style="margin-top: 10px;">Du lịch sinh thái</h1>
     <main>
         <div class="grid-container">
-            <div class="grid-item" onclick="showinfoBox('info Item 1', 'ABC', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
-                <img src="https://via.placeholder.com/150" alt="info Image">
-                <h3>info Item 1</h3>
+            <div class="grid-item" onclick="showinfoBox('Vườn quốc gia Cát Tiên', 'Vườn quốc gia Cát Tiên thuộc Xã Đăng Hà, H. Bù Đăng, tỉnh Bình Phước, Vườn được mệnh danh là “ngôi nhà của muôn thú” với 96 loài thú, 94 loài bò sát, 903 côn trùng. Hiện vườn có hơn 20 cá thể voi sinh sống. Nguồn:https://baobinhphuoc.com.vn/news/9/144089/kham-pha-thien-nhien-hoang-da-vuon-quoc-gia-cat-tien', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/1A2zwxG.png" alt="Uploaded Image">
+                <h3>Vườn quốc gia Cát Tiên</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Núi Bà Rá – Thác M', 'Núi Bà Rá  thuộc P. Sơn Giang, TX. Phước Long, tỉnh Bình Phước. Với độ cao 732m, núi Bà Rá được xem là ngọn núi cao thứ 3 ở Nam Bộ. Đồng bào S’Tiêng gọi ngọn núi này với cái tên đầy thành kính “Bơnom Brah”, có nghĩa là “ngọn núi Thần” .Nguồn:https://binhphuoc.gov.vn/vi/news/van-hoa-van-nghe-the-thao/di-tich-nui-ba-ra-thac-mo-21393.html ', 'https://youtu.be/bKw_739jQTs', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/UlE5mHq.png" alt="Uploaded Image">
+                <h3>Núi Bà Rá – Thác Mơ</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Thác Đứng', 'Di tích Thác Đứng tọa lạc tại 02 xã: Đoàn Kết và Minh Hưng, huyện Bù Đăng, tỉnh Bình Phước. Thác Đứng còn có một tên gọi khác theo cách gọi của người S’tiêng - là N’Hai Lien Por. Theo tiếng S’tiêng thì -N’Hai- có nghĩa là chiều cao, -Lien- có nghĩa là đá và -Por- có nghĩa là máng nước. N’Hai Lien Por có thể hiểu theo nghĩa là máng nước chảy từ ghềnh đá ở trên cao xuống.', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/sgKixNL.png" alt="Uploaded Image">
+                <h3>Thác Đứng</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Thác Đăk Mai ', 'Thác Đắk Mai thuộc xã Bù Gia Mập, huyện Bù Gia Mập, Bình Phước', 'https://youtu.be/9bZL35rf2II', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/9bfenXK.png" alt="Uploaded Image">
+                <h3>Thác Đăk Mai </h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Thác Voi (Thác Liêng Rót)', 'Di tích Thác Voi tại xã Đồng Nai, huyện Bù Đăng, tỉnh Bình Phước. Thác Voi có chiều rộng phía mặt thác 10m và độ cao 20m tính từ mặt trên của Thác đến đáy của dòng nước đổ. Thác Liêng Rót không có hồ nước, nước chảy từ trên Thác xuống dội vào các tảng đá lớn và chảy qua các khe lớn giữa các tảng đá. Nguồn: https://baotangbinhphuoc.org.vn/di-tich-cap-tinh-thac-voi-thac-lieng-rot/', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/LPuBiSO.png" alt="Uploaded Image">
+                <h3>Thác Voi (Thác Liêng Rót)</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Vườn quốc gia Bù Gia Mập', 'Vườn quốc gia Bù Gia Mập thuộc  xã Bù Gia Mập, huyện Bù Gia Mập. Vườn quốc gia Bù Gia Mập có tổng diện tích là 25.601,18 ha, trong đó đó diện tích rừng tự nhiên là 25.505 ha, rừng gỗ lá rộng là 5.918 ha (4.134 ha rừng giàu, 1.310 ha rừng trung bình, 169 ha rừng nghèo, 304,8 rừng phục hồi, rừng hỗn giao 17.851 ha, và rừng tre nứa, lồ ô 1.776,5 ha). Đây là nơi lý tưởng phục vụ cho công tác nghiên cứu khoa học nhằm bảo tồn nguồn gene quý hiếm của các loài động, thực vật. Nguồn:http://vuonquocgiabugiamap.vn/vi/news/Gioi-thieu/Gioi-thieu-ve-Vuon-quoc-gia-Bu-Gia-Map-274/ ', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/RUxVFfT.png" alt="Uploaded Image">
+                <h3>Vườn quốc gia Bù Gia Mập</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Trảng cỏ Bù Lạch', 'Cách trung tâm huyện Bù Đăng, tỉnh Bình Phước hơn 20km, ở xã Đồng Nai có một trảng cỏ xanh rờn đến mênh mông được bao bọc giữa những cánh rừng nguyên sinh bạt ngàn, như cách biệt với thế giới bên ngoài. Nguồn:https://dangcongsan.vn/the-thao/trang-co-bu-lach-166836.html ', 'https://youtu.be/_fD1rfE4_wA', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/Cd8lOjf.png" alt="Uploaded Image">
+                <h3>Trảng cỏ Bù Lạch</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Hồ Suối Giai', 'Hồ Suối Giai với diện tích mặt nước khoảng 420 ha, hồ Suối Giai trải rộng trên địa bàn 2 xã Tân Lập, Tân Tiến và thị trấn Tân Phú, huyện Đồng Phú với chiều dài khoảng hơn 15km. Với nguồn nước dồi dào, trong xanh, lại nằm ở vị trí trung tâm của huyện, cùng với hệ thống giao thông kết nối liên vùng, được đầu tư đồng bộ về cơ sở hạ tầng, điện, nhà quản lý vận hành, hơn 40 năm qua, hồ gắn bó với người dân nơi đây, là nơi cung cấp nước sạch, nước sinh hoạt và nước cho sản xuất nông nghiệp với diện tích hàng ngàn héc ta của huyện Đồng Phú và một phần huyện Phú Giáo, tỉnh Bình Dương.', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/127JnCI.png" alt="Uploaded Image">
+                <h3>Hồ Suối Giai</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Rừng cao su Bù Đăng', 'Rừng cao su ở Bù Đăng nổi tiếng trồng nhiều cao su nhất của tỉnh Bình Phước, với những hàng cao su bạt ngàn.  Vào khoảng thời gian cuối tháng 1 cho đến đầu tháng 4 là những cánh rừng phương Nam sẽ rực lên một màu đỏ. Đó chính là mùa của những cánh rừng cao su đang đồng loạt thay lá trong đó có những cánh rừng cao su tại Bình Phước.Nguồn:https://dulichviet.com.vn/tin-tuc/ngat-ngay-truoc-ve-dep-cua-nhung-rung-cao-su-o-viet-nam', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/qPTivmA.png" alt="Uploaded Image">
+                <h3>Rừng cao su Bù Đăng</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Khu du lịch Đảo Yến', 'Khu du lịch Đảo Yến có diện tích hơn 10ha, trong đó có 3ha ốc đảo nằm giữa hồ đập Bà Mụ với mặt nước tự nhiên rộng mênh mông đến 110ha.', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/vP1mykJ.png" alt="Uploaded Image">
+                <h3>Khu du lịch Đảo Yến</h3>
+            </div>
+
+            <div class="grid-item" onclick="showinfoBox('Khu du lịch Đảo Yến', 'Nông trại Phú Gia tọa lạc tại xã Tân Hiệp, huyện Hớn Quản, tỉnh Bình Phước, diện tích hơn 450ha. Với lợi thế nằm cặp theo hồ Dầu Tiếng và mảng xanh lớn bao phủ giúp làm dịu đi cái nắng nóng của khí hậu nơi đây và tạo nên không khí mát mẻ, trong lành, thích hợp nghỉ dưỡng.', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+                <img src="https://imgur.com/mquuNQq.png" alt="Uploaded Image">
+                <h3>Nông trại Phú Gia</h3>
             </div>
         </div>
+
     </main>
     <!-- Overlay background -->
     <div class="overlay" onclick="hideinfoBox()"></div>
@@ -254,14 +561,14 @@
                 <h2 id="infoBoxTitle">Delicious info Item</h2>
                 <p id="infoBoxDescription">This is a description of the info item.</p>
                 <!-- Iframe for the map, positioned below the description -->
-                    <iframe id="infoBoxMap" class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus" allowfullscreen loading="lazy"></iframe>
+                    <iframe id="infoBoxMap" class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus" allowfullscreen></iframe>
             </div>
         </div>
     </div>
   <!-- Chatbot container -->
   <div class="chat-container" id="chatContainer">
     <div id="chatHeader">
-        AI Tìm kiếm - Du lịch Bình Phước
+        BPAI 1.0 - Bình Phước Fantastic Tour
     </div>
     <div id="chatbox">
         <!-- Tin nhắn sẽ xuất hiện ở đây -->
@@ -274,24 +581,78 @@
     </div>
 
     <!-- Nút hiển thị chatbot -->
-    <button class="show-chat-btn" onclick="toggleChat()">💬</button>
+    <button class="show-chat-btn" onclick="toggleChat()">
+        <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+    </button>
 
-  <footer>
-        <div class="footer-content">
-            <div class="footer-box">
-                <p>Email: contact@example.com</p>
-                <p>Phone: +123 456 789</p>
-                <p>Nguồn thông tin: binhphuoc.gov.vn</p>
-                <p>Bình Phước Online</p>
-                <p>Scan QR Code:</p>
-                <img src="path/to/qr-code.png" alt="QR Code">
-                <p>&copy; 2024 Bình Phước Online. All rights reserved.</p> <!-- Câu bản quyền -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn. Bạn có đồng ý không?</p>
+        <button id="accept-cookie" class="btn">Đồng ý</button>
+        <button id="decline-cookie" class="btn">Không đồng ý</button>
+      </div>
+
+    <footer>
+        <div class="content">
+            <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name" style="font-size: 30px;">BPF Tour</span>
+                <i style="font-family: 'Pacifico';">  &nbsp;&nbsp;&nbsp;&nbsp; Nơi cảm xúc chạm đến trái tim</i>
             </div>
-            <div class="weather-widget">
-                <iframe src="https://thoitiet.app/binh-phuoc" width="500" height="250" frameborder="0"></iframe>
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <span class="link_name">Danh Mục</span>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    
+
+                </div>
+                <div class="box">
+                    <span class="link_name">Danh mục</span>
+                    <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    
+                </div>
+                <div class="box">
+                    <span class="link_name">Đặc biệt</span>
+                    <li><a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                    <li><a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </div>
+                <div class="box input-box">
+                    <span class="link_name">Theo dõi</span>
+                    <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
+                    <li><input id="subscribeBtn" type="button" value="Subscribe"></li>
+                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
+                </div>
+            </div>
+            <div id="visitCount">Lượt truy cập: 0</div>
+        </div>
+        <div class="bottom-details">
+            <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+            <div class="links">
+                <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="TOU.html">Terms of use</a></span>
+                <span><a href="faq.html">FAQ</a></span>
             </div>
         </div>
-  </footer>
+    </footer>
 
  <!-- Nút scroll-to-top -->
     <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
@@ -316,5 +677,67 @@
     </script>
     <script src="webscip.js"></script>
     <script src="chatscrip.js"> </script>
+    <script>
+        // Hàm tính khoảng cách Levenshtein
+        function levenshtein(a, b) {
+            const tmp = [];
+            for (let i = 0; i <= a.length; i++) {
+                tmp[i] = [i];
+            }
+            for (let j = 0; j <= b.length; j++) {
+                tmp[0][j] = j;
+            }
+            for (let i = 1; i <= a.length; i++) {
+                for (let j = 1; j <= b.length; j++) {
+                    tmp[i][j] = Math.min(
+                        tmp[i - 1][j] + 1, // deletion
+                        tmp[i][j - 1] + 1, // insertion
+                        tmp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1) // substitution
+                    );
+                }
+            }
+            return tmp[a.length][b.length];
+        }
+    
+        // Hàm tìm kiếm
+        function searchContent() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase(); // Lấy nội dung tìm kiếm
+            const items = document.querySelectorAll('.grid-item'); // Tìm tất cả các phần tử .grid-item
+    
+            // Nếu ô tìm kiếm trống, hiển thị tất cả các thẻ
+            if (query === "") {
+                items.forEach(item => {
+                    item.style.display = 'block'; // Hiển thị tất cả
+                });
+                return; // Dừng hàm ở đây
+            }
+    
+            // Nếu ô tìm kiếm không trống, thực hiện tìm kiếm
+            items.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase(); // Lấy tiêu đề của thẻ
+                const titleDistance = levenshtein(query, title); // Tính khoảng cách Levenshtein
+    
+                // Kiểm tra khoảng cách Levenshtein
+                if (titleDistance <= 10) { // Ngưỡng để xác định sự tương đồng
+                    item.style.display = 'block'; // Hiển thị nếu tương đồng
+                } else {
+                    item.style.display = 'none'; // Ẩn nếu không tương đồng
+                }
+            });
+    
+            // Cuộn tới phần chứa danh sách (nếu cần thiết)
+            const gridContainer = document.getElementById("grid-container");
+            if (gridContainer) {
+                gridContainer.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    
+        // Lắng nghe sự kiện khi nhấn Enter trong ô tìm kiếm
+        document.getElementById("searchInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                searchContent();
+            }
+        });
+    </script>
 </body>
 </html>
