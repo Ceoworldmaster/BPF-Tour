@@ -24,26 +24,32 @@ const music_list = [
     {
         img : 'images/stay.png',
         name : 'Tiếng chày trên Sóc Bom Bo',
-        artist : 'Xuân Hồng',
+        artist : 'Sáng tác: Xuân Hồng',
         music : 'music/stay.mp3'
     },
     {
-        img : 'images/fallingdown.jpg',
-        name : 'Falling Down',
-        artist : 'Wid Cards',
-        music : 'music/fallingdown.mp3'
+        img : 'https://imgur.com/EgcuH2k.jpg',
+        name : 'Bình Phước - Một Khúc Ca Xanh',
+        artist : 'Sáng tác: Quỳnh Hợp - Biểu diễn:  ',
+        music : 'bp_kcx.mp3'
     },
     {
-        img : 'images/faded.png',
-        name : 'Faded',
-        artist : 'Alan Walker',
-        music : 'music/Faded.mp3'
+        img : 'https://imgur.com/gZvYIk4.png',
+        name : 'Tự hào Bình Phước của ta',
+        artist : 'Nhạc sĩ: Thắng Liêm, Nguyễn Thái Hiệp',
+        music : 'tu_hao_bp_cua_ta.mp3'
     },
     {
         img : 'images/ratherbe.jpg',
-        name : 'Rather Be',
-        artist : 'Clean Bandit',
-        music : 'music/Rather Be.mp3'
+        name : 'Nhớ về Bình Phước',
+        artist : 'Sáng tác: Đoàn Đăng Đức',
+        music : 'nho_ve_bp.mp3'
+    },
+    {
+        img : 'https://imgur.com/7Ra6xWQ.jpg',
+        name : 'Hành khúc chiến sĩ biên phòng Bình Phước',
+        artist : 'Sáng tác: Y Phôn Kso',
+        music : 'hk_chien_si_bp.mp3'
     }
 ];
 
