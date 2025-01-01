@@ -305,12 +305,20 @@
     }
 </style>
 <style>
+    .content-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Khoảng cách giữa các thẻ */
+        justify-content: space-between; /* Căn đều các thẻ */
+    }
+
     .content-card {
         display: flex;
         flex-direction: column;
         gap: 20px;
         margin-top: 10px;
         margin-bottom: 10px;
+        width: 48%; /* Đảm bảo mỗi thẻ chiếm 48% chiều rộng của container */
     }
 
     .content-card .layout-1,
@@ -320,73 +328,81 @@
         align-items: center;
         justify-content: space-between;
         gap: 20px;
-        border: 1px solid #000000;
-        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
         padding: 20px;
-        transition: transform 0.3s, box-shadow 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+        background-color: #f9f9f9;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
 
     .content-card .layout-1:hover,
     .content-card .layout-2:hover {
-        transform: translateY(-5px); /* Di chuyển lên một chút khi hover */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Tăng độ đổ bóng khi hover */
+        transform: translateY(-8px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
 
     .content-card .media {
-        flex: 1;
-        max-width: 300px;
+        width: 100%;
+        margin-bottom: 15px;
     }
 
-    .content-card .media img,
-    .content-card .media video {
-        width: 100%;
+    .content-card .media iframe {
         border-radius: 10px;
         object-fit: cover;
     }
 
     .content-card .text-content {
-        flex: 2;
-        text-align: center; /* Tiêu đề ở chính giữa */
-    }
-    .content-card .text-content h3 {
-        font-size: 1.5em;
-        font-weight: 600px;
-        margin-top: -10px;
-        margin-bottom: 10px;
-        padding: 10px 15px;
-        border-radius: 5px;
+        width: 100%;
         text-align: center;
-        display: inline-block;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        font-family: Arial;
-        transition: color 0.3s, transform 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+        margin-top: 0;
+    }
+
+    .content-card .text-content h3 {
+        font-size: 1.6em;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding: 12px 18px;
+        border-radius: 6px;
+        text-align: center;
+        background-color: #007BFF;
+        color: white;
+        transition: color 0.3s ease, transform 0.3s ease;
     }
 
     .content-card .text-content h3:hover {
-        color: #007BFF; /* Thay đổi màu chữ khi hover */
-        transform: scale(1.05); /* Phóng to một chút khi hover */
+        color: #fff;
+        transform: scale(1.1);
     }
+
     .content-card .text-content p {
-        font-size: 1em;
-        line-height: 1.6;
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: #555555;
     }
 
-    @media (max-width: 900px) {
-        .content-card .layout-1,
-        .content-card .layout-2 {
-            flex-direction: column; /* Đổi bố cục thành dọc */
-            align-items: center;
+    /* Điều chỉnh cho máy tính */
+    @media (min-width: 900px) { /* Khi màn hình có chiều rộng từ 900px trở lên */
+        .content-card-container {
+            justify-content: space-between; /* Căn đều các thẻ */
         }
 
-        .content-card .media {
-            max-width: 100%; /* Để ảnh/video chiếm toàn bộ chiều rộng */
-        }
-
-        .content-card .text-content {
-            text-align: center; /* Tiêu đề và nội dung ở chính giữa */
-            margin-top: 10px;
+        .content-card {
+            width: 48%; /* Mỗi thẻ chiếm 48% chiều rộng của container */
         }
     }
+
+    /* Điều chỉnh cho điện thoại */
+    @media (max-width: 600px) { /* Khi màn hình có chiều rộng nhỏ hơn 600px */
+        .content-card-container {
+            flex-direction: column; /* Các thẻ sẽ sắp xếp theo dạng cột */
+        }
+
+        .content-card {
+            width: 100%; /* Mỗi thẻ chiếm toàn bộ chiều rộng */
+        }
+    }
+
 
 </style>
 <body>
@@ -410,8 +426,9 @@
                 <ul class="submenu">
                     <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
                     <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
-                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
                     <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
                 </ul>
             </li>
             <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
@@ -503,34 +520,68 @@
           <div class="slide-icon"></div>
         </div>
     </div>
-    <div class="content-card">
-        <!-- Bố cục 1: Hình ảnh/Video bên trái, chữ bên phải -->
-        <div class="layout-1">
-            <div class="media">
-                <img src="https://via.placeholder.com/300x200" alt="Hình ảnh minh họa" />
-            <!-- Hoặc thay bằng video -->
-            <!-- <video src="video.mp4" controls></video> -->
-            </div>
-            <div class="text-content">
-                <h3 style="color: #ffffff;border: 3px soild #4285F4; background-color: #4285F4;">VĂN HÓA S'TIÊNG</h3>
-                <p>Đây là nội dung mô tả của thẻ, bạn có thể chỉnh sửa để phù hợp với mục đích của mình.</p>
+    <div class="content-card-container">
+        <div class="content-card">
+            <div class="layout-1">
+                <div class="media">
+                    <iframe width="100%" height="300px" src="https://www.youtube.com/embed/mVgVlJ431Ag?si=pml3Wba0j4xvx2mO"></iframe>
+                </div>
+                <div class="text-content">
+                    <h3 style="color: #ffffff;border: 3px soild darkred; background-color: red">Ngôn ngữ: thuộc ngữ hệ Môn-Khmer Đông Nam Á</h3>
+                    <p>Ngôn ngữ: thuộc ngữ hệ Môn-Khmer Đông Nam Á của đồng bào S'Tieng tại Bình Phước.</br> Nguồn video: VTV5</p>
+                </div>
             </div>
         </div>
-      
-        <!-- Bố cục 2: Chữ bên trái, Hình ảnh/Video bên phải -->
-        <div class="layout-2">
-            <div class="text-content">
-                <h3>Tiêu đề của thẻ</h3>
-                <p>Đây là nội dung mô tả của thẻ, bạn có thể chỉnh sửa để phù hợp với mục đích của mình.</p>
+
+        <div class="content-card">
+            <div class="layout-1">
+                <div class="media">
+                    <iframe width="100%" height="300px" src="https://www.youtube.com/embed/DWkXfWBuYHY?si=JfGiyx_-BbeW_9DJ"></iframe>
+                </div>
+                <div class="text-content">
+                    <h3 style="color: #ffffff;border: 3px soild #f47442; background-color: #f47442;">Bài hát: Ru Con</h3>
+                    <p>Bài hát: Run con Dân ca S’tiêng  Ký âm Vũ Hồng Thịnh, Bùi Lẫm.</br> Nguồn: Lê Văn Công</p>
+                </div>
             </div>
-            <div class="media">
-                <img src="https://via.placeholder.com/300x200" alt="Hình ảnh minh họa" />
-            <!-- Hoặc thay bằng video -->
-            <!-- <video src="video.mp4" controls></video> -->
+        </div>
+
+        <div class="content-card">
+            <div class="layout-1">
+                <div class="media">
+                    <iframe width="100%" height="300px" src="https://www.youtube.com/embed/ZjbP5ylixBw?si=qOtHWswJD0A-5BSG"></iframe>
+                </div>
+                <div class="text-content">
+                    <h3 style="color: #ffffff;border: 3px soild #f4e242; background-color: #f4e242;">Bài Hát: Hát Ca Cho Đất Nước</h3>
+                    <p>Bài Hát: Hát Ca Cho Đất Nước cảu dân tộc'S’Tiêng.</br> Nguồn: Lê Văn Công</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="layout-1">
+                <div class="media">
+                    <iframe width="100%" height="300px" src="https://www.youtube.com/embed/af0eRm29eOE?si=G5v4FOWshMM7dRwx"></iframe>
+                </div>
+                <div class="text-content">
+                    <h3 style="color: #ffffff;border: 3px soild #42f442; background-color: #42f442;">Bài hát:Chị Ru Em Ngủ</h3>
+                    <p>Bài hát: Chị Ru Em Ngủ của dân tộcS’Tiêng. </br> Nguồn: Lê Văn Công</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="layout-1">
+                <div class="media">
+                    <iframe width="100%" height="300px" src="https://www.youtube.com/embed/kJxJNTjMzN4?si=0raAifZpDM49EJaI"></iframe>
+                </div>
+                <div class="text-content">
+                    <h3 style="color: #ffffff;border: 3px soild #4295f4; background-color: #4295f4;">Bài Hát: Lời Mẹ Ru Con</h3>
+                    <p>Bài Hát: Lời Mẹ Ru Con của dân tộc S’Tiêng. </br> Nguồn: Lê Văn Công</p>
+                </div>
             </div>
         </div>
     </div>
-      
+    
     <body>
         <div class="chat-container" id="chatContainer">
             <div id="chatHeader">
@@ -566,10 +617,10 @@
             <div class="link-boxes">
                 <div class="box">
                     <span class="link_name">Danh Mục</span>
-                    <li><a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a></li>
                     <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
                     <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
                     <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
                     <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
                     <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
                     <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
@@ -606,6 +657,7 @@
             <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
             <div class="links">
                 <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="TOU.html">Terms of use</a></span>
                 <span><a href="faq.html">FAQ</a></span>
             </div>
         </div>
