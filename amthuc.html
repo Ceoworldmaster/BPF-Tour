@@ -171,6 +171,7 @@
         .recipes {
             padding: 50px 0;
             background-color: #f2f2f2; /* Nền sáng hơn cho phần recipes */
+            overflow: auto; /* Thêm thanh cuộn khi cần thiết */
         }
 
         .recipes h3 {
@@ -203,12 +204,15 @@
         }
 
         .recipes .recipe-card {
+            display: flex;
+            flex-direction: column; /* Đảm bảo các phần tử bên trong xếp theo cột */
             background: #fff;
             border-radius: 10px;
             border: 1px solid #ccc;
             overflow: hidden; 
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển động */
+            min-height: 350px; /* Đảm bảo thẻ có chiều cao tối thiểu */
         }
 
         .recipes .recipe-card:hover {
@@ -232,6 +236,7 @@
             font-size: 14px; /* Kích thước chữ mô tả */
             padding: 0 20px 20px; /* Giảm padding trên */
             color: #666; /* Màu chữ mô tả */
+            flex-grow: 1; /* Đảm bảo phần mô tả chiếm không gian còn lại */
         }
 
         .recipes .recipe-card a {
@@ -266,7 +271,8 @@
                 font-size: 15px;
             }
         }
-    </style>
+
+</style>
 <body>
     <section class="hero">
         <div class="hero-section">
@@ -357,12 +363,13 @@
                 <ul class="submenu">
                     <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
                     <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
-                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
                     <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
                 </ul>
             </li>
             <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
-            <li class="active"><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
             <li>
                 <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
                 <ul class="submenu">
@@ -466,8 +473,9 @@
         </div>
         <div class="bottom-details">
             <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
-            <div class="links">
+             <div class="links">
                 <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="TOU.html">Terms of use</a></span>
                 <span><a href="faq.html">FAQ</a></span>
             </div>
         </div>
@@ -544,7 +552,5 @@
         });
 
     </script>
-    
-    
 </body>
 </html>
