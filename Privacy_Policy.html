@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chính Sách Bảo Mật</title>
+    <title>Du lịch Bình Phước</title>
     <link rel="icon" href="logo.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -13,168 +12,357 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome CDN -->
-    <style>
-        .privacy {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #e9ecef, #f4f4f4);
-            color: #333;
-        }
-        .privacy .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 30px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .privacy .container:hover {
-            transform: scale(1.02);
-        }
-        .privacy h1 {
-            color: #fff;
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: linear-gradient(to right, #2980b9, #6dd5ed);
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        .privacy h2 {
-            color: #2980b9;
-            margin-top: 20px;
-            border-bottom: 2px solid #2980b9;
-            padding-bottom: 5px;
-        }
-        .privacy p {
-            margin: 10px 0;
-            text-align: justify;
-        }
-        .privacy ul {
-            margin: 10px 0 10px 20px;
-        }
-        .privacy li {
-            margin: 5px 0;
-            position: relative;
-            padding-left: 25px;
-            transition: color 0.3s;
-        }
-        .privacy li::before {
-            content: '✔';
-            color: #2980b9;
-            position: absolute;
-            left: 0;
-        }
-        .privacy li:hover {
-            color: #2980b9;
-            font-weight: bold;
-        }
-        @media (max-width: 600px) {
-            .privacy .container {
-                margin: 10px;
-                padding: 15px;
-            }
-        }
-    </style>
+
 </head>
-<nav> <!--Thanh điều hướng-->
-    <div id="logo">BPF TOUR</div>
-    <ul id="main-menu">
-        <li>
-            <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
-            <ul class="submenu">
-                <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
-                <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
-                <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
-            </ul>
-        </li>
-        
-        <li>
-            <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
-            <ul class="submenu">
-                <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
-                <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
-                <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
-                <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
-            </ul>
-        </li>
-        <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
-        <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
-        <li>
-            <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
-            <ul class="submenu">
-                <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
-                <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
-                <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
-            <ul class="submenu">
-                <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
-                <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
-                <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
-        </li>
-        <li>
-            <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
-        </li>
-    </ul>
-</nav>
+<style>
+    .hero{
+        width: 100%;
+        height: auto;
+        background: url(https://imgur.com/ctzx6M9.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        text-align: center;
+        padding: 100px 0;
+        margin-bottom: 20px;
+        margin-top: -10px;
+    }
+
+    .hero h2 {
+        font-family: 'Bungee';
+        font-size: 50px;
+        margin-bottom: 10px;
+        color: #ffffff; /* Màu chữ chính */
+        animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
+    }
+
+    /* Hiệu ứng nhảy */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    /* Hiệu ứng đổi màu viền */
+    @keyframes strokeColorChange {
+        0% {
+            text-shadow: 
+                -3px -3px 0 #ff0000,  
+                3px -3px 0 #ff0000,
+                -3px 3px 0 #ff0000,
+                3px 3px 0 #ff0000; /* Màu viền đỏ */
+        }
+        25% {
+            text-shadow: 
+                -3px -3px 0 #ffcc00,  
+                3px -3px 0 #ffcc00,
+                -3px 3px 0 #ffcc00,
+                3px 3px 0 #ffcc00; /* Màu viền vàng */
+        }
+        50% {
+            text-shadow: 
+                -3px -3px 0 #00ff00,  
+                3px -3px 0 #00ff00,
+                -3px 3px 0 #00ff00,
+                3px 3px 0 #00ff00; /* Màu viền xanh lá */
+        }
+        75% {
+            text-shadow: 
+                -3px -3px 0 #00ccff,  
+                3px -3px 0 #00ccff,
+                -3px 3px 0 #00ccff,
+                3px 3px 0 #00ccff; /* Màu viền xanh dương */
+        }
+        100% {
+            text-shadow: 
+                -3px -3px 0 #ff0000,  
+                3px -3px 0 #ff0000,
+                -3px 3px 0 #ff0000,
+                3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
+        }
+    }
+    .hero p{
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 20px;
+    }
+    .search-box {
+        max-width: 550px;
+        margin: 15px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+        border-radius: 30px; /* Bo góc lớn hơn */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+        padding: 5px; /* Padding cho thanh tìm kiếm */
+        transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+    }
+
+    .search-box:hover {
+        box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+    }
+
+    .search-box input {
+        width: 70%;
+        padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
+        outline: none;
+        border: 1px solid transparent; /* Viền trong suốt */
+        border-radius: 30px; /* Bo góc input */
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+        background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
+    }
+
+    .search-box input:focus {
+        border-color: #ff0000; /* Đổi màu viền khi focus */
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Bóng khi focus */
+        background-color: #ffffff; /* Nền trắng khi focus */
+    }
+
+    .search-box button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px; /* Bo góc cho nút */
+        font-size: 1rem;
+        background-color: #ff0000; /* Màu nền nút */
+        color: white; /* Màu chữ trắng */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+    }
+
+    .search-box button i {
+        font-size: 1.2rem; /* Kích thước icon */
+    }
+
+    .search-box button:hover {
+        background-color: #960000; /* Màu nền khi hover */
+        transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+    }
+
+    .search-box button:active {
+        transform: translateY(0) scale(1); /* Hiệu ứng khi click */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
+    }
+
+    .search-box button:focus {
+        outline: none; /* Bỏ viền mặc định khi focus */
+    }
+
+    .search-box input::placeholder {
+        color: #888; /* Màu chữ placeholder */
+        opacity: 0.7; /* Độ trong suốt cho placeholder */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+    }
+
+    .search-box input:focus::placeholder {
+        opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+    }
+</style>
+<style>
+    .privacy {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #e9ecef, #f4f4f4);
+        color: #333;
+        z-index: 10;
+    }
+    .privacy .container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+    .privacy .container:hover {
+        transform: scale(1.02);
+    }
+    .privacy h1 {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 15px;
+        background: linear-gradient(to right, #2980b9, #6dd5ed);
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .privacy h2 {
+        color: #2980b9;
+        margin-top: 20px;
+        border-bottom: 2px solid #2980b9;
+        padding-bottom: 5px;
+    }
+    .privacy p {
+        margin: 10px 0;
+        text-align: justify;
+    }
+    .privacy ul {
+        margin: 10px 0 10px 20px;
+    }
+    .privacy li {
+        margin: 5px 0;
+        position: relative;
+        padding-left: 25px;
+        transition: color 0.3s;
+    }
+    .privacy li::before {
+        content: '✔';
+        color: #2980b9;
+        position: absolute;
+        left: 0;
+    }
+    .privacy li:hover {
+        color: #2980b9;
+        font-weight: bold;
+    }
+
+</style>
 <body>
-    <div class="privacy">
-        <div class="container">
-            <h1>Chính Sách Bảo Mật</h1>
-            <p>Ngày có hiệu lực: [Ngày]</p>
-    
-            <h2>1. Giới thiệu</h2>
-            <p>Chúng tôi cam kết bảo vệ quyền riêng tư của bạn. Chính sách này giải thích cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn khi bạn truy cập trang web của chúng tôi.</p>
-    
-            <h2>2. Thông tin chúng tôi thu thập</h2>
-            <p>Chúng tôi có thể thu thập thông tin cá nhân của bạn khi bạn truy cập trang web của chúng tôi, bao gồm nhưng không giới hạn ở:</p>
-            <ul>
-                <li>Tên</li>
-                <li>Địa chỉ email</li>
-                <li>Số điện thoại</li>
-                <li>Thông tin liên hệ khác</li>
-            </ul>
-            <p>Chúng tôi thu thập thông tin khi bạn đăng ký tài khoản, điền biểu mẫu hoặc truy cập trang web.</p>
-    
-            <h2>3. Cách chúng tôi sử dụng thông tin</h2>
-            <p>Chúng tôi sử dụng thông tin cá nhân của bạn cho các mục đích sau:</p>
-            <ul>
-                <li>Cung cấp và duy trì dịch vụ của chúng tôi.</li>
-                <li>Thông báo cho bạn về thay đổi đối với dịch vụ của chúng tôi.</li>
-                <li>Cho phép bạn tham gia vào các tính năng tương tác của dịch vụ khi bạn chọn làm như vậy</.li>
-                <li>Cung cấp hỗ trợ khách hàng.</li>
-                <li>Phân tích và cải thiện dịch vụ của chúng tôi.</li>
-            </ul>
-    
-            <h2>4. Chia sẻ thông tin</h2>
-            <p>Chúng tôi không chia sẻ thông tin cá nhân của bạn với bất kỳ bên thứ ba nào, trừ khi:</p>
-            <ul>
-                <li>Được yêu cầu bởi pháp luật.</li>
-                <li>Bạn đồng ý trước.</li>
-            </ul>
-    
-            <h2>5. Quyền của người dùng</h2>
-            <p>Bạn có quyền:</p>
-            <ul>
-                <li>Truy cập, chỉnh sửa hoặc xóa thông tin cá nhân.</li>
-                <li>Từ chối nhận email tiếp thị</li>
-            </ul>
-            <p>Hãy liên hệ với chúng tôi qua email để thực hiện quyền này!</p>
-    
-            <h2></h2>
-    </div>
-    
+    <div id="toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav> <!--Thanh điều hướng-->
+        <div id="logo">BPF TOUR</div>
+        <ul id="main-menu">
+            <li>
+                <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <ul class="submenu">
+                    <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+                <ul class="submenu">
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                </ul>
+            </li>
+            <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li>
+                <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+                <ul class="submenu">
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+                <ul class="submenu">
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+            </li>
+            <li>
+                <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+    </head>
+    <body>
+        <div class="privacy">
+            <div class="container">
+                <h1>Chính Sách Bảo Mật</h1>
+                <p>Ngày có hiệu lực: [Ngày]</p>
+        
+                <h2>1. Giới thiệu</h2>
+                <p>Chúng tôi cam kết bảo vệ quyền riêng tư của bạn. Chính sách này giải thích cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn khi bạn truy cập trang web của chúng tôi.</p>
+        
+                <h2>2. Thông tin chúng tôi thu thập</h2>
+                <p>Chúng tôi có thể thu thập thông tin cá nhân của bạn khi bạn truy cập trang web của chúng tôi, bao gồm nhưng không giới hạn ở:</p>
+                <ul>
+                    <li>Tên</li>
+                    <li>Địa chỉ email</li>
+                    <li>Số điện thoại</li>
+                    <li>Thông tin liên hệ khác</li>
+                </ul>
+                <p>Chúng tôi thu thập thông tin khi bạn đăng ký tài khoản, điền biểu mẫu hoặc truy cập trang web.</p>
+        
+                <h2>3. Cách chúng tôi sử dụng thông tin</h2>
+                <p>Chúng tôi sử dụng thông tin cá nhân của bạn cho các mục đích sau:</p>
+                <ul>
+                    <li>Cung cấp và duy trì dịch vụ của chúng tôi.</li>
+                    <li>Thông báo cho bạn về thay đổi đối với dịch vụ của chúng tôi.</li>
+                    <li>Cho phép bạn tham gia vào các tính năng tương tác của dịch vụ khi bạn chọn làm như vậy</.li>
+                    <li>Cung cấp hỗ trợ khách hàng.</li>
+                    <li>Phân tích và cải thiện dịch vụ của chúng tôi.</li>
+                </ul>
+        
+                <h2>4. Chia sẻ thông tin</h2>
+                <p>Chúng tôi không chia sẻ thông tin cá nhân của bạn với bất kỳ bên thứ ba nào, trừ khi:</p>
+                <ul>
+                    <li>Được yêu cầu bởi pháp luật.</li>
+                    <li>Bạn đồng ý trước.</li>
+                </ul>
+        
+                <h2>5. Quyền của người dùng</h2>
+                <p>Bạn có quyền:</p>
+                <ul>
+                    <li>Truy cập, chỉnh sửa hoặc xóa thông tin cá nhân.</li>
+                    <li>Từ chối nhận email tiếp thị</li>
+                </ul>
+                <p>Hãy liên hệ với chúng tôi qua email để thực hiện quyền này!</p>
+                <h2>6. Liên hệ</h2>
+                <p>Nếu bạn có bất kỳ câu hỏi nào về chính sách bảo mật này hoặc cách chúng tôi xử lý thông tin cá nhân của bạn, vui lòng liên hệ với chúng tôi qua:</p>
+                <ul>
+                    <li> Địa chỉ email</li>
+                    <li>Số điện thoại</li>
+                    <li>Địa chỉ công ty</li>
+                <h2>7. Quyền Quản Lý Dữ Liệu</h2>
+                <p>Dưới đây là các quyền mà người dùng có thể yêu cầu để quản lý thông tin cá nhân của họ:</p>
+                <ul>
+                    <li> Quyền truy cập: Bạn có quyền yêu cầu sao lưu thông tin cá nhân mà chúng tôi lưu trữ và sử dụng.</li>
+                    <li>Quyền sửa đổi: Bạn có quyền yêu cầu sửa đổi các thông tin không chính xác hoặc không đầy đủ mà chúng tôi lưu trữ.</li>
+                    <li>Quyền hạn chế xử lý: Bạn có thể yêu cầu chúng tôi ngừng sử dụng hoặc hạn chế việc sử dụng thông tin cá nhân của bạn trong một số trường hợp.</li>
+                    <li>Quyền chuyển nhượng dữ liệu: Bạn có thể yêu cầu chúng tôi chuyển giao thông tin cá nhân của bạn cho một tổ chức khác trong các trường hợp hợp lý.</li>
+                </ul>
+
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div id="chatHeader">
+                BPAI 1.0 - Bình Phước Fantastic Tour
+            </div>
+            <div id="chatbox">
+                <!-- Tin nhắn sẽ xuất hiện ở đây -->
+            </div>
+            <div class="input-container">
+                <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+                <button class="send-button" onclick="sendMessage()"></button>
+            </div>
+            <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+            </div>
+            <!-- Nút hiển thị chatbot -->
+            <button class="show-chat-btn" onclick="toggleChat()">
+                <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+            </button>
+            <div id="cookie-banner" class="cookie-banner">
+                <p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn. Bạn có đồng ý không?</p>
+                <button id="accept-cookie" class="btn">Đồng ý</button>
+                <button id="decline-cookie" class="btn">Không đồng ý</button>
+              </div>
     <footer>
         <div class="content">
             <div class="logo-details">
@@ -192,10 +380,10 @@
             <div class="link-boxes">
                 <div class="box">
                     <span class="link_name">Danh Mục</span>
-                    <li><a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a></li>
                     <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
                     <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
                     <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-house"></i>Du lịch tôn giáo</a></li>
                     <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
                     <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
                     <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
@@ -226,13 +414,20 @@
                     <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
                 </div>
             </div>
-            <div id="visitCount">Lượt truy cập cá nhân: 0</div>
+            <div id="visitCount">Lượt truy cập: 0</div>
         </div>
         <div class="bottom-details">
             <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
             <div class="links">
                 <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="Privacy_Policy.html">Terms of use</a></span>
                 <span><a href="faq.html">FAQ</a></span>
             </div>
         </div>
     </footer>
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+    
+</body>
+</html>
