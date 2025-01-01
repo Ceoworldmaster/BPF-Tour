@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du lịch Bình Phước</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="music.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    body{
+        font-weight: bold;
+    }
+    .hero{
+        width: 100%;
+        height: auto;
+        background: url(https://imgur.com/ctzx6M9.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        text-align: center;
+        padding: 100px 0;
+        margin-bottom: 20px;
+        margin-top: -10px;
+    }
+
+    .hero h2 {
+        font-family: 'Bungee';
+        font-size: 50px;
+        margin-bottom: 10px;
+        color: #ffffff; /* Màu chữ chính */
+        animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
+    }
+
+    /* Hiệu ứng nhảy */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    /* Hiệu ứng đổi màu viền */
+    @keyframes strokeColorChange {
+        0% {
+            text-shadow: 
+                -3px -3px 0 #ff0000,  
+                3px -3px 0 #ff0000,
+                -3px 3px 0 #ff0000,
+                3px 3px 0 #ff0000; /* Màu viền đỏ */
+        }
+        25% {
+            text-shadow: 
+                -3px -3px 0 #ffcc00,  
+                3px -3px 0 #ffcc00,
+                -3px 3px 0 #ffcc00,
+                3px 3px 0 #ffcc00; /* Màu viền vàng */
+        }
+        50% {
+            text-shadow: 
+                -3px -3px 0 #00ff00,  
+                3px -3px 0 #00ff00,
+                -3px 3px 0 #00ff00,
+                3px 3px 0 #00ff00; /* Màu viền xanh lá */
+        }
+        75% {
+            text-shadow: 
+                -3px -3px 0 #00ccff,  
+                3px -3px 0 #00ccff,
+                -3px 3px 0 #00ccff,
+                3px 3px 0 #00ccff; /* Màu viền xanh dương */
+        }
+        100% {
+            text-shadow: 
+                -3px -3px 0 #ff0000,  
+                3px -3px 0 #ff0000,
+                -3px 3px 0 #ff0000,
+                3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
+        }
+    }
+    .hero p{
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 20px;
+    }
+    .search-box {
+        max-width: 550px;
+        margin: 15px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+        border-radius: 30px; /* Bo góc lớn hơn */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+        padding: 5px; /* Padding cho thanh tìm kiếm */
+        transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+    }
+
+    .search-box:hover {
+        box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+    }
+
+    .search-box input {
+        width: 70%;
+        padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
+        outline: none;
+        border: 1px solid transparent; /* Viền trong suốt */
+        border-radius: 30px; /* Bo góc input */
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+        background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
+    }
+
+    .search-box input:focus {
+        border-color: #ff0000; /* Đổi màu viền khi focus */
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Bóng khi focus */
+        background-color: #ffffff; /* Nền trắng khi focus */
+    }
+
+    .search-box button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px; /* Bo góc cho nút */
+        font-size: 1rem;
+        background-color: #ff0000; /* Màu nền nút */
+        color: white; /* Màu chữ trắng */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+    }
+
+    .search-box button i {
+        font-size: 1.2rem; /* Kích thước icon */
+    }
+
+    .search-box button:hover {
+        background-color: #960000; /* Màu nền khi hover */
+        transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+    }
+
+    .search-box button:active {
+        transform: translateY(0) scale(1); /* Hiệu ứng khi click */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
+    }
+
+    .search-box button:focus {
+        outline: none; /* Bỏ viền mặc định khi focus */
+    }
+
+    .search-box input::placeholder {
+        color: #888; /* Màu chữ placeholder */
+        opacity: 0.7; /* Độ trong suốt cho placeholder */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+    }
+
+    .search-box input:focus::placeholder {
+        opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+    }
+</style>
+<body>
+    <div id="toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav> <!--Thanh điều hướng-->
+        <div id="logo">BPF TOUR</div>
+        <ul id="main-menu">
+            <li>
+                <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <ul class="submenu">
+                    <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+                <ul class="submenu">
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
+                </ul>
+            </li>
+            <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li>
+                <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+                <ul class="submenu">
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+                <ul class="submenu">
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+            </li>
+            <li>
+                <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+    </head>
+    <body>
+        <div class="player">
+            <div class="wrapper">
+                <div class="details">
+                    <div class="now-playing">PLAYING x OF y</div>
+                    <div class="track-art"></div>
+                    <div class="track-name">Track Name</div>
+                    <div class="track-artist">Track Artist</div>
+                </div>
+     
+                <div class="slider_container">
+                    <div class="current-time">00:00</div>
+                     <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                     <div class="total-duration">00:00</div>
+                </div>
+     
+                <div class="slider_container">
+                    <i class="fa fa-volume-down"></i>
+                     <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                     <i class="fa fa-volume-up"></i>
+                </div>
+     
+                <div class="buttons">
+                    <div class="random-track" onclick="randomTrack()">
+                        <i class="fas fa-random fa-2x" title="random"></i>
+                    </div>
+                    <div class="prev-track" onclick="prevTrack()">
+                         <i class="fa fa-step-backward fa-2x"></i>
+                     </div>
+                     <div class="playpause-track" onclick="playpauseTrack()">
+                         <i class="fa fa-play-circle fa-5x"></i>
+                     </div>
+                     <div class="next-track" onclick="nextTrack()">
+                         <i class="fa fa-step-forward fa-2x"></i>
+                     </div>
+                     <div class="repeat-track" onclick="repeatTrack()">
+                         <i class="fa fa-repeat fa-2x" title="repeat"></i>
+                     </div>
+                </div>
+     
+                 <div id="wave">
+                     <span class="stroke"></span>
+                     <span class="stroke"></span>
+                     <span class="stroke"></span>
+                     <span class="stroke"></span>
+                     <span class="stroke"></span>
+                     <span class="stroke"></span>
+                     <span class="stroke"></span>
+                 </div>  
+            </div>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div id="chatHeader">
+                BPAI 1.0 - Bình Phước Fantastic Tour
+            </div>
+            <div id="chatbox">
+                <!-- Tin nhắn sẽ xuất hiện ở đây -->
+            </div>
+            <div class="input-container">
+                <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+                <button class="send-button" onclick="sendMessage()"></button>
+            </div>
+            <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+            </div>
+            <!-- Nút hiển thị chatbot -->
+            <button class="show-chat-btn" onclick="toggleChat()">
+                <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+            </button>
+    <footer>
+        <div class="content">
+            <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name" style="font-size: 30px;">BPF Tour</span>
+                <i style="font-family: 'Pacifico';">  &nbsp;&nbsp;&nbsp;&nbsp; Nơi cảm xúc chạm đến trái tim</i>
+            </div>
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <span class="link_name">Danh Mục</span>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    
+
+                </div>
+                <div class="box">
+                    <span class="link_name">Danh mục</span>
+                    <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    
+                </div>
+                <div class="box">
+                    <span class="link_name">Đặc biệt</span>
+                    <li><a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                    <li><a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </div>
+                <div class="box input-box">
+                    <span class="link_name">Theo dõi</span>
+                    <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
+                    <li><input id="subscribeBtn" type="button" value="Subscribe"></li>
+                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
+                </div>
+            </div>
+            <div id="visitCount">Lượt truy cập: 0</div>
+        </div>
+        <div class="bottom-details">
+            <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+            <div class="links">
+                <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="TOU.html">Terms of use</a></span>
+                <span><a href="faq.html">FAQ</a></span>
+            </div>
+        </div>
+    </footer>
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+    <script src="music.js"> </script>
+</body>
+</html>
