@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Du Lịch Bình Phước</title>
   <link rel="icon" href="logo.png" type="image/x-icon">
-  <title>Bình Phước Fantastic Tour</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Ga+Maamli&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
@@ -155,7 +155,45 @@
       box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8); /* Hiệu ứng phát sáng */
     }
 
+    .modal {
+        display: flex; /* Ẩn modal mặc định */
+        position: fixed;
+        z-index: 50;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 300px;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .modal button {
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .modal button:hover {
+        transform: scale(1.05); /* Hiệu ứng phóng to */
+    }
     @media (min-width: 1200px) {
       h1 {
           font-size: 3em;
@@ -199,7 +237,7 @@
     /* Kích thước chữ cho màn hình nhỏ */
     @media (max-width: 767px) {
         h1 {
-            font-size: 1.75em;
+            font-size: 1.5em;
         }
         .logo {
           top: 5%; /* Cách lề trên cùng 10px */
@@ -211,12 +249,55 @@
         height: 3em;
       }
       .flags{
-        top: 30%; /* Điều chỉnh vị trí của các nút cờ cách tiêu đề một khoảng */
+        top: 35%; /* Điều chỉnh vị trí của các nút cờ cách tiêu đề một khoảng */
       }
       .infocircle-button{
-        margin-right: 10% ;
+        margin-right:10% ;
+      }
+      .modal{
+        display: flex;
       }
     }
+    .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cookie-banner p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .cookie-banner .btn {
+        background-color: white;
+        color: #007bff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .cookie-banner .btn:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+    .hidden {
+        display: none;
+    }
+
   </style>
 </head>
 <body>
@@ -245,44 +326,105 @@
         <img src="https://imgur.com/9Jm93Po.png" alt="Việt Nam">
       </a>
       <!-- Nút cờ Anh chuyển đến home-en.html -->
-      <a href="home.html" class="flag-button">
+      <a href="home-en.html" class="flag-button">
         <img src="https://imgur.com/ix0zn3x.png" alt="Anh">
       </a>
     </div>
   </div>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+        <h2>Bạn có muốn mở nhạc không?</h2>
+        <button id="yesButton" style="background-color: green;">Có</button>
+        <button id="noButton" style="background-color: red;">Không</button>
+    </div>
+</div>
+<div id="cookie-banner" class="cookie-banner">
+  <p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn. Bạn có đồng ý không?</p>
+  <button id="accept-cookie" class="btn">Đồng ý</button>
+  <button id="decline-cookie" class="btn">Không đồng ý</button>
+</div>
+
   <script>
     const audio = new Audio('intro_music.mp3'); // Link tải trực tiếp
     const soundButton = document.querySelector('.sound-btn');
+    const modal = document.getElementById('modal');
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
     let isPlaying = false;
 
-    // Hiển thị thông báo yêu cầu người dùng mở nhạc
-    if (window.confirm("Bạn có muốn mở nhạc không?")) {
-      // Bắt đầu phát nhạc ngay lập tức nếu người dùng chọn "Có"
-      audio.play().then(() => {
-        isPlaying = true;
-        soundButton.textContent = '🔊'; // Biểu tượng âm thanh đang bật
-      }).catch(error => {
-        console.error("Lỗi khi phát âm thanh:", error);
-      });
-      // Lắng nghe sự kiện 'ended' để phát lại khi nhạc kết thúc
-      audio.addEventListener('ended', () => {
-        audio.play(); // Phát lại bài nhạc
-      });
-      
-      // Gán sự kiện nhấp vào nút âm thanh để bật/tắt nhạc
-      soundButton.addEventListener('click', () => {
+    // Hiển thị modal
+    modal.style.display = 'block';
+
+    // Gán sự kiện cho nút "Có"
+    yesButton.addEventListener('click', () => {
+        audio.play().then(() => {
+            isPlaying = true;
+            soundButton.textContent = '🔊'; // Biểu tượng âm thanh đang bật
+            modal.style.display = 'none'; // Ẩn modal
+        }).catch(error => {
+            console.error("Lỗi khi phát âm thanh:", error);
+        });
+
+        // Lắng nghe sự kiện 'ended' để phát lại khi nhạc kết thúc
+        audio.addEventListener('ended', () => {
+            audio.play(); // Phát lại bài nhạc
+        });
+    });
+
+    // Gán sự kiện cho nút "Không"
+    noButton.addEventListener('click', () => {
+        modal.style.display = 'none'; // Ẩn modal
+    });
+
+    // Gán sự kiện nhấp vào nút âm thanh để bật/tắt nhạc
+    soundButton.addEventListener('click', () => {
         if (isPlaying) {
-          audio.play();
-          soundButton.textContent = '🔊'; // Biểu tượng âm thanh tắt
+            audio.pause();
+            soundButton.textContent = '🔈'; // Biểu tượng âm thanh tắt
         } else {
-          audio.pause();
-          soundButton.textContent = '🔈'; // Biểu tượng âm thanh đang bật
+            audio.play();
+            soundButton.textContent = '🔊'; // Biểu tượng âm thanh đang bật
         }
         isPlaying = !isPlaying;
-      });
-    }
+    });
 
   </script>
-  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cookieBanner = document.getElementById("cookie-banner");
+        const acceptButton = document.getElementById("accept-cookie");
+        const declineButton = document.getElementById("decline-cookie");
+
+        // Kiểm tra nếu cookie đã được chấp nhận
+        if (localStorage.getItem("cookieConsent") === "accepted") {
+            cookieBanner.classList.add("hidden");
+        }
+
+        // Người dùng đồng ý
+        acceptButton.addEventListener("click", function () {
+            localStorage.setItem("cookieConsent", "accepted");
+            cookieBanner.classList.add("hidden");
+        });
+
+        // Người dùng không đồng ý
+        declineButton.addEventListener("click", function () {
+            cookieBanner.classList.add("hidden");
+        });
+    });
+
+  </script>
+
+  <script>
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+        alert('Nội dung được bảo vệ.');
+    });
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'u') {
+            event.preventDefault();
+            alert('Nội dung được bảo vệ.');
+        }
+    });
+  </script>
 </body>
 </html>
