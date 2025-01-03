@@ -22,35 +22,83 @@ let updateTimer;
 
 const music_list = [
     {
-        img : 'images/stay.png',
+        img : 'https://imgur.com/kczSaVY.png',
         name : 'Tiếng chày trên Sóc Bom Bo',
-        artist : 'Sáng tác: Xuân Hồng',
-        music : 'music/stay.mp3'
+        artist : 'Sáng tác: Xuân Hồng - Biểu diễn: Thanh Hằng' ,
+        music : 'tiengcaytrensbb.mp3'
     },
     {
         img : 'https://imgur.com/EgcuH2k.jpg',
         name : 'Bình Phước - Một Khúc Ca Xanh',
-        artist : 'Sáng tác: Quỳnh Hợp - Biểu diễn:  ',
+        artist : 'Sáng tác: Võ Đông Điền - Biểu diễn: Ngọc Kiều Oanh',
         music : 'bp_kcx.mp3'
     },
     {
         img : 'https://imgur.com/gZvYIk4.png',
         name : 'Tự hào Bình Phước của ta',
-        artist : 'Nhạc sĩ: Thắng Liêm, Nguyễn Thái Hiệp',
+        artist : 'Sáng tác: Thắng Liêm, Nguyễn Thái Hiệp - Trình bày: Tốp ca',
         music : 'tu_hao_bp_cua_ta.mp3'
-    },
-    {
-        img : 'images/ratherbe.jpg',
-        name : 'Nhớ về Bình Phước',
-        artist : 'Sáng tác: Đoàn Đăng Đức',
-        music : 'nho_ve_bp.mp3'
     },
     {
         img : 'https://imgur.com/7Ra6xWQ.jpg',
         name : 'Hành khúc chiến sĩ biên phòng Bình Phước',
-        artist : 'Sáng tác: Y Phôn Kso',
+        artist : 'Sáng tác: Nguyễn Hữu Tịnh - Biểu diễn: Tốp ca',
         music : 'hk_chien_si_bp.mp3'
-    }
+    },
+    {
+        img : 'https://imgur.com/BTqdEwg.jpg',
+        name : 'Về với Bù Đăng',
+        artist : 'Sáng tác: Ns Xuân Thùy - Biểu diễn: Trang Dung',
+        music : 've_voi_bd.mp3'
+    },
+    {
+        img : 'https://imgur.com/MENb4zS.jpg',
+        name : 'Đồng Xoài thành phố tôi yêu',
+        artist : 'Sáng tác: Y Phôn Kso - Biểu diễn: Minh Hiền',
+        music : 'dongxoaithanhphotoiyeu.mp3'
+    },
+    {
+        img : 'https://imgur.com/Dmr6ayB.jpg',
+        name : 'Về Chơn Thành hôm nay',
+        artist : 'Sáng tác:Thiên Tuế - Trình bày:Hoàng Nghiệp & Tốp ca',
+        music : 'vechonthanhhomnay.mp3'
+    },
+    {
+        img : 'https://imgur.com/IhiU1Hj.jpg',
+        name : 'Tự hào Chơn Thành',
+        artist : 'Sáng tác: Nhựt Phương - Trình bày: Ca sĩ Nguyễn Phi Hùng, Đam San, Lê Thu Uyên, Leon Anh Tuấn',
+        music : 'tuhaochonthanh.mp3'
+    },
+    {
+        img : 'https://imgur.com/Jp4a2Kk.jpg',
+        name : 'Khúc hát ân tình trên hương Bình Phước',
+        artist : 'Sáng tác: Dương Thiên Lý - Trình bày: Thanh Huyền',
+        music : 'khucantinh.mp3'
+    },
+    
+    {
+        img : 'https://imgur.com/Zzltq4g.jpg',
+        name : 'Bình Phước lời ca yêu thương',
+        artist : 'Sáng tác: Nguyễn An Đệ - Trình bày: Xuân Thư',
+        music : 'bploica.mp3'
+    },
+    
+    {
+        img : 'https://imgur.com/dSaRtKG.jpg',
+        name : 'Hát về Bình Phước quê ta',
+        artist : 'Sáng tác: Ns Nguyễn Hòa - Hòa âm: Ns Hữu Thái - Trình bày: Nhóm Phù Sa',
+        music : 'hatvebinhphuocqueta.mp3'
+    },
+    
+    {
+        img : 'https://imgur.com/J1MoWBx.jpg',
+        name : 'Xôn xao chiều Bù Đăng',
+        artist : 'Sáng tác: Võ Đông Điền - Trình bày: Đào Ngọc Sang',
+        music : 'xonxaochieubudang.mp3'
+    },
+    
+
+    
 ];
 
 loadTrack(track_index);
