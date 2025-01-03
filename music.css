@@ -206,7 +206,7 @@ animation-delay: 0.3s;
 @media (max-width: 600px) {
     .wrapper {
         padding: 20px;
-        width:85%;
+        width: 85%;
     }
 
     .track-art {
@@ -224,13 +224,24 @@ animation-delay: 0.3s;
 
     .track-artist {
         font-size: 1.2rem;
+        text-align: center;
     }
 
     .buttons {
         margin-bottom: 20px;
+        gap: 5px; /* Thêm khoảng cách giữa các nút */
     }
 
-    .seek_slider, .volume_slider {
+    .repeat-track,
+    .random-track,
+    .playpause-track,
+    .prev-track,
+    .next-track {
+        padding: 15px; /* Giảm kích thước nút */
+    }
+
+    .seek_slider,
+    .volume_slider {
         width: 80%;
         height: 4px;
     }
