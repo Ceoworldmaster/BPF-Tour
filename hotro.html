@@ -4,24 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Du lịch Bình Phước</title>
+    <title>Bình Phước Fantastic Tour</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="stylesheet" type="text/css" href="comment.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body, input,textarea, a{
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
   <div id="toggle">
     <i class="fas fa-bars"></i>
   </div>
-    <nav> <!--Thanh điều hướng-->
+  <div id="toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+  <nav> <!--Thanh điều hướng-->
+        <div id="logo">BPF TOUR</div>
         <ul id="main-menu">
             <li>
-                <a href="index.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
                 <ul class="submenu">
                     <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
                     <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
                 </ul>
             </li>
             
@@ -30,7 +48,9 @@
                 <ul class="submenu">
                     <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
                     <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
                     <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
                 </ul>
             </li>
             <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
@@ -48,7 +68,7 @@
                 <ul class="submenu">
                     <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
                     <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
-                    <li><a href="cttour.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
                 </ul>
             </li>
             <li>
@@ -67,9 +87,9 @@
                 <h2 class="info-title">THÔNG TIN LIÊN HỆ</h2>
                 <h3 class="info-sub-title">Điền vào biểu mẫu và nhóm của chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất</h3>
                 <ul class="info-details">
-                    <li><i class="fas fa-phone-alt"></i> <span>Liên lạc:</span> <a href="tel:+1235235598">+1235 2355 98</a></li>
-                    <li><i class="fas fa-paper-plane"></i> <span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-                    <li><i class="fas fa-globe"></i> <span>Website:</span> <a href="#">yoursite.com</a></li>
+                    <li><i class="fas fa-phone-alt"></i> <span>Liên lạc:</span> <a href="tel:+1235235598">_________</a></li>
+                    <li><i class="fas fa-paper-plane"></i> <span>Email:</span> <a href="mailto:info@yoursite.com">_________</a></li>
+                    <li><i class="fas fa-globe"></i> <span>Website:</span> <a href="#">BPF Tour</a></li>
                 </ul>
                 <ul class="social-icons">
                     <li><a href="#"><i class="fab fa-facebook"></i></a></li>
@@ -97,7 +117,7 @@
                             <textarea id="message" placeholder="Hãy viết tin nhắn ở đây."></textarea>
                         </div>
                     </div>
-                    <input type="button" value="GỬI PHẢN HỒI" class="submit-button" onclick="emailSend()">
+                    <input type="button" value="GỬI PHẢN HỒI" class="gui-button" onclick="emailSend()">
                 </form>
             </div>
         </div>
@@ -105,7 +125,7 @@
   <!-- Chatbot container -->
   <div class="chat-container" id="chatContainer"> <!--Tên của chatbot-->
     <div id="chatHeader">
-        BPAIS v1.0 - Du lịch Bình Phước
+        BPAI 1.0 - Bình Phước Fantastic Tour
     </div>
     <div id="chatbox"> <!--Hiển thị tin nhắn-->
         <!-- Tin nhắn sẽ xuất hiện ở đây -->
@@ -117,24 +137,72 @@
     <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
     </div>
     <!-- Nút hiển thị chatbot -->
-    <button class="show-chat-btn" onclick="toggleChat()">💬</button>
+    <button class="show-chat-btn" onclick="toggleChat()">
+                <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+            </button>
 
-  <footer>
-        <div class="footer-content">
-            <div class="footer-box">
-                <p>Email: contact@example.com</p>
-                <p>Phone: +123 456 789</p>
-                <p>Nguồn thông tin: binhphuoc.gov.vn</p>
-                <p>Bình Phước Online</p>
-                <p>Scan QR Code:</p>
-                <img src="path/to/qr-code.png" alt="QR Code">
-                <p>&copy; 2024 Bình Phước Online. All rights reserved.</p> <!-- Câu bản quyền -->
+    <footer>
+        <div class="content">
+            <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name" style="font-size: 30px;">BPF Tour</span>
+                <i style="font-family: 'Pacifico';">  &nbsp;&nbsp;&nbsp;&nbsp; Nơi cảm xúc chạm đến trái tim</i>
             </div>
-            <div class="weather-widget">
-                <iframe src="https://thoitiet.app/binh-phuoc" width="500" height="250" frameborder="0"></iframe>
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <span class="link_name">Danh Mục</span>
+                    <li><a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    
+
+                </div>
+                <div class="box">
+                    <span class="link_name">Danh mục</span>
+                    <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    
+                </div>
+                <div class="box">
+                    <span class="link_name">Đặc biệt</span>
+                    <li><a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                    <li><a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </div>
+                <div class="box input-box">
+                    <span class="link_name">Theo dõi</span>
+                    <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
+                    <li><input id="subscribeBtn" type="button" value="Subscribe" style="width: 100%;"></li>
+                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px; width: 100%;">Cảm ơn bạn đã đăng ký!</div>
+                </div>
+            </div>
+            <div id="visitCount">Lượt truy cập: 0</div>
+        </div>
+        <div class="bottom-details">
+            <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+             <div class="links">
+                <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="Privacy_Policy.html">Terms of use</a></span>
+                <span><a href="faq.html">FAQ</a></span>
             </div>
         </div>
-  </footer>
+    </footer>
 
  <!-- Nút scroll-to-top -->
     <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
