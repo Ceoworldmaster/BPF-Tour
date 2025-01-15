@@ -122,6 +122,19 @@ document.addEventListener('keydown', function (e) {
     }
   });
 
+  document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'u') {
+        event.preventDefault();
+        alert('Nội dung được bảo vệ.');
+    }
+});
+
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    alert('Nội dung được bảo vệ.');
+});
+
+
 //cookie//
 document.addEventListener('DOMContentLoaded', function () {
     const cookieBanner = document.getElementById('cookie-banner');
@@ -147,16 +160,4 @@ document.addEventListener('DOMContentLoaded', function () {
     declineButton.addEventListener('click', function () {
         cookieBanner.style.display = 'none'; // Ẩn banner, nhưng không lưu trạng thái
     });
-});
-
-document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && event.key === 'u') {
-        event.preventDefault();
-        alert('Nội dung được bảo vệ.');
-    }
-});
-
-document.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-    alert('Nội dung được bảo vệ.');
 });
