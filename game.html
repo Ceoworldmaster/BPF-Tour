@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Du lịch Bình Phước</title>
+    <title>Bình Phước Fantastic Tour</title>
     <link rel="icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -208,6 +208,57 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Giảm bóng khi nhấn */
   }
 
+  @media (max-width: 768px) {
+    .games {
+      padding: 20px 10px; /* Giảm padding cho không gian nhỏ hơn */
+    }
+
+    .games .section-title {
+      font-size: 24px; /* Giảm kích thước tiêu đề */
+      margin-bottom: 20px; /* Điều chỉnh khoảng cách dưới tiêu đề */
+    }
+
+    .games-grid { 
+      grid-template-columns: 1fr; /* Hiển thị 1 cột trên màn hình nhỏ */
+      gap: 15px; /* Giảm khoảng cách giữa các thẻ */
+    }
+
+    .game-card img {
+      height: 200px; /* Giảm chiều cao ảnh */
+    }
+
+    .game-info h3 {
+      font-size: 18px; /* Giảm kích thước tiêu đề trong thẻ */
+      margin-top: 5px;
+    }
+
+    .game-info p {
+      font-size: 12px; /* Giảm kích thước chữ mô tả */
+    }
+
+    .btn-animated {
+      font-size: 14px; /* Giảm kích thước nút */
+      padding: 8px 15px; /* Giảm padding nút */
+    }
+
+    .modal-content {
+      max-width: 90%; /* Giảm chiều rộng modal */
+      padding: 10px; /* Điều chỉnh padding modal */
+    }
+
+    #modalGame iframe {
+      height: 300px; /* Giảm chiều cao iframe */
+    }
+
+    .help-button {
+      top: 15px; /* Điều chỉnh vị trí nút trợ giúp */
+      left: 15px;
+      width: 40px; /* Giảm kích thước nút */
+      height: 40px;
+      font-size: 20px;
+      line-height: 40px; /* Căn giữa chữ với kích thước mới */
+    }
+  }
 </style>
 <style>
   .hero{
@@ -382,7 +433,7 @@
   }
   @media (max-width: 600px){
     .hero h2 {
-      font-size: 60px;
+      font-size: 50px;
     }
   }
 </style>
