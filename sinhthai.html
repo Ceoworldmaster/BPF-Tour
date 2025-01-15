@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Du lịch Bình Phước</title>
+    <title>Bình Phước Fantastic Tour</title>
     <link rel="icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,172 +15,177 @@
   <style>
         /* Grid container styling */
         .grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Mặc định 2 ô 1 hàng */
-            gap: 15px;
-            margin: 20px;
+            display: grid; /* Sử dụng layout lưới để sắp xếp các phần tử con */
+            grid-template-columns: repeat(2, 1fr); /* Tạo 2 cột, mỗi cột chiếm 1 phần bằng nhau */
+            gap: 15px; /* Khoảng cách giữa các phần tử trong lưới */
+            margin: 20px; /* Khoảng cách bên ngoài lưới */
         }
 
         .grid-item {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            text-align: center;
-            padding: 15px;
-            border: 2px solid rgb(0, 0, 0);
-            border-radius: 10px;
-            background: linear-gradient(145deg, #f9f9f9, #e9e9e9);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            overflow: hidden;
-            cursor: pointer;
+            display: flex; /* Sử dụng layout flexbox để căn chỉnh nội dung */
+            flex-direction: column; /* Căn nội dung theo chiều dọc */
+            justify-content: flex-start; /* Căn nội dung từ trên xuống */
+            align-items: center; /* Căn nội dung vào giữa theo chiều ngang */
+            text-align: center; /* Canh giữa văn bản */
+            padding: 15px; /* Khoảng cách bên trong của mỗi ô */
+            border: 2px solid rgb(0, 0, 0); /* Đường viền đen dày 2px */
+            border-radius: 10px; /* Làm bo tròn các góc */
+            background: linear-gradient(145deg, #f9f9f9, #e9e9e9); /* Gradient nền sáng từ góc 145 độ */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ cho mỗi ô */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; /* Hiệu ứng chuyển đổi mượt khi hover */
+            overflow: hidden; /* Ẩn nội dung tràn ra ngoài */
+            cursor: pointer; /* Hiển thị con trỏ dạng tay khi hover */
         }
 
         .grid-item:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Bóng đổ sắc nét hơn */
-            transform: scale(1.08) rotate(1deg); /* Phóng to và xoay nhẹ */
-            background: linear-gradient(145deg, #e9f7ff, #d1eaff); /* Hiệu ứng gradient tinh tế */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Tăng độ rõ của bóng khi hover */
+            transform: scale(1.08) rotate(1deg); /* Phóng to và xoay nhẹ ô khi hover */
+            background: linear-gradient(145deg, #e9f7ff, #d1eaff); /* Thay đổi màu gradient khi hover */
         }
 
         .grid-item img {
-            width: 100%;
-            height: 180px; /* Cố định chiều cao */
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid rgb(0, 0, 0);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            width: 100%; /* Chiều rộng ảnh chiếm toàn bộ ô */
+            height: 180px; /* Cố định chiều cao ảnh */
+            object-fit: cover; /* Giữ tỷ lệ ảnh và cắt phần thừa */
+            border-radius: 10px; /* Làm bo tròn các góc ảnh */
+            border: 1px solid rgb(0, 0, 0); /* Đường viền đen mỏng cho ảnh */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Hiệu ứng mượt khi hover */
         }
 
         .grid-item img:hover {
-            transform: scale(1.05); /* Phóng to ảnh nhẹ */
-            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4); /* Bóng xanh lam */
-            border-color: #007bff; /* Đổi màu viền */
+            transform: scale(1.05); /* Phóng to ảnh khi hover */
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4); /* Thêm bóng xanh lam khi hover */
+            border-color: #007bff; /* Đổi màu viền sang xanh lam khi hover */
         }
 
         .grid-item h3 {
-            margin: 15px 0 0; /* Tạo khoảng cách giữa ảnh và tiêu đề */
-            font-size: 16px;
-            color: #000000;
+            margin: 15px 0 0; /* Tạo khoảng cách trên và dưới tiêu đề */
+            font-size: 16px; /* Kích thước chữ tiêu đề */
+            color: #000000; /* Màu chữ đen */
         }
 
         .grid-item:hover h3 {
-            color: #000264; /* Đổi màu chữ khi hover */
-            transform: translateY(-5px); /* Chữ nổi lên nhẹ */
+            color: #000264; /* Đổi màu chữ thành xanh đậm khi hover */
+            transform: translateY(-5px); /* Chữ di chuyển nhẹ lên trên khi hover */
         }
 
-
-        /* Media query cho màn hình lớn hơn 600px (tablet) */
-        /* info box styling */
+        /* Định dạng cho hộp thông tin */
         .info-box {
-            display: flex;
-            border: 2px solid #000;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            width: 90%;
-            max-width: 1000px;
-            height: 500px;
-            position: fixed;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 500;
-            display: none;
+            display: flex; /* Sử dụng Flexbox để sắp xếp các phần tử bên trong */
+            border: 2px solid #000; /* Đường viền màu đen */
+            border-radius: 8px; /* Bo tròn các góc */
+            overflow: hidden; /* Ẩn nội dung vượt quá vùng chứa */
+            background-color: #f9f9f9; /* Màu nền sáng */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng cho hộp */
+            transition: transform 0.3s ease, border-color 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà khi thay đổi vị trí và màu viền */
+            width: 90%; /* Chiều rộng 90% so với màn hình */
+            max-width: 1000px; /* Chiều rộng tối đa là 1000px */
+            height: 500px; /* Chiều cao cố định */
+            position: fixed; /* Định vị cố định trên màn hình */
+            top: 55%; /* Căn giữa theo chiều dọc */
+            left: 50%; /* Căn giữa theo chiều ngang */
+            transform: translate(-50%, -50%); /* Dịch chuyển để căn giữa chính xác */
+            z-index: 500; /* Đảm bảo hộp nằm trên các phần tử khác */
+            display: none; /* Mặc định ẩn hộp thông tin */
         }
 
+        /* Định dạng cho iframe trong hộp thông tin */
         .info-box iframe {
-            width: 40%;
-            height: 100%;
-            border: none;
+            width: 40%; /* Chiều rộng của iframe là 40% của hộp */
+            height: 100%; /* Chiều cao của iframe là 100% của hộp */
+            border: none; /* Không có đường viền */
         }
 
+        /* Định dạng cho phần nội dung bên trong hộp thông tin */
         .info-box .content {
-            width: 60%;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            overflow-y: auto;
+            width: 60%; /* Chiều rộng phần nội dung là 60% của hộp */
+            padding: 20px; /* Khoảng cách lề cho phần nội dung */
+            display: flex; /* Sử dụng Flexbox để sắp xếp các phần tử bên trong */
+            flex-direction: column; /* Sắp xếp theo chiều dọc */
+            justify-content: flex-start; /* Canh nội dung từ đầu */
+            overflow-y: auto; /* Cho phép cuộn dọc khi nội dung quá dài */
         }
 
+        /* Định dạng cho tiêu đề trong phần nội dung */
         .info-box .content h2 {
-            text-align: center;
-            margin-top: 2px;
-            margin-bottom: 10px;
-            font-size: 24px;
-            padding: 10px;
-            border-radius: 5px;
-            color: white;
-            background-color: #a80606;
+            text-align: center; /* Căn giữa tiêu đề */
+            margin-top: 2px; /* Khoảng cách trên */
+            margin-bottom: 10px; /* Khoảng cách dưới */
+            font-size: 24px; /* Kích thước chữ */
+            padding: 10px; /* Khoảng cách trong tiêu đề */
+            border-radius: 5px; /* Bo tròn các góc của tiêu đề */
+            color: white; /* Màu chữ trắng */
+            background-color: #a80606; /* Màu nền đỏ đậm */
         }
 
+        /* Định dạng cho đoạn văn bản trong phần nội dung */
         .info-box .content p {
-            flex-grow: 1;
-            margin-top: 10px;
-            text-align: left;
-            overflow-y: auto;
-            background-color: transparent;
+            flex-grow: 1; /* Tự động chiếm không gian còn lại */
+            margin-top: 10px; /* Khoảng cách trên của đoạn văn */
+            text-align: left; /* Căn trái văn bản */
+            overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung quá dài */
+            background-color: transparent; /* Nền trong suốt */
         }
 
-        /* Map iframe styling */
+        /* Định dạng cho iframe bản đồ */
         .info-box .map-frame {
-            margin-top: 10px;
-            width: 100%;
-            height: 200px;
-            border: none;
-            border-radius: 8px;
-        }
-        /* Overlay to darken the background */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 459;
-            display: none;
-        }
-        
-        .hero{
-            width: 100%;
-            height: auto;
-            background: url(https://imgur.com/ccWCttt.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            text-align: center;
-            padding: 100px 0;
-            margin-bottom: 20px;
-            margin-top: -10px;
+            margin-top: 10px; /* Khoảng cách trên */
+            width: 100%; /* Chiều rộng 100% */
+            height: 200px; /* Chiều cao cố định 200px */
+            border: none; /* Không có đường viền */
+            border-radius: 8px; /* Bo tròn các góc */
         }
 
+        /* Định dạng cho lớp phủ (overlay) để làm tối nền */
+        .overlay {
+            position: fixed; /* Định vị cố định trên toàn bộ màn hình */
+            top: 0; /* Đặt ở vị trí trên cùng */
+            left: 0; /* Đặt ở vị trí bên trái */
+            right: 0; /* Đặt ở vị trí bên phải */
+            bottom: 0; /* Đặt ở vị trí dưới cùng */
+            background-color: rgba(0, 0, 0, 0.5); /* Nền tối với độ trong suốt */
+            z-index: 459; /* Đảm bảo lớp phủ nằm dưới hộp thông tin */
+            display: none; /* Mặc định ẩn lớp phủ */
+        }
+
+        /* Định dạng cho phần hero (tiêu đề lớn) */
+        .hero {
+            width: 100%; /* Chiều rộng 100% màn hình */
+            height: auto; /* Chiều cao tự động */
+            background: url(https://imgur.com/3X4jkPp.png); /* Hình nền hero */
+            background-repeat: no-repeat; /* Không lặp lại hình nền */
+            background-size: cover; /* Phóng to hình nền để phủ hết phần tử */
+            background-position: center; /* Căn giữa hình nền */
+            color: #ffffff; /* Màu chữ trắng */
+            text-align: center; /* Căn giữa nội dung */
+            padding: 100px 0; /* Khoảng cách trên và dưới */
+            margin-bottom: 20px; /* Khoảng cách dưới */
+            margin-top: -10px; /* Khoảng cách trên nhỏ */
+        }
+
+        /* Định dạng cho tiêu đề trong phần hero */
         .hero h2 {
-            font-family: 'Bungee';
-            font-size: 100px;
-            margin-bottom: 10px;
-            color: #ffffff; /* Màu chữ chính */
+            font-family: 'Bungee'; /* Font chữ Bungee */
+            font-size: 100px; /* Kích thước chữ */
+            margin-bottom: 10px; /* Khoảng cách dưới */
+            color: #ffffff; /* Màu chữ trắng */
             animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
         }
 
-        /* Hiệu ứng nhảy */
+        /* Hiệu ứng nhảy cho tiêu đề */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
+                transform: translateY(0); /* Vị trí ban đầu */
             }
             40% {
-                transform: translateY(-10px);
+                transform: translateY(-10px); /* Dịch chuyển lên */
             }
             60% {
-                transform: translateY(-5px);
+                transform: translateY(-5px); /* Dịch chuyển lên ít hơn */
             }
         }
 
-        /* Hiệu ứng đổi màu viền */
+        /* Hiệu ứng đổi màu viền cho tiêu đề */
         @keyframes strokeColorChange {
             0% {
                 text-shadow: 
@@ -218,101 +223,120 @@
                     3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
             }
         }
-        .hero p{
-            font-size: 20px;
-            margin-bottom: 10px;
-            font-weight: 20px;
+
+        /* Định dạng cho đoạn văn trong phần hero */
+        .hero p {
+            font-size: 20px; /* Kích thước chữ */
+            margin-bottom: 10px; /* Khoảng cách dưới */
+            font-weight: 20px; /* Độ đậm của chữ */
         }
+
+        /* Định dạng cho hộp tìm kiếm */
         .search-box {
-            max-width: 550px;
-            margin: 15px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #02d413, #7ffe7b); /* Gradient background */
-            border-radius: 30px; /* Bo góc lớn hơn */
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
-            padding: 5px; /* Padding cho thanh tìm kiếm */
-            transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+            max-width: 550px; /* Chiều rộng tối đa */
+            margin: 15px auto; /* Khoảng cách trên và dưới */
+            display: flex; /* Sử dụng Flexbox */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            background: linear-gradient(135deg, #02d413, #7ffe7b); /* Nền gradient */
+            border-radius: 30px; /* Bo góc lớn */
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+            padding: 5px; /* Khoảng cách trong hộp */
+            transition: box-shadow 0.3s ease; /* Hiệu ứng cho bóng */
         }
 
+        /* Hiệu ứng khi hover trên hộp tìm kiếm */
         .search-box:hover {
-            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn */
         }
 
+        /* Định dạng cho ô nhập trong hộp tìm kiếm */
         .search-box input {
-            width: 70%;
-            padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
-            outline: none;
+            width: 70%; /* Chiều rộng 70% */
+            padding: 10px 40px 10px 15px; /* Thêm padding bên trái để có chỗ cho icon */
+            outline: none; /* Bỏ viền mặc định */
             border: 1px solid transparent; /* Viền trong suốt */
-            border-radius: 30px; /* Bo góc input */
-            font-size: 1rem;
+            border-radius: 30px; /* Bo góc */
+            font-size: 1rem; /* Kích thước chữ */
             transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng bên trong */
             background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
         }
 
+        /* Hiệu ứng khi focus vào ô nhập */
         .search-box input:focus {
             border-color: #198000; /* Đổi màu viền khi focus */
             box-shadow: 0 0 5px rgba(43, 255, 0, 0.5); /* Bóng khi focus */
             background-color: #ffffff; /* Nền trắng khi focus */
         }
 
+        /* Định dạng cho nút trong hộp tìm kiếm */
         .search-box button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 30px; /* Bo góc cho nút */
-            font-size: 1rem;
+            padding: 10px 20px; /* Khoảng cách trong nút */
+            border: none; /* Bỏ viền */
+            border-radius: 30px; /* Bo góc nút */
+            font-size: 1rem; /* Kích thước chữ */
             background-color: #00a716; /* Màu nền nút */
             color: white; /* Màu chữ trắng */
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+            cursor: pointer; /* Con trỏ chuột dạng bàn tay */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng cho nền và nhấn nút */
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
         }
 
+        /* Định dạng cho icon trong nút tìm kiếm */
         .search-box button i {
             font-size: 1.2rem; /* Kích thước icon */
         }
 
+        /* Hiệu ứng khi hover trên nút */
         .search-box button:hover {
             background-color: #015505; /* Màu nền khi hover */
-            transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+            transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn và phóng to */
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
         }
 
+        /* Hiệu ứng khi click vào nút */
         .search-box button:active {
             transform: translateY(0) scale(1); /* Hiệu ứng khi click */
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
         }
 
+        /* Bỏ viền mặc định khi focus vào nút */
         .search-box button:focus {
-            outline: none; /* Bỏ viền mặc định khi focus */
+            outline: none;
         }
 
+        /* Định dạng cho placeholder trong ô nhập */
         .search-box input::placeholder {
             color: #888; /* Màu chữ placeholder */
-            opacity: 0.7; /* Độ trong suốt cho placeholder */
-            transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+            opacity: 0.7; /* Độ trong suốt */
+            transition: opacity 0.3s ease; /* Hiệu ứng chuyển độ trong suốt */
         }
 
+        /* Định dạng khi focus vào placeholder */
         .search-box input:focus::placeholder {
-            opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+            opacity: 0.5; /* Giảm độ trong suốt khi focus */
         }
-        
+
+        /* Media query cho màn hình từ 501px đến 650px (Tablet Portrait) */
         @media (min-width: 501px) and (max-width: 650px) {
             .grid-container {
-                grid-template-columns: repeat(2, 1fr); /*3 ô 1 hàng cho tablet */
+                grid-template-columns: repeat(2, 1fr); /* 2 ô mỗi hàng cho tablet */
             }
+
             .grid-item:hover {
                 box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Bóng đổ sắc nét hơn */
                 transform: scale(1.08); /* Phóng to và xoay nhẹ */
                 background: linear-gradient(145deg, #e9f7ff, #d1eaff); /* Hiệu ứng gradient tinh tế */
             }
         }
+
+        /* Media query cho màn hình từ 651px đến 1034px (Tablet Landscape) */
         @media (min-width: 651px) and (max-width: 1034px) {
             .grid-container {
-                grid-template-columns: repeat(3, 1fr); /* 3 ô 1 hàng cho tablet */
+                grid-template-columns: repeat(3, 1fr); /* 3 ô mỗi hàng cho tablet */
             }
+
             .grid-item:hover {
                 box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Bóng đổ sắc nét hơn */
                 transform: scale(1.08); /* Phóng to và xoay nhẹ */
@@ -320,19 +344,21 @@
             }
         }
 
-
-        /* Media query cho màn hình lớn hơn 900px */
+        /* Media query cho màn hình lớn hơn 1035px (Desktop) */
         @media (min-width: 1035px) {
             .grid-container {
-                grid-template-columns: repeat(4, 1fr); /* 4 ô 1 hàng cho màn hình có chiều ngang 900px */
+                grid-template-columns: repeat(4, 1fr); /* 4 ô mỗi hàng cho màn hình lớn */
             }
         }
-        /* Media query cho màn hình lớn hơn 1200px */
+
+        /* Media query cho màn hình lớn hơn 1200px (Màn hình lớn) */
         @media (min-width: 1200px) {
             .grid-container {
-                grid-template-columns: repeat(5, 1fr); /* 5 ô 1 hàng cho màn hình lớn hơn 1200px */
+                grid-template-columns: repeat(5, 1fr); /* 5 ô mỗi hàng cho màn hình rất lớn */
             }
         }
+
+        /* Media query cho màn hình nhỏ hơn 500px (Mobile) */
         @media (max-width: 500px) {
             .grid-container {
                 display: grid;
@@ -342,15 +368,15 @@
             }
 
             .grid-item {
-                display: flex; /* Sử dụng Flexbox */
+                display: flex; /* Sử dụng Flexbox để bố trí ảnh và chữ */
                 flex-direction: row; /* Ảnh và chữ nằm ngang */
-                align-items: center; /* Căn giữa theo chiều dọc */
+                align-items: center; /* Căn giữa các phần tử theo chiều dọc */
                 padding: 10px;
-                border: 2px solid blue;
+                border: 2px solid blue; /* Viền màu xanh */
                 border-radius: 5px;
-                background-color: #f9f9f9;
-                transition: box-shadow 0.3s ease-in-out;
-                overflow: hidden; /* Đảm bảo không có phần bị tràn */
+                background-color: #f9f9f9; /* Màu nền sáng */
+                transition: box-shadow 0.3s ease-in-out; /* Hiệu ứng chuyển đổi mượt mà */
+                overflow: hidden; /* Đảm bảo không có phần bị tràn ra ngoài */
             }
 
             .grid-item img {
@@ -358,23 +384,23 @@
                 height: 100px; /* Chiều cao cố định */
                 object-fit: cover; /* Giữ tỷ lệ khung hình và cắt ảnh nếu cần */
                 border-radius: 5px;
-                border: 1px #000;
+                border: 1px #000; /* Viền ảnh */
                 margin-right: 10px; /* Khoảng cách giữa ảnh và chữ */
-                transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt */
+                transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt cho ảnh */
             }
 
             .grid-item img:hover {
                 transform: scale(1.05); /* Phóng to ảnh khi hover */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm đổ bóng */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho ảnh */
                 border: 2px solid #007bff; /* Viền màu xanh khi hover */
             }
 
             .grid-item h3 {
                 margin: 0; /* Loại bỏ margin mặc định */
-                font-size: 16px;
-                color: #333;
-                text-align: center; /* Canh giữa chữ theo chiều ngang */
-                flex: 1; /* Để chữ chiếm hết không gian còn lại */
+                font-size: 16px; /* Kích thước chữ */
+                color: #333; /* Màu chữ */
+                text-align: center; /* Căn giữa chữ theo chiều ngang */
+                flex: 1; /* Chữ chiếm hết không gian còn lại */
             }
 
             .grid-item:hover {
@@ -382,10 +408,12 @@
                 transform: scale(1.08) rotate(1deg); /* Phóng to và xoay nhẹ */
                 background: linear-gradient(145deg, #e9f7ff, #d1eaff); /* Hiệu ứng gradient tinh tế */
             }
+
+            /* Ẩn info-box và thiết lập vị trí cho nó */
             .info-box {
                 display: none;
                 flex-direction: column;
-                width: 90%; /* Đảm bảo chiều rộng của box đầy đủ */
+                width: 90%; /* Chiều rộng của box */
                 height: 85%;
                 top: 54%; /* Căn giữa box trên trang */
                 overflow: hidden; /* Ẩn nội dung tràn ra ngoài box */
@@ -393,12 +421,12 @@
 
             .info-box iframe {
                 width: 100%; /* Video có chiều rộng 100% */
-                height: 30%; /* Để chiều cao tự động */
+                height: 30%; /* Chiều cao video */
             }
 
             .info-box .content {
-                width: 95%; /* Đặt chiều rộng 90% cho khối nội dung */
-                margin: 5px 5px; /* Căn giữa và thêm khoảng cách trên và dưới */
+                width: 95%; /* Chiều rộng của khối nội dung */
+                margin: 5px 5px; /* Căn giữa và thêm khoảng cách */
                 overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung vượt quá chiều cao */
                 padding: 2px;
                 border: 1px solid #ccc; /* Thêm viền cho khối nội dung */
@@ -411,17 +439,20 @@
             }
 
             .info-box .content p {
-                margin: 5px 5px; /* Thêm khoảng cách trên và dưới cho đoạn văn */
-                padding: 5px 5px; /* Thêm khoảng cách bên trái và bên phải cho đoạn văn */
+                margin: 5px 5px; /* Thêm khoảng cách cho đoạn văn */
+                padding: 5px 5px; /* Thêm khoảng cách bên trái và bên phải */
             }
+
             .info-box .map-frame {
                 width: 100%;
                 height: 20%;
             }
+
             .hero h2 {
-                font-size: 60px;
+                font-size: 60px; /* Điều chỉnh kích thước chữ cho tiêu đề hero */
             }
         }
+
     </style>
   <div id="toggle">
     <i class="fas fa-bars"></i>
@@ -478,8 +509,8 @@
 <body>
     <section class="hero">
         <div class="hero-section">
-            <h2>ĐỊA ĐIỂM DU LỊCH</h2>
-            <p>Hãy tìm kiếm các địa điểm du lịch Bình Phước!</p>
+            <h2>DU LỊCH SINH THÁI</h2>
+            <p>Hãy tìm kiếm các địa điểm du lịch sinh thái ở Bình Phước!</p>
             <form action="#" class="search-box" onsubmit="return false;">
                 <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây...">
                 <button onclick="searchContent()">
@@ -488,7 +519,7 @@
             </form>
         </div>
     </section>
-    <h1 style="margin-top: 10px;">Du lịch sinh thái</h1>
+        <h1 style="margin-top: 10px;">Du lịch sinh thái</h1>
     <main>
         <div class="grid-container">
             <div class="grid-item" onclick="showinfoBox('Vườn quốc gia Cát Tiên', 'Vườn quốc gia Cát Tiên thuộc Xã Đăng Hà, H. Bù Đăng, tỉnh Bình Phước, Vườn được mệnh danh là “ngôi nhà của muôn thú” với 96 loài thú, 94 loài bò sát, 903 côn trùng. Hiện vườn có hơn 20 cá thể voi sinh sống. Nguồn:https://baobinhphuoc.com.vn/news/9/144089/kham-pha-thien-nhien-hoang-da-vuon-quoc-gia-cat-tien', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
@@ -541,12 +572,11 @@
                 <h3>Khu du lịch Đảo Yến</h3>
             </div>
 
-            <div class="grid-item" onclick="showinfoBox('Khu du lịch Đảo Yến', 'Nông trại Phú Gia tọa lạc tại xã Tân Hiệp, huyện Hớn Quản, tỉnh Bình Phước, diện tích hơn 450ha. Với lợi thế nằm cặp theo hồ Dầu Tiếng và mảng xanh lớn bao phủ giúp làm dịu đi cái nắng nóng của khí hậu nơi đây và tạo nên không khí mát mẻ, trong lành, thích hợp nghỉ dưỡng.', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
+            <div class="grid-item" onclick="showinfoBox('Nông trại Phú Gia', 'Nông trại Phú Gia tọa lạc tại xã Tân Hiệp, huyện Hớn Quản, tỉnh Bình Phước, diện tích hơn 450ha. Với lợi thế nằm cặp theo hồ Dầu Tiếng và mảng xanh lớn bao phủ giúp làm dịu đi cái nắng nóng của khí hậu nơi đây và tạo nên không khí mát mẻ, trong lành, thích hợp nghỉ dưỡng.', 'https://www.youtube.com/embed/Y4D7Y2QqGB4?si=VmSj63AjlWTlZrjR', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.00758357634!2d-74.25819568818383!3d40.705831640317286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22baca73b8020b8c!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1616347842348!5m2!1sen!2sus')">
                 <img src="https://imgur.com/mquuNQq.png" alt="Uploaded Image">
                 <h3>Nông trại Phú Gia</h3>
             </div>
         </div>
-
     </main>
     <!-- Overlay background -->
     <div class="overlay" onclick="hideinfoBox()"></div>
