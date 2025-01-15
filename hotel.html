@@ -2,33 +2,257 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bình Phước Fantastic Tour</title>
-    <link rel="icon" href="logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link rel="stylesheet" type="text/css" href="comment.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bình Phước Fantastic Tour</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Mặc định 2 ô 1 hàng cho điện thoại */
+            gap: 15px; /* Tăng khoảng cách giữa các ô */
+            margin: 20px;
         }
-        body, input,textarea, a{
-            font-family: 'Roboto', sans-serif;
+
+        .grid-item {
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px; /* Bo tròn góc nhiều hơn */
+            background: #ffff;
+            border: 2px solid black;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt */
+            overflow: hidden; /* Đảm bảo không có phần của ảnh bị tràn ra ngoài */
+            display: block;
         }
-    </style>
-  <div id="toggle">
-    <i class="fas fa-bars"></i>
-  </div>
-  <div id="toggle">
+
+        .grid-item a {
+            text-decoration: none;
+        }
+
+        .grid-item img {
+            width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của khung */
+            height: 170px; /* Chiều cao cố định */
+            object-fit: cover; /* Giữ tỷ lệ khung hình và cắt ảnh nếu cần */
+            border-radius: 10px; /* Làm cho ảnh có góc bo tròn giống như khung */
+        }
+
+        .grid-item h3 {
+            font-family: "Montserrat", sans-serif; /* Thay đổi kiểu chữ */
+            font-weight: 600; /* Tăng độ đậm của chữ */
+            margin-top: 10px;
+            font-size: clamp(18px, 5vw, 24px); /* Cỡ chữ tự động thay đổi giữa 18px và 24px */
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Thêm bóng cho chữ */
+            white-space: nowrap; /* Đảm bảo chữ không bị xuống dòng */
+            overflow: hidden; /* Không bị tràn ra ngoài */
+            text-overflow: ellipsis; /* Hiển thị dấu "..." nếu chữ quá dài */
+            text-align: center; /* Căn giữa chữ */
+            padding: 0.5rem; /* Thêm padding cho chữ */
+        }
+
+        .h3-box {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff; /* Màu chữ trắng để nổi bật trên nền */
+            background-color: rgba(0, 0, 0, 0.5); /* Thêm nền mờ cho tiêu đề */
+        }
+
+        .grid-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Tăng cường hiệu ứng bóng */
+            transform: scale(1.05) rotate(2deg); /* Hiệu ứng phóng to và xoay nhẹ */
+        }
+
+        .hero{
+            width: 100%;
+            height: auto;
+            background: url(https://imgur.com/eU7mniG.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 20px;
+            margin-top: -10px;
+        }
+
+        .hero h2 {
+            font-family: 'Bungee';
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #ffffff; /* Màu chữ chính */
+            animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
+        }
+
+        /* Hiệu ứng nhảy */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Hiệu ứng đổi màu viền */
+        @keyframes strokeColorChange {
+            0% {
+                text-shadow: 
+                    -3px -3px 0 #ff0000,  
+                    3px -3px 0 #ff0000,
+                    -3px 3px 0 #ff0000,
+                    3px 3px 0 #ff0000; /* Màu viền đỏ */
+            }
+            25% {
+                text-shadow: 
+                    -3px -3px 0 #ffcc00,  
+                    3px -3px 0 #ffcc00,
+                    -3px 3px 0 #ffcc00,
+                    3px 3px 0 #ffcc00; /* Màu viền vàng */
+            }
+            50% {
+                text-shadow: 
+                    -3px -3px 0 #00ff00,  
+                    3px -3px 0 #00ff00,
+                    -3px 3px 0 #00ff00,
+                    3px 3px 0 #00ff00; /* Màu viền xanh lá */
+            }
+            75% {
+                text-shadow: 
+                    -3px -3px 0 #00ccff,  
+                    3px -3px 0 #00ccff,
+                    -3px 3px 0 #00ccff,
+                    3px 3px 0 #00ccff; /* Màu viền xanh dương */
+            }
+            100% {
+                text-shadow: 
+                    -3px -3px 0 #ff0000,  
+                    3px -3px 0 #ff0000,
+                    -3px 3px 0 #ff0000,
+                    3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
+            }
+        }
+        .hero p{
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 20px;
+        }
+        .search-box {
+            max-width: 550px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #bf5fff, #ef7bfe); /* Gradient background */
+            border-radius: 30px; /* Bo góc lớn hơn */
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+            padding: 5px; /* Padding cho thanh tìm kiếm */
+            transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+        }
+
+        .search-box:hover {
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+        }
+
+        .search-box input {
+            width: 70%;
+            padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
+            outline: none;
+            border: 1px solid transparent; /* Viền trong suốt */
+            border-radius: 30px; /* Bo góc input */
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+            background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
+        }
+
+        .search-box input:focus {
+            border-color: #ae00ff; /* Đổi màu viền khi focus */
+            box-shadow: 0 0 5px rgba(212, 0, 255, 0.5); /* Bóng khi focus */
+            background-color: #ffffff; /* Nền trắng khi focus */
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px; /* Bo góc cho nút */
+            font-size: 1rem;
+            background-color: #b700ff; /* Màu nền nút */
+            color: white; /* Màu chữ trắng */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+        }
+
+        .search-box button i {
+            font-size: 1.2rem; /* Kích thước icon */
+        }
+
+        .search-box button:hover {
+            background-color: #7d0096; /* Màu nền khi hover */
+            transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+        }
+
+        .search-box button:active {
+            transform: translateY(0) scale(1); /* Hiệu ứng khi click */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
+        }
+
+        .search-box button:focus {
+            outline: none; /* Bỏ viền mặc định khi focus */
+        }
+
+        .search-box input::placeholder {
+            color: #888; /* Màu chữ placeholder */
+            opacity: 0.7; /* Độ trong suốt cho placeholder */
+            transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+        }
+
+        .search-box input:focus::placeholder {
+            opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+        }
+         /* Media query cho màn hình lớn hơn 600px (tablet) */
+         @media (min-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 ô 1 hàng cho tablet */
+            }
+        }
+
+        /* Media query cho màn hình lớn hơn 900px */
+        @media (min-width: 900px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 ô 1 hàng cho màn hình có chiều ngang 900px */
+            }
+        }
+
+        @media (min-width: 1035px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 ô 1 hàng cho màn hình có chiều ngang 1035px */
+            }
+        }
+
+        /* Media query cho màn hình lớn hơn 1200px */
+        @media (min-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(5, 1fr); /* 5 ô 1 hàng cho màn hình lớn hơn 1200px */
+            }
+            .hero h2{
+                font-size: 100px;
+            }
+        }
+  </style>
+
+<div id="toggle">
     <i class="fas fa-bars"></i>
   </div>
   <nav> <!--Thanh điều hướng-->
@@ -81,61 +305,88 @@
     </nav>
 </head>
 <body>
-    <section id="section-wrapper">
-        <div class="box-wrapper">
-            <div class="info-wrap">
-                <h2 class="info-title">THÔNG TIN LIÊN HỆ</h2>
-                <h3 class="info-sub-title">Điền vào biểu mẫu và nhóm của chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất</h3>
-                <ul class="info-details">
-                    <li><i class="fas fa-phone-alt"></i> <span>Liên lạc:</span> <a href="tel:+1235235598">_________</a></li>
-                    <li><i class="fas fa-paper-plane"></i> <span>Email:</span> <a href="mailto:info@yoursite.com">_________</a></li>
-                    <li><i class="fas fa-globe"></i> <span>Website:</span> <a href="#">BPF Tour</a></li>
-                </ul>
-                <ul class="social-icons">
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                </ul>
-            </div>
-            <div class="form-wrap">
-                <form id="contactForm">
-                    <h2 class="form-title">GỬI PHẢN HỒI</h2>
-                    <div class="form-fields">
-                        <div class="form-group">
-                            <input type="text" id="fname" placeholder="Họ">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="lname" placeholder="Tên">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Mail">
-                        </div>
-                        <div class="form-group">
-                            <input type="number" id="phone" placeholder="Số điện thoại">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" placeholder="Hãy viết tin nhắn ở đây."></textarea>
-                        </div>
-                    </div>
-                    <input type="button" value="GỬI PHẢN HỒI" class="gui-button" onclick="emailSend()">
-                </form>
-            </div>
+    <section class="hero">
+        <div class="hero-section">
+            <h2>LƯU TRÚ - LỮ HÀNH</h2>
+            <p>Hãy tìm kiếm các địa điểm dừng chân và phương tiện đồng hành!</p>
+            <form action="#" class="search-box" onsubmit="return false;">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây...">
+                <button onclick="searchContent()">
+                    <i class="fas fa-search"></i> <!-- Kính lúp từ Font Awesome -->
+                </button>
+            </form>
         </div>
     </section>
+    <h1 style="margin-top: 10px;">Khách sạn</h1>
+
+  <main>
+        <section class="grid-container">
+            <!-- Hàng 1 -->
+            <div class="grid-item">
+                <a href="https://www.anlochotelspa.com/">
+                    <img src="https://imgur.com/xOi8ahy.png" alt="An Lộc" loading="lazy">
+                    <h3 class="h3-box" style="background-color: red;">An Lộc</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://app.vntrip.vn/hotel/vn/phuong-lam-hotel-11840">
+                    <img src="https://imgur.com/8VRUsMy.png" alt="Phương Lâm" loading="lazy">
+                    <h3 class="h3-box" style="background-color: orangered;">Phương Lâm</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://khachsantrinhgia.com/">
+                    <img src="https://imgur.com/mMIPhkh.png" alt="Trình Ga" loading="lazy">
+                    <h3 class="h3-box" style="background-color: darkgoldenrod;">Trình Ga</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://www.bombohotel.vn/">
+                    <img src="https://imgur.com/HXvAzcO.png" alt=" Bom Bo" loading="lazy">
+                    <h3 class="h3-box" style="background-color: green;">Bom Bo</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://www.agoda.com/vi-vn/my-le-hotel/hotel/phuoc-long-binh-phuoc-vn.html?ds=JRFMuX5B0C5GlGGs">
+                    <img src="https://imgur.com/cueRRnd.png" alt="Mỹ Lệ" loading="lazy">
+                    <h3 class="h3-box" style="background-color: lightseagreen;">Mỹ Lệ</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://www.agoda.com/vi-vn/my-le-hotel/hotel/phuoc-long-binh-phuoc-vn.html?ds=JRFMuX5B0C5GlGGs">
+                    <img src="https://imgur.com/a/TBmzuoq.png" alt="Ngọc Trâm" loading="lazy">
+                    <h3 class="h3-box" style="background-color: rgb(0, 47, 255);">Ngọc Trâm</h3>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="https://www.agoda.com/vi-vn/my-le-hotel/hotel/phuoc-long-binh-phuoc-vn.html?ds=JRFMuX5B0C5GlGGs">
+                    <img src="https://imgur.com/a/wcVY320.png" alt="Sao Mai" loading="lazy">
+                    <h3 class="h3-box" style="background-color: rgb(174, 0, 255);">Sao Mai</h3>
+                </a>
+            </div>
+
+
+
+        </section>
+    </main>
+
+    <main>
+    </main>
   <!-- Chatbot container -->
-  <div class="chat-container" id="chatContainer"> <!--Tên của chatbot-->
+  <div class="chat-container" id="chatContainer">
     <div id="chatHeader">
         BPAI 1.0 - Bình Phước Fantastic Tour
     </div>
-    <div id="chatbox"> <!--Hiển thị tin nhắn-->
+    <div id="chatbox">
         <!-- Tin nhắn sẽ xuất hiện ở đây -->
     </div>
-    <div class="input-container"> <!--Xóa lịch sử-->
+    <div class="input-container">
         <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
         <button class="send-button" onclick="sendMessage()"></button>
     </div>
     <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
     </div>
+
     <!-- Nút hiển thị chatbot -->
     <button class="show-chat-btn" onclick="toggleChat()">
                 <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
@@ -158,10 +409,10 @@
             <div class="link-boxes">
                 <div class="box">
                     <span class="link_name">Danh Mục</span>
-                    <li><a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a></li>
                     <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
                     <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
                     <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-mosque"></i>Du lịch tôn giáo</a></li>
                     <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
                     <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
                     <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
@@ -188,17 +439,17 @@
                 <div class="box input-box">
                     <span class="link_name">Theo dõi</span>
                     <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
-                    <li><input id="subscribeBtn" type="button" value="Subscribe" style="width: 100%;"></li>
-                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px; width: 100%;">Cảm ơn bạn đã đăng ký!</div>
+                    <li><input id="subscribeBtn" type="button" value="Subscribe"></li>
+                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
                 </div>
             </div>
             <div id="visitCount">Lượt truy cập: 0</div>
         </div>
         <div class="bottom-details">
             <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
-             <div class="links">
+            <div class="links">
                 <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
-                <span><a href="Privacy_Policy.html">Terms of use</a></span>
+                <span><a href="TOU.html">Terms of use</a></span>
                 <span><a href="faq.html">FAQ</a></span>
             </div>
         </div>
@@ -206,11 +457,70 @@
 
  <!-- Nút scroll-to-top -->
     <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
-
     <script src="webscip.js"></script>
     <script src="chatscrip.js"> </script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="email.js"></script>
+    <script>
+        // Hàm tính khoảng cách Levenshtein
+        function levenshtein(a, b) {
+            const tmp = [];
+            for (let i = 0; i <= a.length; i++) {
+                tmp[i] = [i];
+            }
+            for (let j = 0; j <= b.length; j++) {
+                tmp[0][j] = j;
+            }
+            for (let i = 1; i <= a.length; i++) {
+                for (let j = 1; j <= b.length; j++) {
+                    tmp[i][j] = Math.min(
+                        tmp[i - 1][j] + 1, // deletion
+                        tmp[i][j - 1] + 1, // insertion
+                        tmp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1) // substitution
+                    );
+                }
+            }
+            return tmp[a.length][b.length];
+        }
+    
+        // Hàm tìm kiếm
+        function searchContent() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase(); // Lấy nội dung tìm kiếm
+            const items = document.querySelectorAll('.grid-item'); // Tìm tất cả các phần tử .grid-item
+    
+            // Nếu ô tìm kiếm trống, hiển thị tất cả các thẻ
+            if (query === "") {
+                items.forEach(item => {
+                    item.style.display = 'block'; // Hiển thị tất cả
+                });
+                return; // Dừng hàm ở đây
+            }
+    
+            // Nếu ô tìm kiếm không trống, thực hiện tìm kiếm
+            items.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase(); // Lấy tiêu đề của thẻ
+                const titleDistance = levenshtein(query, title); // Tính khoảng cách Levenshtein
+    
+                // Kiểm tra khoảng cách Levenshtein
+                if (titleDistance <= 5) { // Ngưỡng để xác định sự tương đồng
+                    item.style.display = 'block'; // Hiển thị nếu tương đồng
+                } else {
+                    item.style.display = 'none'; // Ẩn nếu không tương đồng
+                }
+            });
+    
+            // Cuộn tới phần chứa danh sách (nếu cần thiết)
+            const gridContainer = document.getElementById("grid-container");
+            if (gridContainer) {
+                gridContainer.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    
+        // Lắng nghe sự kiện khi nhấn Enter trong ô tìm kiếm
+        document.getElementById("searchInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                searchContent();
+            }
+        });
+    </script>
+    
 </body>
 </html>
