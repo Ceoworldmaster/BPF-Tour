@@ -36,6 +36,7 @@ footer {
     color: #fff;
     padding: 40px 20px;
     position: relative;
+    right: -5px;
 }
 
 footer .content {
@@ -787,3 +788,14 @@ nav #main-menu .submenu li.active > a {
 .hidden {
     display: none;
 }
+::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-thumb{
+    background: rgb(0, 253, 211);
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #ff0000;
+}
+
