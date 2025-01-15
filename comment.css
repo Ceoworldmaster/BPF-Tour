@@ -1,14 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    background: #000718; 
-}
-body, input,textarea, a{
-    font-family: 'Roboto', sans-serif;
-}
+
 #section-wrapper{
     width: 100%;
     padding: 10px;
@@ -130,7 +120,7 @@ body, input,textarea, a{
 .form-fields .form-group:last-child {
     width: 96%;
 }
-.submit-button{
+.gui-button{
     width: 96%;
     height: 60px;
     margin: 0px 12px;
@@ -146,7 +136,7 @@ body, input,textarea, a{
     box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     transition: .5s;
 }
-.submit-button:hover{
+.gui-button:hover{
     background: green;
 }
 
@@ -175,10 +165,10 @@ body, input,textarea, a{
         margin: 25px 0px;
     }
     .form-fields .form-group:last-child, 
-    .submit-button{
+    .gui-button{
         width: 100%;
     }
-    .submit-button{
+    .gui-button{
         margin: 10px 0px;
     }
    
