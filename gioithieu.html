@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bình Phước Fantastic Tour</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Ga+Maamli&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    .hero{
+        width: 100%;
+        height: auto;
+        background: url(https://imgur.com/ctzx6M9.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        text-align: center;
+        padding: 100px 0;
+        margin-bottom: 20px;
+        margin-top: -10px;
+    }
+
+    .hero h2 {
+        font-family: 'Bungee';
+        font-size: 50px;
+        margin-bottom: 10px;
+        color: #ffffff; /* Màu chữ chính */
+        animation: bounce 1s infinite, strokeColorChange 5s linear infinite; /* Thêm hiệu ứng nhảy và đổi màu viền */
+    }
+
+    /* Hiệu ứng nhảy */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    /* Hiệu ứng đổi màu viền */
+    @keyframes strokeColorChange {
+        0% {
+            text-shadow: 
+                -3px -3px 0 #ff0000,  
+                3px -3px 0 #ff0000,
+                -3px 3px 0 #ff0000,
+                3px 3px 0 #ff0000; /* Màu viền đỏ */
+        }
+        25% {
+            text-shadow: 
+                -3px -3px 0 #ffcc00,  
+                3px -3px 0 #ffcc00,
+                -3px 3px 0 #ffcc00,
+                3px 3px 0 #ffcc00; /* Màu viền vàng */
+        }
+        50% {
+            text-shadow: 
+                -3px -3px 0 #00ff00,  
+                3px -3px 0 #00ff00,
+                -3px 3px 0 #00ff00,
+                3px 3px 0 #00ff00; /* Màu viền xanh lá */
+        }
+        75% {
+            text-shadow: 
+                -3px -3px 0 #00ccff,  
+                3px -3px 0 #00ccff,
+                -3px 3px 0 #00ccff,
+                3px 3px 0 #00ccff; /* Màu viền xanh dương */
+        }
+        100% {
+            text-shadow: 
+                -3px -3px 0 #ff0000,  
+                3px -3px 0 #ff0000,
+                -3px 3px 0 #ff0000,
+                3px 3px 0 #ff0000; /* Quay lại màu viền đỏ */
+        }
+    }
+    .hero p{
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 20px;
+    }
+    .search-box {
+        max-width: 550px;
+        margin: 15px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+        border-radius: 30px; /* Bo góc lớn hơn */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+        padding: 5px; /* Padding cho thanh tìm kiếm */
+        transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+    }
+
+    .search-box:hover {
+        box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Đổ bóng khi hover */
+    }
+
+    .search-box input {
+        width: 70%;
+        padding: 10px 40px 10px 15px; /* Thêm padding bên trái để chừa chỗ cho icon */
+        outline: none;
+        border: 1px solid transparent; /* Viền trong suốt */
+        border-radius: 30px; /* Bo góc input */
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển màu viền và bóng */
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Bóng cho input */
+        background-color: rgba(255, 255, 255, 0.8); /* Nền trắng với độ trong suốt */
+    }
+
+    .search-box input:focus {
+        border-color: #ff0000; /* Đổi màu viền khi focus */
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Bóng khi focus */
+        background-color: #ffffff; /* Nền trắng khi focus */
+    }
+
+    .search-box button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px; /* Bo góc cho nút */
+        font-size: 1rem;
+        background-color: #ff0000; /* Màu nền nút */
+        color: white; /* Màu chữ trắng */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và nhấn nút */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+    }
+
+    .search-box button i {
+        font-size: 1.2rem; /* Kích thước icon */
+    }
+
+    .search-box button:hover {
+        background-color: #960000; /* Màu nền khi hover */
+        transform: translateY(-2px) scale(1.05); /* Hiệu ứng nhấn lên khi hover và phóng to */
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+    }
+
+    .search-box button:active {
+        transform: translateY(0) scale(1); /* Hiệu ứng khi click */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ khi click */
+    }
+
+    .search-box button:focus {
+        outline: none; /* Bỏ viền mặc định khi focus */
+    }
+
+    .search-box input::placeholder {
+        color: #888; /* Màu chữ placeholder */
+        opacity: 0.7; /* Độ trong suốt cho placeholder */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển động cho độ trong suốt */
+    }
+
+    .search-box input:focus::placeholder {
+        opacity: 0.5; /* Độ trong suốt của placeholder khi focus */
+    }
+</style>
+<style>
+    .privacy {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #e9ecef, #f4f4f4);
+        color: #333;
+        z-index: 10;
+    }
+    .privacy .container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+    .privacy .container:hover {
+        transform: scale(1.02);
+    }
+    .privacy h1 {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 15px;
+        background: linear-gradient(to right, #2980b9, #6dd5ed);
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .privacy h2 {
+        color: #2980b9;
+        margin-top: 20px;
+        border-bottom: 2px solid #2980b9;
+        padding-bottom: 5px;
+    }
+    .privacy p {
+        margin: 10px 0;
+        text-align: justify;
+    }
+    .privacy ul {
+        margin: 10px 0 10px 20px;
+    }
+    .privacy li {
+        margin: 5px 0;
+        position: relative;
+        padding-left: 25px;
+        transition: color 0.3s;
+    }
+    .privacy li::before {
+        content: '✔';
+        color: #2980b9;
+        position: absolute;
+        left: 0;
+    }
+    .privacy li:hover {
+        color: #2980b9;
+        font-weight: bold;
+    }
+
+</style>
+<style>
+   .table-container {
+            width: 100%;
+            overflow-x: auto; /* Cho phép cuộn ngang */
+            margin: 20px 0;
+        }
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+      text-align: left;
+      min-width: 600px; /* Đảm bảo bảng không quá nhỏ */
+  }
+  th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+  }
+  th {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+  }
+  tr:nth-child(even) {
+      background-color: #f9f9f9;
+  }
+  td:nth-child(4) {
+      text-align: center; /* Căn giữa ảnh trong cột Ảnh minh họa */
+  }
+  img {
+      max-width: 150px; /* Tăng kích thước ảnh */
+      height: auto;
+      display: block;
+      margin: 0 auto; /* Căn giữa ảnh */
+  }
+  /* Định nghĩa kích thước cho từng cột */
+  th:nth-child(1), td:nth-child(1) {
+      width: 3%; /* Cột STT */
+  }
+  th:nth-child(2), td:nth-child(2) {
+      width: 20%; /* Cột Tính năng */
+  }
+  th:nth-child(3), td:nth-child(3) {
+      width: 20%; /* Cột Cách sử dụng (nhỏ hơn) */
+  }
+  th:nth-child(4), td:nth-child(4) {
+      width: 40%; /* Cột Ảnh minh họa (lớn hơn) */
+  }
+</style>
+<body>
+    <div id="toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav> <!--Thanh điều hướng-->
+        <div id="logo">BPF TOUR</div>
+        <ul id="main-menu">
+            <li>
+                <a href="home.html"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+                <ul class="submenu">
+                    <li><a href="gioithieu.html"><i class="fa-solid fa-circle-info"></i>Về chúng tôi</a></li>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="diadanh.html"><i class="fa-solid fa-location-dot"></i>Địa danh</a>
+                <ul class="submenu">
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                </ul>
+            </li>
+            <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+            <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+            <li>
+                <a href="nghethuat.html"><i class="fa-solid fa-palette"></i>Nghệ thuật</a>
+                <ul class="submenu">
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="ltlh.html"><i class="fa-solid fa-up-down-left-right"></i>Phương tiện</a>
+                <ul class="submenu">
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a>
+            </li>
+            <li>
+                <a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+    </head>
+    <body>
+        <div class="privacy">
+            <div class="container">
+                <h1>Giới thiệu sản phẩm</h1>
+
+                <h2>1. Giới thiệu</h2>
+                <p>Chào mừng bạn đến với trang web <strong>Bình Phước Fantastic Tour</strong>.Sau đây là bản tóm tắt và hướng dẫn chi tiết của sản phẩm</p>
+
+                <h2>A. Lí do chọn dự án</h2>
+                <p>Chúng tôi nhận thấy rằng Bình Phước sở hữu nhiều tiềm năng phát triển du lịch với nhiều danh lam thắng cảnh, di tích lịch sử, du lịch sinh thái, những rừng cao su bạt ngàn,… cùng với nhiều giá trị văn hóa truyền thống lâu đời. Chính vì vậy, chúng tôi đã quyết định tạo ra sản phẩm “Bình Phước Fantastic Tour” nhằm quảng bá du lịch tỉnh nhà, đưa vẻ đẹp và giá trị của Bình Phước đến gần hơn với mọi người.</p>
+
+                <h2>B. Vấn đề nghiên cứu</h2>
+                <p><strong>1. Mục tiêu</strong></p>
+                <ul>
+                    <li> Quảng bá rộng rãi du lịch Bình Phước.</li>
+                    <li> Gìn giữ nét đẹp văn hóa truyền thống.</li>
+                    <li> Hỗ trợ học tập, rèn luyện tư duy logic.</li>
+                </ul>
+                <p><strong>2. Giả thuyết</strong></p>
+                <p>Sản phẩm giúp du khách, người sử dụng:</p>
+                <ul>
+                    <li> Khám phá các địa điểm du lịch tại địa phương một cách hiệu quả và thuận tiện hơn thông qua công nghệ AI.</li>
+                    <li> Tối ưu hóa chi phí di chuyển, lưu trú và các dịch vụ, nâng cao trải nghiệm du lịch.</li>
+                </ul>
+                <p> Sản phẩm gặp những khó khăn:</p>
+                <ul>
+                    <li> Không đáp ứng đủ nhu cầu, thiếu thông tin hoặc không giải quyết được vấn đề mà du khách gặp phải.</li>
+                    <li> Hệ thống xử lí thông tin, hình ảnh chậm, gây khó chịu khi sử dụng.</li>
+                </ul>
+
+                <h2>C. Thiết kế và phương pháp nghiên cứu</h2>
+                <ul>
+                    <li> Tìm kiếm thông tin từ những nguồn đáng tin cậy (các trang chính thống của tỉnh Bình Phước, báo tỉnh Bình Phước, truyền hình tỉnh Bình Phước,…)</li>
+                    <li> Tóm tắt và thống kê thông tin.</li>
+                    <li> Kiểm tra thông tin</li>
+                </ul>
+
+                <p><strong>1. Các bước tiến hành</strong></p>
+                <ul>
+                    <li> Lên ý tưởng</li>
+                    <li> Tìm kiếm thông tin</li>
+                    <li> Thiết kế giao diện</li>
+                    <li> Phát triển và tối ưu hóa trang wed</li>
+                    <li> Hoàn thiện trang wed</li>
+                    <li> Kiểm tra và bảo trì</li>
+                </ul>
+                <p> Đặc biệt các bước:</p>
+                <ul>
+                    <li> Phát triển và tối ưu hóa trang wed</li>
+                    <li> Hoàn thiện trang wed</li>
+                    <li> Kiểm tra và bảo trì được tiến hành thường xuyên, đồng bộ để nâng cấp trang wed</li>
+                </ul>
+                <p><strong>2. Rủi ro và an toàn</strong></p>
+                <p>Mạng yếu hệ thống xử lí thông tin, hình ảnh chậm.</p>
+                <p><strong>3. Cấu tạo sản phẩm</strong></p>
+                <p> Lựa chọn ngôn ngữ, Giới thiệu, Kinh tế, Địa danh (Du lịch sinh thái, di tích lịch sử, làng nghề, khu vui chơi giải trí, Công trình tôn giáo), Văn hóa S'tiêng, Ẩm thực, Nghệ thuật (Âm nhạc, mĩ thuật, lễ hội), Phương tiện (Lưu trú, lữ hành, công ty du lịch), Tin Tức, Hỗ Trợ, Learn, Cookie, Policy_Privacy, Terms of Use.</p>
+                <p><strong>4. Nguyên lí hoạt động</strong></p>
+                <p>Sản phẩm Bình Phước fantastic tour khởi động bằng cách vào link https://ceoworldmaster.github.io/BPF-Tour/ hoặc quét mã QR chọn ngôn ngữ vào các mục cần tìm.</p>
+                <div class="table-container">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>STT</th>
+                              <th>Tính năng</th>
+                              <th>Cách sử dụng</th>
+                              <th>Ảnh minh họa</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>1</td>
+                              <td>Điều hướng</td>
+                              <td>- Nhấp vào menu hoặc các liên kết để di chuyển giữa các trang</br>- Mở các menu con (dropdown menu) để truy cập nội dung chi tiết hơn.</td>
+                              <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 1"></td>
+                          </tr>
+                          <tr>
+                              <td>2</td>
+                              <td>Cửa sổ thông tin</td>
+                              <td>- Khi bấm vào 1 thẻ địa danh sẽ xuất hiện cửa sổ thông tin</br>- Trên cửa sổ thông tin có tương tác video, bản đồ trực quan</br>- Nhấn vào màn hình trống màu xám trong để tắt cửa sổ.</td>
+                              <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 2"></td>
+                          </tr>
+                          <tr>
+                              <td>3</td>
+                              <td>Cuộn lên đầu</td>
+                              <td>Bấm vào nút mũi tên màu trắng viền đỏ góc phải bên dưới để cuộn lên đầu trang.</td>
+                              <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 3"></td>
+                          </tr>
+                          <tr>
+                              <td>4</td>
+                              <td>Tìm kiếm</td>
+                              <td>Bấm vào thanh tìm kiếm ở đầu trang để tìm kiếm thông tin liên quan đến lĩnh vực tìm kiếm</td>
+                              <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 4"></td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Cookie</td>
+                            <td>Bấm “Đồng ý” để đồng ý hoặc bấm “Không đồng ý” để không đồng ý với chính sách sử dụng thông tin của trang web.</td>
+                            <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 5"></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Tương tác phản hồi</td>
+                            <td>Chọn phần hỗ trở và nhập đầy đủ thông tin theo yêu cầu rồi nhập phản hồi, góp ý hoặc mong muốn hỗ trợ vào biểu mẫu.</td>
+                            <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 6"></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>BPF AI</td>
+                            <td>- Bấm vào biểu tượng chatbot góc dưới bên phải màu vàng để mở cửa sổ BPF AI</br>- Nhập và gửi tương tác với AI</br>- Nhấn lần nữa vào biểu tưởng chatbot để thoát.</td>
+                            <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 7"></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Các tương tác bị hạn chế</td>
+                            <td>Chức năng coppy</br>- Chức năng nhấn giữ</br>- Chức năng bấm chuột phải</br>- Chức năng chụp màn hình</br>- Các phím tắt đặc biệt</br>- Nhấn OK để thoát</td>
+                            <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 8"></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Tìm kiếm</td>
+                            <td>Một số thẻ nội dung sẽ được liên kết đến các trang có liên quan để tìm hiểu rõ hơn.</td>
+                            <td><img src="https://via.placeholder.com/150" alt="Ảnh minh họa 9"></td>
+                        </tr>   
+                      </tbody>
+                  </table>
+              </div>
+                        <p><strong>5. Phương hướng phát triển</strong></p>
+                        <ul>
+                            <li> Tích hợp công nghệ thực tế ảo/li>
+                            <li> Hợp tác với doanh nghiệp địa phương</li>
+                            <li> Cập nhật thông tin thường xuyên</li>
+                            <li> Ứng dụng nhiều AI</li>
+                            <li> Hỗ trợ đa ngôn ngữ</li>
+                        </ul>
+                        <p><strong>6. Kết quả</strong></p>
+                        <ul>
+                            <li> Ứng dụng thành công trong dạy học, hỗ trợ tốt trong học tập môn Chương trình giáo dục địa phương, các môn học khác,… đồng thời thông qua dự án quảng bá du lịch tỉnh Bình Phước và tạo động lực thúc đẩy ngành du lịch tỉnh Bình Phước. </li>
+                            <li> Học sinh rèn luyện và phát triển được các phẩm chất, năng lực của người học.</li>
+                        </ul>
+                        <h2>E. Đặc điểm sản phẩm</h2>
+                        <p><strong>1. Tính mới</strong></p>
+                        <ul>
+                            <li>Giữ gìn và phát huy bản sắc văn hóa S’tiêng, làng nghề,.. ở tỉnh Bình Phước.</li>
+                            <li>Bình Phước AI là giải pháp công nghệ thông minh được thiết kế cho trang wed Bình Phước Frantastic Tour. Hệ thống này kết hợp sức mạnh của trí tuệ nhân tao (AI) với các tính năng hiện đại, giúp nâng cao trải nghiệm khi sử dụng trang wed du lịch của chúng tôi. Bình Phước AI có khả năng tìm kiếm và trả lời các câu hỏi về thông tin địa phương hoặc gợi ý dịch vụ một cách nhanh chóng và chính xác.</li>
+                            <li>Học tập thông minh: Với bộ câu hỏi hỗ trợ học tập và các trò chơi rèn luyện tư duy của trang wed sẽ giúp vận dụng tốt hơn trong học tập môn Chương trình giáo dục địa phương, các môn học và hoạt động giáo dục khác. Trang wed giúp các bạn tìm hiểu được lịch sử hình thành, các nét đẹp văn hóa, các địa điểm du lịch trên toàn tỉnh Bình Phước. BPF Tour còn là cơ hội để các bạn rèn luyện tư duy, phẩm chất năng lực, hỗ trợ học tập hiệu quả.</li>
+                        </ul>
+                        <P><strong>2. Tính khoa học</strong></P>
+                        <p>Sản phẩm thiết kế khoa học lồng ghép yếu tố sáng tạo (dịch vụ, văn hóa, chuyên nghiệp, mới lạ) hình thành sản phẩm với hấp dẫn, chất lượng.</p>
+                        <p><strong>3. Tính thực tiễn</strong></p>
+                        <p>Ứng dụng thành công trong dạy học, hỗ trợ tốt trong học tập môn Chương trình giáo dục địa phương, các môn học khác,… đồng thời thông qua dự án quảng bá du lịch tỉnh Bình Phước.</p>
+                        <p><strong>4. Tính cộng đồng</strong></p>
+                        <p>Đông đảo mọi người tham gia, tạo động lực thúc đẩy ngành du lịch tỉnh Bình Phước.</p>
+                        <h2>F. Tài liệu tham khảo </h2>
+                        <ul>
+                            <li>1. Sở Giáo dục và Đào tạo Bình Phước (2021). Tài liệu giáo dục địa phương tỉnh Bình Phước lớp 6, bản nghiệm thu.</li>
+                            <li>2. Sở Giáo dục và Đào tạo Bình Phước (2022). Tài liệu giáo dục địa phương tỉnh Bình Phước lớp 7, bản nghiệm thu.</li>
+                            <li>3. Sở Giáo dục và Đào tạo Bình Phước (2023). Tài liệu giáo dục địa phương tỉnh Bình Phước lớp 8, bản nghiệm thu.</li>
+                            <li>4. Cục Thống kê tỉnh Bình Phước, Niên giám Thống kê tỉnh Bình Phước 2023, Bình Phước, 2022.</li>
+                            <li>5. Uỷ ban Nhân dân tỉnh Bình Phước, Sở Văn hoá, Thể thao và Du lịch tỉnh Bình Phước, Cẩm nang du lịch Bình Phước, Nhà xuất bản Thông Tấn, 2016.</li>
+                        </ul>
+                        <p>Thông tin trên Internet từ các nguồn:</p>
+                        <ul>
+                            <li>6. https://baotangbinhphuoc.org.vn</li>
+                            <li>7. https://baobinhphuoc.com.vn</li>
+                            <li>8. http://dulichbinhphuoc.vn</li>
+                            <li>9. https://dangcongsan.vn</li>
+                            <li>10. https://binhphuoc.gov.vn</li>
+                            <li>11. https://www.youtube.com</li>
+                            <li>12. https://dulichviet.com.vn</li>
+                        </ul>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div id="chatHeader">
+                BPAI 1.0 - Bình Phước Fantastic Tour
+            </div>
+            <div id="chatbox">
+                <!-- Tin nhắn sẽ xuất hiện ở đây -->
+            </div>
+            <div class="input-container">
+                <input id="userInput" type="text" placeholder="Nhập tin nhắn của bạn ở đây ...." autofocus onkeydown="checkEnter(event)">
+                <button class="send-button" onclick="sendMessage()"></button>
+            </div>
+            <button class="clear-history" onclick="clearChatHistory()">Xóa lịch sử</button>
+            </div>
+            <!-- Nút hiển thị chatbot -->
+            <button class="show-chat-btn" onclick="toggleChat()">
+                <img src="https://imgur.com/CVql8td.png" alt="Chat Icon" class="chat-icon">
+            </button>
+            <div id="cookie-banner" class="cookie-banner">
+                <p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn. Bạn có đồng ý không?</p>
+                <button id="accept-cookie" class="btn">Đồng ý</button>
+                <button id="decline-cookie" class="btn">Không đồng ý</button>
+              </div>
+    <footer>
+        <div class="content">
+            <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name" style="font-size: 30px;">BPF Tour</span>
+                <i style="font-family: 'Pacifico';">  &nbsp;&nbsp;&nbsp;&nbsp; Nơi cảm xúc chạm đến trái tim</i>
+            </div>
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <span class="link_name">Danh Mục</span>
+                    <li><a href="kinhte.html"><i class="fa-solid fa-coins"></i>Kinh tế</a></li>
+                    <li><a href="sinhthai.html"><i class="fa-solid fa-seedling"></i>Du lịch sinh thái</a></li>
+                    <li><a href="lichsu.html"><i class="fa-solid fa-landmark"></i>Di tích lịch sử</a></li>
+                    <li><a href="tongiao.html"><i class="fa-solid fa-house"></i>Du lịch tôn giáo</a></li>
+                    <li><a href="vuichoi.html"><i class="fa-solid fa-face-laugh-beam"></i>Vui chơi giải trí</a></li>
+                    <li><a href="vhstieng.html"><i class="fa-solid fa-graduation-cap"></i>Văn hóa S'tiêng</a></li>
+                    <li><a href="langnghe.html"><i class="fa-solid fa-hand"></i>Làng nghề</a></li>
+                    
+
+                </div>
+                <div class="box">
+                    <span class="link_name">Danh mục</span>
+                    <li><a href="amthuc.html"><i class="fa-solid fa-utensils"></i>Ẩm thực</a></li>
+                    <li><a href="amnhac.html"><i class="fa-solid fa-music"></i>Âm nhạc</a></li>
+                    <li><a href="mithuat.html"><i class="fa-solid fa-palette"></i>Mĩ thuật</a></li>
+                    <li><a href="lehoi.html"><i class="fa-solid fa-masks-theater" style="color: #ffffff;"></i>Lễ hội</a></li>
+                    <li><a href="hotel.html"><i class="fa-solid fa-hotel"></i>Lưu trú</a></li>
+                    <li><a href="phuongtien.html"><i class="fa-solid fa-car"></i>Lữ hành</a></li>
+                    <li><a href="ctdl.html"><i class="fa-solid fa-briefcase"></i>Công ty du lịch</a></li>
+                    
+                </div>
+                <div class="box">
+                    <span class="link_name">Đặc biệt</span>
+                    <li><a href="tintuc.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                    <li><a href="hotro.html"><i class="fa-solid fa-envelope"></i>Hỗ trợ</a></li>
+                    <li><a href="game.html"><i class="fa-solid fa-gamepad"></i>Trò chơi</a></li>
+                </div>
+                <div class="box input-box">
+                    <span class="link_name">Theo dõi</span>
+                    <li><input id="emailInput" type="text" placeholder="Enter your email"></li> 
+                    <li><input id="subscribeBtn" type="button" value="Subscribe"></li>
+                    <div id="emailresponseMessage" style="display: none; color: rgb(255, 255, 255); margin-top: 10px;">Cảm ơn bạn đã đăng ký!</div>
+                </div>
+            </div>
+            <div id="visitCount">Lượt truy cập: 0</div>
+        </div>
+        <div class="bottom-details">
+            <span>Copyright © 2024 <a href="https://ceoworldmaster.github.io/BPF-Tour/">BPF Tour</a>. All rights reserved.</span>
+            <div class="links">
+                <span><a href="Privacy_Policy.html">Privacy Policy</a></span>
+                <span><a href="Privacy_Policy.html">Terms of use</a></span>
+                <span><a href="faq.html">FAQ</a></span>
+            </div>
+        </div>
+    </footer>
+    <button class="scroll-to-top" id="scrollToTopBtn">⮝</button>
+    <script src="webscip.js"></script>
+    <script src="chatscrip.js"> </script>
+    
+</body>
+</html>
