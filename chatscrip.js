@@ -467,7 +467,94 @@ function getBotResponse(input) {
             "Hotline: 0123 456 789",
             "Địa chỉ: Số 1, Đường ABC, Thành phố Đồng Xoài, Tỉnh Bình Phước",
         ],
-
+"le hoi mieu ba ra":[
+            "Lễ hội miếu Bà Rá diễn ra trong 3 ngày (từ mùng 1 đến hết ngày mùng 3 tháng 3 âm lịch",
+        ],
+        "le hoi cau bong o dinh than hung long":[
+            "Hàng năm vào ngày 16-7 âm lịch, lễ hội Cầu bông đình thần Hưng Long được tổ chức để phát huy những giá trị văn hóa truyền thống. Cầu cho cây cối đơm bông kết trái, sum xuê, tươi tốt, mùa màng bội thu, dân giàu nước mạnh.",
+        ],
+        "le hoi mung lua moi cua dong bao s tieng":[
+            "Theo các già làng S’tiêng, lễ hội Mừng lúa mới đã có từ lâu đời, gắn liền với sản xuất nông nghiệp và thường có quy mô lớn nhất trong các lễ hội của người S’tiêng. Trước ngày diễn ra lễ hội, già làng phân công nhiệm vụ cho bà con chuẩn bị lễ vật, như:  Gạo nếp, các loại nguyên liệu để nấu canh, thịt gà, lợn... Còn các thanh niên sẽ chuẩn bị sân lễ hội, cây nêu và các vật phẩm cúng thần lúa. Các đội múa, đội cồng chiêng cũng tập luyện để biểu diễn trong suốt lễ hội.",
+        ],
+        "le hoi pha bau cua nguoi Khmer":[
+            "Phá Bàu là lễ hội truyền thống, loại hình văn hóa dân gian tổng hợp, chứa đựng nhiều giá trị độc đáo riêng của đồng bào Khmer ở xã Lộc Khánh nói riêng và tỉnh Bình Phước nói chung. Lễ hội phản ánh rõ nét đời sống của cư dân nông nghiệp canh tác lúa nước và nương rẫy. Thông qua lễ hội, đồng bào Khmer cầu mong bình an, khỏe mạnh, mùa màng bội thu, cây cối tốt tươi, vạn vật sinh sôi nảy nở.",
+        ],
+        "le cua mua cua dong bao S tieng":[
+            "Lễ hội cầu mưa tổ chức vào khoảng tháng 2, 3 âm lịch, để tri ân các vị thần như: Bra Ân - Bra Trốk (Thần trời), Bra ter (Thần đất), Bra va (Thần lúa)… và các vị thần khác đã cho mưa, cho nguồn nước giúp dân làng vượt qua hạn hán, gieo trồng đúng mùa vụ, có nguồn nước để sinh hoạt, cho con cá vẫy lội, cho cái chum, cái ché đầy nước, cho thóc gạo đầy bồ. Lễ hội có tầm quan trọng nhất đối với cuộc sống của người dân tộc S’Tiêng.",
+        ],
+        //test
+        "li do chon du an":[
+            "Chúng tôi nhận thấy rằng Bình Phước sở hữu nhiều tiềm năng phát triển du lịch với nhiều danh lam thắng cảnh, di tích lịch sử, du lịch sinh thái, những rừng cao su bạt ngàn,… cùng với nhiều giá trị văn hóa truyền thống lâu đời. Chính vì vậy, chúng tôi đã quyết định tạo ra sản phẩm “Bình Phước Fantastic Tour” nhằm quảng bá du lịch tỉnh nhà, đưa vẻ đẹp và giá trị của Bình Phước đến gần hơn với mọi người.",
+        ],
+        "van de nghien cuu":[
+            "Mục tiêu:",
+            "Quảng bá rộng rãi du lịch Bình Phước.",
+            "Gìn giữ nét đẹp văn hóa truyền thống.",
+            "Hỗ trợ học tập, rèn luyện tư duy logic.",
+        
+        "gia thuyet:",
+            "Sản phẩm giúp du khách, người sử dụng:",
+            "Khám phá các địa điểm du lịch tại địa phương một cách hiệu quả và thuận tiện hơn thông qua công nghệ AI.",
+            "Tối ưu hóa chi phí di chuyển, lưu trú và các dịch vụ, nâng cao trải nghiệm du lịch.",
+            "Sản phẩm gặp những khó khăn:",
+            "Không đáp ứng đủ nhu cầu, thiếu thông tin hoặc không giải quyết được vấn đề mà du khách gặp phải.",
+            " Hệ thống xử lí thông tin, hình ảnh chậm, gây khó chịu khi sử dụng.",
+        ],
+        "thiet ke va phuong phap nghien cuu":[
+            "Tìm kiếm thông tin từ những nguồn đáng tin cậy (các trang chính thống của tỉnh Bình Phước, báo tỉnh Bình Phước, truyền hình tỉnh Bình Phước,…)",
+            "Tóm tắt và thống kê thông tin.",
+            "Kiểm tra thông tin",
+        
+            "cac buoc tien hanh:",
+            "Lên ý tưởng",
+            "Tìm kiếm thông tin",
+            "Thiết kế giao diện",
+            "Phát triển và tối ưu hóa trang wed",
+            "Hoàn thiện trang wed",
+            "Kiểm tra và bảo trì",
+            "Đặc biệt các bước:",
+            " Phát triển và tối ưu hóa trang wed",
+            "Hoàn thiện trang wed",
+            "Kiểm tra và bảo trì được tiến hành thường xuyên, đồng bộ để nâng cấp trang wed",
+    ,
+            "rui ro va an toan:",
+            "Mạng yếu hệ thống xử lí thông tin, hình ảnh chậm.",
+        
+            "cau tao san pham:",
+            "Lựa chọn ngôn ngữ, Giới thiệu, Kinh tế, Địa danh (Du lịch sinh thái, di tích lịch sử, làng nghề, khu vui chơi giải trí, Công trình tôn giáo), Văn hóa S'tiêng, Ẩm thực, Nghệ thuật (Âm nhạc, mĩ thuật, lễ hội), Phương tiện (Lưu trú, lữ hành, công ty du lịch), Tin Tức, Hỗ Trợ, Learn, Cookie, Policy_Privacy, Terms of Use.",
+        
+            "nguyen li hoat dong:",
+            "Sản phẩm Bình Phước fantastic tour khởi động bằng cách vào link https://ceoworldmaster.github.io/BPF-Tour/ hoặc quét mã QR chọn ngôn ngữ vào các mục cần tìm.",
+    
+            "phuong huong phat trien:",
+            "Tích hợp công nghệ thực tế ảo",
+            "Hợp tác với doanh nghiệp địa phương",
+            "Cập nhật thông tin thường xuyên",
+            "Ứng dụng nhiều AI",
+            "Hỗ trợ đa ngôn ngữ",
+            "ket qua:",
+            "Ứng dụng thành công trong dạy học, hỗ trợ tốt trong học tập môn Chương trình giáo dục địa phương, các môn học khác,… đồng thời thông qua dự án quảng bá du lịch tỉnh Bình Phước và tạo động lực thúc đẩy ngành du lịch tỉnh Bình Phước.",
+            "Học sinh rèn luyện và phát triển được các phẩm chất, năng lực của người học.",
+        ],
+        "dac diem san pham":[
+            "Tính mới:",
+            "Giữ gìn và phát huy bản sắc văn hóa S’tiêng, làng nghề,.. ở tỉnh Bình Phước.",
+            "Bình Phước AI là giải pháp công nghệ thông minh được thiết kế cho trang wed Bình Phước Frantastic Tour. Hệ thống này kết hợp sức mạnh của trí tuệ nhân tao (AI) với các tính năng hiện đại, giúp nâng cao trải nghiệm khi sử dụng trang wed du lịch của chúng tôi. Bình Phước AI có khả năng tìm kiếm và trả lời các câu hỏi về thông tin địa phương hoặc gợi ý dịch vụ một cách nhanh chóng và chính xác.",
+            "Học tập thông minh: Với bộ câu hỏi hỗ trợ học tập và các trò chơi rèn luyện tư duy của trang wed sẽ giúp vận dụng tốt hơn trong học tập môn Chương trình giáo dục địa phương, các môn học và hoạt động giáo dục khác. Trang wed giúp các bạn tìm hiểu được lịch sử hình thành, các nét đẹp văn hóa, các địa điểm du lịch trên toàn tỉnh Bình Phước. BPF Tour còn là cơ hội để các bạn rèn luyện tư duy, phẩm chất năng lực, hỗ trợ học tập hiệu quả.",
+            "Tính khoa học:",
+            "Sản phẩm thiết kế khoa học lồng ghép yếu tố sáng tạo (dịch vụ, văn hóa, chuyên nghiệp, mới lạ) hình thành sản phẩm với hấp dẫn, chất lượng.",
+            "Tính thực tiễn:",
+            "Ứng dụng thành công trong dạy học, hỗ trợ tốt trong học tập môn Chương trình giáo dục địa phương, các môn học khác,… đồng thời thông qua dự án quảng bá du lịch tỉnh Bình Phước.",
+            "Tính cộng đồng:",
+            "Đông đảo mọi người tham gia, tạo động lực thúc đẩy ngành du lịch tỉnh Bình Phước.",
+        ],
+        "tai lieu tham khao":[
+            "Sở Giáo dục và Đào tạo Bình Phước (2021). Tài liệu giáo dục địa phương tỉnh Bình Phước lớp 6, bản nghiệm thu.",
+            "Sở Giáo dục và Đào tạo Bình Phước (2022). Tài liệu giáo dục địa phương tỉnh Bình Phước lớp 7, bản nghiệm thu.",
+            "Sở Giáo dục và Đào tạo Bình Phước (2023). Tài liệu giáo dục địa phương tỉnh Bình Phước lớp 8, bản nghiệm thu.",
+            "Cục Thống kê tỉnh Bình Phước, Niên giám Thống kê tỉnh Bình Phước 2023, Bình Phước, 2022",
+            "Uỷ ban Nhân dân tỉnh Bình Phước, Sở Văn hoá, Thể thao và Du lịch tỉnh Bình Phước, Cẩm nang du lịch Bình Phước, Nhà xuất bản Thông Tấn, 2016.",
+        ],
     };
 
     input = input.toLowerCase();
@@ -525,7 +612,7 @@ function displayInitialMessages() {
     const initialMessages = [
         "꧁Xin chào ✌, tôi là NHÀ TÌM KIẾM THÔNG THÁI tại Bình Phước. Tôi có thể giúp gì cho bạn?꧂",
         "Lưu ý khi đặt câu hỏi cho tôi cần đúng chính tả và theo mẫu sau: (địa điểm) nằm ở đâu?; (thông tin/đặc sản/..) của Bình Phước?; Kể tên các (thông tin muốn tìm) của/tại Bình Phước?",
-        "Ví dụ: Kể tên các địa điểm di tích lịch sử của Bình Phước?, thông tin của Bình Phước?, Gợi ý cho tôi về một số câu hỏi?"
+        "Ví dụ: Một số địa điểm du lịch của Bình Phước?, Đặc sản Bình Phước?"
     ];
 
     initialMessages.forEach(message => {
