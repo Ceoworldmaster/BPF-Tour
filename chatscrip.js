@@ -618,7 +618,7 @@ function displayInitialMessages() {
     initialMessages.forEach(message => {
         const botWrapper = document.createElement("div");
         botWrapper.className = "message-wrapper";
-        botWrapper.innerHTML = `<img src="https://imgur.com/CVql8td.png" alt="Bot" class="bot-avatar"><div class="bot-message">${message}</div>`;
+        botWrapper.innerHTML = `<img src="https://i.imgur.com/CVql8td.png" alt="Bot" class="bot-avatar"><div class="bot-message">${message}</div>`;
         document.getElementById("chatbox").appendChild(botWrapper);
     });
 
@@ -641,14 +641,14 @@ function sendMessage() {
 
     const userWrapper = document.createElement("div");
     userWrapper.className = "message-wrapper";
-    userWrapper.innerHTML = `<div class="user-message">${userInput}</div><img src="https://imgur.com/dxdoP6j.png" alt="User" class="user-avatar">`;
+    userWrapper.innerHTML = `<div class="user-message">${userInput}</div><img src="https://i.imgur.com/dxdoP6j.png" alt="User" class="user-avatar">`;
     chatbox.appendChild(userWrapper);
 
     document.getElementById("userInput").value = "";
 
     const thinkingWrapper = document.createElement("div");
     thinkingWrapper.className = "message-wrapper";
-    thinkingWrapper.innerHTML = `<img src="https://imgur.com/CVql8td.png" alt="Bot" class="bot-avatar"><div class="bot-message">✍Thinking...</div>`;
+    thinkingWrapper.innerHTML = `<img src="https://i.imgur.com/CVql8td.png" alt="Bot" class="bot-avatar"><div class="bot-message">✍Thinking...</div>`;
     chatbox.appendChild(thinkingWrapper);
     chatbox.scrollTop = chatbox.scrollHeight;
 
@@ -657,7 +657,7 @@ function sendMessage() {
 
         const botWrapper = document.createElement("div");
         botWrapper.className = "message-wrapper";
-        botWrapper.innerHTML = `<img src="https://imgur.com/CVql8td.png" alt="Bot" class="bot-avatar"><div class="bot-message">${getBotResponse(userInput)}</div>`;
+        botWrapper.innerHTML = `<img src="https://i.imgur.com/CVql8td.png" alt="Bot" class="bot-avatar"><div class="bot-message">${getBotResponse(userInput)}</div>`;
         chatbox.appendChild(botWrapper);
 
         chatbox.scrollTop = chatbox.scrollHeight;
