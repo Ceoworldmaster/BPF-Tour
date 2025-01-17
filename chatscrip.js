@@ -41,14 +41,11 @@ function getBotResponse(input) {
         "khu du lich noi tieng": "Khu du lịch Bù Gia Mập và hồ Suối Cam là những điểm nổi tiếng.",
         "ban co the lam gi": "Tôi có thể cung cấp thông tin về du lịch, văn hóa và các điểm đến tại Bình Phước. Bạn có thể hỏi tôi bất kỳ điều gì liên quan đến địa phương!",
         "tac gia tac pham": "Tác giả của sản phẩm là bạn Nguyễn Hồng Dương (Tổng chủ biên, người viết web), bạn Hồ Quốc Trung (Nội dung, đồ họa) và cô Nguyễn Thị Vương (Biên tập nội dung, hướng dẫn)",
-        "goi y": [
+        "goi y mot so cau hoi": [
             "Thông tin về Bình Phước?",
-            "Một số địa điểm du lịch sinh thái của Bình Phước",
-            "Kể tên các địa điểm di tích lịch sử của Bình Phước",
-            "Kể tên các làng nghề của Bình Phước?",
-            "Kể tên các lễ hội của Bình Phước?",
-            "Kể tên các đặc sản của Bình Phước?",
-            "Kể tên các địa điểm lưu trú tại Bình Phước?"
+            "Dịa điểm du lịch sinh thái của Bình Phước",
+            "Đặc sản của Bình Phước?",
+            "Các địa điểm lưu trú tại Bình Phước?"
         ],
         "hind": [
             "Thông tin về Bình Phước?",
@@ -276,7 +273,7 @@ function getBotResponse(input) {
             'Xem thêm tại: https://mia.vn/cam-nang-du-lich/ho-thuy-dien-thac-mo-diem-du-lich-tu-tuc-cho-nhung-kham-pha-tuyet-voi-6983'],
     
         //Ẩm thực
-        "mot so dac san binh phuoc":[
+        "mot so dac san bp":[
             "Một số đặc sản của Bình Phước:",
             "Hạt điều rang muối",
             "Gỏi trái điều",
@@ -612,7 +609,7 @@ function displayInitialMessages() {
     const initialMessages = [
         "꧁Xin chào ✌, tôi là NHÀ TÌM KIẾM THÔNG THÁI tại Bình Phước. Tôi có thể giúp gì cho bạn?꧂",
         "Lưu ý khi đặt câu hỏi cho tôi cần đúng chính tả và theo mẫu sau: (địa điểm) nằm ở đâu?; (thông tin/đặc sản/..) của Bình Phước?; Kể tên các (thông tin muốn tìm) của/tại Bình Phước?",
-        "Ví dụ: Một số địa điểm du lịch của Bình Phước?, Đặc sản Bình Phước?"
+        "Ví dụ: Một số địa điểm du lịch của Bình Phước?, Gợi ý một số câu hỏi?"
     ];
 
     initialMessages.forEach(message => {
